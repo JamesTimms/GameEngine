@@ -1,21 +1,11 @@
-﻿Build started 19/02/2014 17:19:26.
-     1>Project "C:\Personal\GameEngineExample\GameEngine\GameEngineC++\GameEngineC++\GameEngineC++.vcxproj" on node 2 (build target(s)).
-     1>InitializeBuildStatus:
-         Creating "Debug\GameEngineC++.unsuccessfulbuild" because "AlwaysCreate" was specified.
-       ClCompile:
-         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
-         main.cpp
-       Link:
-         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Personal\GameEngineExample\GameEngine\GameEngineC++\Debug\GameEngineC++.exe" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\GameEngineC++.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Personal\GameEngineExample\GameEngine\GameEngineC++\Debug\GameEngineC++.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Personal\GameEngineExample\GameEngine\GameEngineC++\Debug\GameEngineC++.lib" /MACHINE:X86 Debug\main.obj
-         LINK : C:\Personal\GameEngineExample\GameEngine\GameEngineC++\Debug\GameEngineC++.exe not found or not built by the last incremental link; performing full link
-         GameEngineC++.vcxproj -> C:\Personal\GameEngineExample\GameEngine\GameEngineC++\Debug\GameEngineC++.exe
-       Manifest:
-         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"C:\Personal\GameEngineExample\GameEngine\GameEngineC++\Debug\GameEngineC++.exe;#1" /manifest Debug\GameEngineC++.exe.intermediate.manifest
-       FinalizeBuildStatus:
-         Deleting file "Debug\GameEngineC++.unsuccessfulbuild".
-         Touching "Debug\GameEngineC++.lastbuildstate".
-     1>Done Building Project "C:\Personal\GameEngineExample\GameEngine\GameEngineC++\GameEngineC++\GameEngineC++.vcxproj" (build target(s)).
+﻿Build started 21/02/2014 14:23:52.
+     1>Project "C:\Development\GameEngine\GameEngineC++\GameEngineC++\GameEngineC++.vcxproj" on node 2 (Build target(s)).
+     1>Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Development\GameEngine\GameEngineC++\Debug\GameEngineC++.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\opengl-wrappers\glew\glew-1.9.0\lib" /LIBPATH:"C:\opengl-wrappers\glfw\lib-msvc110" opengl32.lib glu32.lib glew32.lib glfw3.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Development\GameEngine\GameEngineC++\Debug\GameEngineC++.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Development\GameEngine\GameEngineC++\Debug\GameEngineC++.lib" /MACHINE:X86 Debug\main.obj
+     1>LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
+         GameEngineC++.vcxproj -> C:\Development\GameEngine\GameEngineC++\Debug\GameEngineC++.exe
+     1>Done Building Project "C:\Development\GameEngine\GameEngineC++\GameEngineC++\GameEngineC++.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:02.20
+Time Elapsed 00:00:00.50
