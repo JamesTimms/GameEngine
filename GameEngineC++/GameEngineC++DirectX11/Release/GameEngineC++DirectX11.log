@@ -1,0 +1,19 @@
+﻿Build started 28/02/2014 15:43:30.
+     1>Project "C:\Development\GameEngine\GameEngineC++\GameEngineC++DirectX11\GameEngineC++DirectX11.vcxproj" on node 3 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt DXApp.cpp DXUtil.cpp winmain.cpp
+         DXApp.cpp
+     1>DXApp.cpp(171): warning C4018: '<' : signed/unsigned mismatch
+         DXUtil.cpp
+         winmain.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Development\GameEngine\GameEngineC++\Release\GameEngineC++DirectX11.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Development\GameEngine\GameEngineC++\Release\GameEngineC++DirectX11.pdb" /SUBSYSTEM:WINDOWS /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Development\GameEngine\GameEngineC++\Release\GameEngineC++DirectX11.lib" /MACHINE:X86 /SAFESEH Release\DXApp.obj
+         Release\DXUtil.obj
+         Release\winmain.obj
+     1>DXApp.obj : error LNK2001: unresolved external symbol _D3D11CreateDeviceAndSwapChain@48
+     1>C:\Development\GameEngine\GameEngineC++\Release\GameEngineC++DirectX11.exe : fatal error LNK1120: 1 unresolved externals
+     1>Done Building Project "C:\Development\GameEngine\GameEngineC++\GameEngineC++DirectX11\GameEngineC++DirectX11.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:04.35
