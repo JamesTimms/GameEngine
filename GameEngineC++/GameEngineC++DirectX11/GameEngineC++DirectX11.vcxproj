@@ -12,11 +12,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DXApp.cpp" />
+    <ClCompile Include="dxerr\dxerr.cpp" />
     <ClCompile Include="DXUtil.cpp" />
     <ClCompile Include="winmain.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DXApp.h" />
+    <ClInclude Include="dxerr\dxerr.h" />
     <ClInclude Include="DXUtil.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
