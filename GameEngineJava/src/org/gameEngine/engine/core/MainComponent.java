@@ -1,10 +1,4 @@
 package org.gameEngine.engine.core;
-import org.lwjgl.LWJGLException;
-import org.lwjgl.opengl.Display;
-import org.lwjgl.opengl.DisplayMode;
-
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  * Created by James Timms on 21/03/2014.
@@ -13,8 +7,8 @@ public class MainComponent {
 
     public static final int WIDTH = 800;
     public static final int HEIGHT = 600;
-    public static final String TITLE = "3D Engine";
-    public static final double FRAME_CAP = 5000.0f;
+    private static final String TITLE = "3D Engine";
+    public static final double FRAME_CAP = 120.0f;
 
     private boolean isRunning = false;
     private Game game;
@@ -38,43 +32,42 @@ public class MainComponent {
 
     public void run( ) {
 
-        final double frameTime = 1.0 / FRAME_CAP;
-        int frames = 0;
-        long frameCount = 0;
-
+        final double frameTime = ( 1.0d / ( FRAME_CAP ) );
         long lastTime = Time.getTime( );
-        double unprocessedTime = 0;
+        long timeElapsed = 0L;
+        int frameCount = 0;
+        double secondCounter = 0;
 
         while( isRunning ) {
-            long startTime = Time.getTime( );
-            long passedTime = startTime - lastTime;
-            lastTime = startTime;
 
-            unprocessedTime += passedTime / (double)Time.SECOND;
-            frameCount += passedTime;
+            long newTime = Time.getTime( );
+            Time.setDelta( newTime - lastTime );
+            lastTime = newTime;
+            timeElapsed += Time.getDeltaTime( );
 
-            while( unprocessedTime > frameTime ) {
+            while( timeElapsed > ( frameTime * Time.SECOND ) ) {
+                frameCount++;
+                secondCounter += timeElapsed;
+                timeElapsed = 0L;
+                if( secondCounter > Time.SECOND ) {
+                    System.out.println( "FPS: " + frameCount );
+                    frameCount = 0;
+                    secondCounter = 0.0d;
+                }
+
 
                 if( Window.isCloseRequested( ) ) {
                     stop( );
                 }
-                Time.setDelta( frameTime );
 
                 render( );
-                frames ++;
+            }
 
-                if( frameCount >= Time.SECOND ) {
-                    System.out.println( frames );
-                    frames = 0;
-                    frameCount = 0;
-                }
-            }
-            unprocessedTime += passedTime / (double) Time.SECOND;
-            try {
-                Thread.sleep( 1 );
-            } catch( InterruptedException exception ) {
-                exception.printStackTrace( );
-            }
+//            try {
+//                Thread.sleep( 1 );
+//            } catch( InterruptedException exception ) {
+//                exception.printStackTrace( );
+//            }
         }
 
         cleanUp( );
