@@ -1,1 +1,13 @@
 /GameEngineC++/Debug
+Debug
+*.iws
+*.user
+*.suo
+*obj
+*bin
+*.tmp
+*.TMP
+*.o
+out
+/GameEngineJava/.idea/workspace.xml
+/GameEngineC++/GameEngineC++/ipch

@@ -5,19 +5,20 @@ package org.gameEngine.engine.core;
  */
 public class Time {
 
-    public static final long SECOND = 1000000000L;
+	public static final long SECOND = 1000000000L;
 
-    private static long delta;
+	private static long delta;
 
-    public static long getTime( ) {
-        return System.nanoTime( );
-    }
+	public static long getTime( ) {
+		return System.nanoTime( );
+	}
 
-    public static long getDeltaTime( ) {
-        return delta;
-    }
+	public static long getDeltaTime( ) {
 
-    public static void setDelta( long delta ) {
-        Time.delta = delta;
-    }
+		return delta;
+	}
+
+	public static void setDeltaTime( long delta ) {
+		Time.delta = delta;
+	}
 }
