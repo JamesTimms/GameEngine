@@ -1,6 +1,8 @@
 package org.gameEngine.engine.core;
 
 import org.lwjgl.LWJGLException;
+import org.lwjgl.input.Keyboard;
+import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.DisplayMode;
 
@@ -14,6 +16,8 @@ public class Window {
 		try {
 			Display.setDisplayMode( new DisplayMode( width, height ) );
 			Display.create( );
+			Keyboard.create( );
+			Mouse.create( );
 		} catch( LWJGLException exception ) {
 			exception.printStackTrace( );
 		}

@@ -1,4 +1,4 @@
-package org.gameEngine.engine.core;
+package game;
 
 import org.lwjgl.input.Keyboard;
 
@@ -15,6 +15,15 @@ public class Game {
 		Input.Update( );
 		if( Input.GetKeyDown( Keyboard.KEY_UP ) ) {
 			System.out.println( "KEY_UP" );
+		}
+		if( Input.GetKey( Keyboard.KEY_DOWN ) ) {
+			System.out.println( "KEY_DOWN" );
+		}
+		if( Input.GetMouseDown( 2 ) ) {
+			System.out.println( "1" );
+		}
+		if( Input.GetMouse( 1 ) ) {
+			System.out.println( "2" );
 		}
 	}
 
