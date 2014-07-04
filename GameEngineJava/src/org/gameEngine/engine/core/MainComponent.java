@@ -1,7 +1,5 @@
 package org.gameEngine.engine.core;
 
-import org.gameEngine.game;
-
 /**
  * Created by James Timms on 21/03/2014.
  */
