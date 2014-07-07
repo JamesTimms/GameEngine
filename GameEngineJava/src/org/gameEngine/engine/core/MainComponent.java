@@ -1,5 +1,7 @@
 package org.gameEngine.engine.core;
 
+import org.gameEngine.game.Game;
+
 /**
  * Created by James Timms on 21/03/2014.
  */
@@ -12,40 +14,40 @@ public class MainComponent {
 	private boolean isRunning = false;
 	private Game game;
 
-	public MainComponent() {
+	public MainComponent( ) {
 
 	}
 	public static void main( String[] args ) {
 		Window.createWindow( WIDTH, HEIGHT, TITLE );
 
-		MainComponent game = new MainComponent();
-		game.start();
+		MainComponent game = new MainComponent( );
+		game.start( );
 	}
-	public void start() {
-		game = new Game();
+	public void start( ) {
+		game = new Game( );
 		isRunning = true;
-		run();
+		run( );
 	}
-	public void stop() {
+	public void stop( ) {
 		if( !isRunning ) {
 			return;
 		}
 		isRunning = false;
 	}
-	public void run() {
+	public void run( ) {
 
 		final double frameTime = ( 1.0f / ( FRAME_CAP ) );
-		long lastTime = Time.getTime();
+		long lastTime = Time.getTime( );
 		float timeElapsed = 0.0f;
 		int frameCount = 0;
 		float secondCounter = 0.0f;
 
 		while( isRunning ) {
 
-			long newTime = Time.getTime();
+			long newTime = Time.getTime( );
 			Time.setDeltaTime( newTime - lastTime );
 			lastTime = newTime;
-			timeElapsed += Time.getDeltaTime();
+			timeElapsed += Time.getDeltaTime( );
 
 			while( timeElapsed > ( frameTime * Time.SECOND ) ) {
 				frameCount++;
@@ -58,21 +60,21 @@ public class MainComponent {
 				}
 
 
-				if( Window.isCloseRequested() ) {
-					stop();
+				if( Window.isCloseRequested( ) ) {
+					stop( );
 				}
-				game.Input();
-				render();
+				game.Input( );
+				render( );
 			}
 		}
 
-		cleanUp();
+		cleanUp( );
 	}
-	public void render() {
-		game.Render();
-		Window.render();
+	public void render( ) {
+		game.Render( );
+		Window.render( );
 	}
-	public void cleanUp() {
-		Window.dispose();
+	public void cleanUp( ) {
+		Window.dispose( );
 	}
 }
