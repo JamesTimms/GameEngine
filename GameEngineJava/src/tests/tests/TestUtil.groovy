@@ -9,8 +9,5 @@ import org.lwjgl.opengl.Display
  */
 class TestUtil {
 
-    public static SetupLWJGLForTest = { ->
-        Display.create( )
-        Keyboard.create( )
-    }
+
 }
