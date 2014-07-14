@@ -6,8 +6,8 @@ import static org.junit.Assert.*;
 import java.util.*;
 
 /**
- * @author mkyong
- *
+ * @author TekMaTek on 08/07/2014
+ * Modified from http://www.mkyong.com/unittest/junit-4-tutorial-1-basic-usage/
  */
 
 public class JunitTest1 {

@@ -1,12 +1,10 @@
-package unitTesting;
-
 import org.junit.*;
 import static org.junit.Assert.*;
 import java.util.*;
 
 /**
  * @author mkyong
- *
+ * Borrowed from http://www.mkyong.com/unittest/junit-4-tutorial-1-basic-usage/
  */
 public class JunitTest2 {
 
