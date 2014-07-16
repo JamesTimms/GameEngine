@@ -4,14 +4,19 @@ import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;
 
 import java.util.ArrayList;
+import java.util.Observable;
 
 /**
  * Created by TekMaTek on 04/07/2014.
  */
-public class Input {
+public class Input extends Observable {
 
 	public static final int NUM_KEYCODES = 256;
 	public static final int NUM_MOUSE_BUTTONS = 5;
+
+	public static Observable onKeyDownEvent;
+	public static Observable onKeyEvent;
+	public static Observable onKeyUpEvent;
 
 	private static ArrayList< Integer > currentKeys = new ArrayList< Integer >( );
 	private static ArrayList< Integer > downKeys = new ArrayList< Integer >( );

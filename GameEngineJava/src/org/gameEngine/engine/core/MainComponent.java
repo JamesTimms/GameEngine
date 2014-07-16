@@ -18,6 +18,9 @@ public class MainComponent {
 
 	}
 	public static void main( String[] args ) {
+
+		//Start Input Observer as separate thread.
+
 		Window.createWindow( WIDTH, HEIGHT, TITLE );
 
 		MainComponent game = new MainComponent( );
