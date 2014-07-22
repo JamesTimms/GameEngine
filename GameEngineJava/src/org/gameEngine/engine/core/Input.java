@@ -9,14 +9,10 @@ import java.util.Observable;
 /**
  * Created by TekMaTek on 04/07/2014.
  */
-public class Input extends Observable {
+public class Input {
 
 	public static final int NUM_KEYCODES = 256;
 	public static final int NUM_MOUSE_BUTTONS = 5;
-
-	public static Observable onKeyDownEvent;
-	public static Observable onKeyEvent;
-	public static Observable onKeyUpEvent;
 
 	private static ArrayList< Integer > currentKeys = new ArrayList< Integer >( );
 	private static ArrayList< Integer > downKeys = new ArrayList< Integer >( );
