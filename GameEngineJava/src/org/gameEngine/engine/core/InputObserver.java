@@ -22,21 +22,24 @@ public class InputObserver extends Observable {
 	private static int numOfKeyboardEvents;
 
 	public InputObserver( ) {
-		numOfKeyboardEvents = Keyboard.getNumKeyboardEvents( );
+		numOfKeyboardEvents = Keyboard.KEYBOARD_SIZE;
 	}
 
-	public void Update( ) {
+	public void Update() {
 		ProcessKeyInput( );
 		for( int keyNumber = 0; keyNumber < numOfKeyboardEvents; keyNumber ++) {
 			if( IsKeyPressed( keyNumber ) ) {
+				setChanged();
 				notifyObservers( ObserverArgs.CreateArgs( KEY_PRESSED_EVENT, keyNumber ) );
 				continue;
 			}
 			if( IsKeyHeld( keyNumber ) ) {
+				setChanged();
 				notifyObservers( ObserverArgs.CreateArgs( KEY_HELD_EVENT, keyNumber ) );
 				continue;
 			}
 			if( IsKeyReleased( keyNumber ) ) {
+				setChanged();
 				notifyObservers( ObserverArgs.CreateArgs( KEY_RELEASED_EVENT, keyNumber ));
 			}
 		}
@@ -78,7 +81,7 @@ public class InputObserver extends Observable {
 		return keysReleased.contains( keyNumber );
 	}
 
-	private static void InjectKeyPress( int keyCode ) {
+	public static void InjectKeyPress( int keyCode ) {
 		injectedKeys.add( keyCode );
 	}
 }

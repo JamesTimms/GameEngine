@@ -42,7 +42,6 @@ public class InputTest extends groovy.util.GroovyTestCase {
 
     @Test
     void testGetKeyDown() {
-        Input.InjectKeyPress(  )
     }
 
     @Test

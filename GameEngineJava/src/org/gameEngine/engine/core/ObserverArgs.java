@@ -6,48 +6,36 @@ import java.util.Hashtable;
 /**
  * Created by TekMaTek on 22/07/2014.
  */
-public class ObserverArgs< T > {
+public class ObserverArgs {
 
-	private Dictionary< String, T > argLookup = new Hashtable< String, T >(  );
+	private Dictionary< String, Object > arguments = new Hashtable< String, Object >(  );
 
 	public ObserverArgs( ) {
 
 	}
 
 	public static ObserverArgs CreateArgs( String argID, Object argValue ) {
-		ObserverArgs< Object > newArgs = new ObserverArgs( );
+
+		ObserverArgs newArgs = new ObserverArgs( );
 		newArgs.AddArg( argID, argValue );
 		return newArgs;
 	}
 
-//	newArgs static ObserverArgs CreateArgs( String argID, String argValue ) {
-//		ObserverArgs newArgs = new ObserverArgs( );
-//		newArgs.AddArg( argID, argValue );
-//		return newArgs;
-//	}
-//
-//	public static ObserverArgs CreateArgs( String argID, float argValue ) {
-//		ObserverArgs newArgs = new ObserverArgs( );
-//		newArgs.AddArg( argID, argValue );
-//		return newArgs;
-//	}
-//
-//	public static ObserverArgs CreateArgs( String argID, int argValue ) {
-//		ObserverArgs newArgs = new ObserverArgs( );
-//		newArgs.AddArg( argID, argValue );
-//		return newArgs;
-//	}
+	public Class< ? > FindTypeOf( String argID ) {
+		return arguments.get( argID ).getClass( );
 
-	public void AddArg( String argID, T argValue ) {
-		argLookup.put( argID, argValue );
 	}
 
-	public T GetArg( String argID ) {
-		return argLookup.get( argID );
+	public void AddArg( String argID, Object argValue ) {
+		arguments.put( argID, argValue );
 	}
 
-	public T GetAndDiscardArg( String argID ) {
-		return argLookup.remove( argID );
+	public Object GetArg( String argID ) {
+		return arguments.get( argID );
+	}
+
+	public Object GetAndDiscardArg( String argID ) {
+		return arguments.remove( argID );
 	}
 
 }
