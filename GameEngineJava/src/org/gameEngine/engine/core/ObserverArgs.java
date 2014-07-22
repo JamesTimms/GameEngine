@@ -39,7 +39,7 @@ public class ObserverArgs< T > {
 //	}
 
 	public void AddArg( String argID, T argValue ) {
-		argLookup.put( argID, T );
+		argLookup.put( argID, argValue );
 	}
 
 	public T GetArg( String argID ) {
