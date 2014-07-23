@@ -18,60 +18,60 @@ public class MainComponent {
 
 	}
 
-	protected static void main( String[] args ) {
+	public static void main( String[] args ) {
 
-		//Start Input Observer as separate thread.
-
+		//Start UpdateInput Observer as separate thread.
 		Window.createWindow( WIDTH, HEIGHT, TITLE );
 
 		MainComponent game = new MainComponent( );
 		game.StartGame( );
 	}
 
-	protected void StartGame( ) {
+	public void StartGame( ) {
 		shouldRunGameLoop = true;
-		ProcessFrame( );
+		GameLoop( );
 	}
 
-	protected void StopGame( ) {
+	public void StopGame( ) {
 		if( !shouldRunGameLoop ) {
 			return;
 		}
 		shouldRunGameLoop = false;
 	}
 
-	protected void ProcessFrame( ) {
+	protected void GameLoop( ) {
 
-		final double frameTime = ( 1.0f / ( FRAME_CAP ) );
 		long timeLastFrame = Time.getTime( );
-		float timeElapsed = 0.0f;
-		float secondCounter = 0.0f;
+		long timeThisFrame;
 
 		while( shouldRunGameLoop ) {
 
-			long timeThisFrame = Time.getTime( );
-			Time.setDeltaTime( timeThisFrame - timeLastFrame );
+			timeThisFrame = Time.getTime( );
+			Time.SetDeltaTime( timeThisFrame - timeLastFrame );
 			timeLastFrame = timeThisFrame;
-			timeElapsed += Time.getDeltaTime( );
 
-			while( timeElapsed > ( frameTime * Time.SECOND ) ) {
-				secondCounter += timeElapsed;
-				timeElapsed = 0.0f;
-				if( secondCounter > Time.SECOND ) {
-					secondCounter = 0.0f;
-				}
-				CodeRunPerFrame( );
+			if( IsReadyForFrame( ) ) {
+				ProcessFrame( );
+				RenderFrame( );
 			}
 		}
 		CleanUp( );
 	}
 
-	protected void CodeRunPerFrame( ) {
+	double timeElapsed = 0.0d;
+	protected boolean IsReadyForFrame() {
+		boolean isReady = ( timeElapsed -= Time.GetDeltaTime() ) < 0.0d;
+		if( isReady ) {
+			timeElapsed = ( FRAME_CAP / Time.SECOND );
+		}
+		return isReady;
+	}
+
+	protected void ProcessFrame( ) {
 		if( Window.isCloseRequested( ) ) {
 			StopGame( );
 		}
-		game.Input( );
-		RenderFrame( );
+		game.UpdateInput( );
 	}
 
 	protected void RenderFrame( ) {

@@ -25,8 +25,8 @@ public class InputObserver extends Observable {
 		numOfKeyboardEvents = Keyboard.KEYBOARD_SIZE;
 	}
 
-	public void Update() {
-		ProcessKeyInput( );
+	public void ObserveKeyboardActions( ) {
+		RegisterKeyboardActions( );
 		for( int keyNumber = 0; keyNumber < numOfKeyboardEvents; keyNumber ++) {
 			if( IsKeyPressed( keyNumber ) ) {
 				setChanged();
@@ -45,7 +45,7 @@ public class InputObserver extends Observable {
 		}
 	}
 
-	private static void ProcessKeyInput( ) {
+	private static void RegisterKeyboardActions( ) {
 		keysReleased.clear( );
 		for( int i = 0; i < numOfKeyboardEvents; i++ ) {
 			if( !IsKeyPressed( i ) && keysHeld.contains( i ) ) {

@@ -29,14 +29,14 @@ class TimeTest extends groovy.util.GroovyTestCase {
 
     void GetDeltaTimeOnce( long time ) {
         testTime = new Time( )
-        testTime.setDeltaTime( time )
-        assertEquals testTime.getDeltaTime( ), time
+        testTime.SetDeltaTime( time )
+        assertEquals testTime.GetDeltaTime( ), time
     }
 
     @Test
     void testSetDelta() {
         testTime = new Time( )
-        testTime.setDeltaTime TEST_TIME
-        assertEquals testTime.deltaTime, TEST_TIME
+        testTime.SetDeltaTime TEST_TIME
+        assertEquals testTime.GetDeltaTime, TEST_TIME
     }
 }

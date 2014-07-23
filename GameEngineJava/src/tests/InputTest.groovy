@@ -6,41 +6,40 @@ import org.junit.BeforeClass
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
-import org.lwjgl.input.Keyboard
-import org.lwjgl.opengl.Display
+import testUtil.SetupUtil
 
 /**
  * Created by TekMaTek on 04/07/2014.
  */
 
+
 @RunWith( JUnit4.class )
 public class InputTest extends groovy.util.GroovyTestCase {
 
-    private InputObserver input = new InputObserver( );
+    static SetupUtil setup;
 
     @BeforeClass
     public static void SetupKeyboard() {
-        Display.create( )
-        Keyboard.create( )
-        input.Update( )
+        setup = SetupUtil( )
     }
 
     @AfterClass
     public static void TearDownKeyboard() {
-//        Display.create( )
-//        Keyboard.create( )
+        setup.StopGame( )
     }
 
     @Test
     void testGetKeyAndSucceed() {
-        Input.InjectKeyPress( 56 )
-        assertTrue( Input.GetKey( 56 ) )
+
+        //Fake key press
+        //Wait for inner class to receive response
+
     }
 
     @Test
     void testGetKeyAndFail() {
-        Input.InjectKeyPress( 56 )
-        assertFalse( Input.GetKey( 57 ) )
+        InputObserver.InjectKeyPress( 56 )
+        assertFalse( InputObserver.GetKey( 57 ) )
     }
 
     @Test

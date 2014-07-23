@@ -8,13 +8,9 @@ import org.gameEngine.engine.core.Window
  */
 class SetupUtil extends MainComponent {
 
-    public static final int WIDTH = 800;
-    public static final int HEIGHT = 600;
     private static final String TITLE = "UnitTests";
 
-    public SetupUtil( ) {
-
-        //Start Input Observer as separate thread.
+    public SetupUtil() {
 
         Window.createWindow( WIDTH, HEIGHT, TITLE );
 
@@ -22,6 +18,14 @@ class SetupUtil extends MainComponent {
         game.StartGame( );
     }
 
+    @Override
+    protected void ProcessFrame() {
+        game.UpdateInput( );
+    }
 
+    @Override
+    protected void RenderFrame( ) {
+        //Do nothing
+    }
 
 }

@@ -17,8 +17,8 @@ public class Game implements Observer {
 		input.addObserver( this );
 	}
 
-	public void Input( ) {
-		input.Update();//TODO: give own thread at StartGame of game.
+	public void UpdateInput( ) {
+		input.ObserveKeyboardActions( );//TODO: give own thread at start of game.
 	}
 
 	public void Update( ) {

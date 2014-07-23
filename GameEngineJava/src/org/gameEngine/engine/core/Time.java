@@ -13,12 +13,12 @@ public class Time {
 		return System.nanoTime( );
 	}
 
-	public static long getDeltaTime( ) {
+	public static long GetDeltaTime() {
 
 		return delta;
 	}
 
-	public static void setDeltaTime( long delta ) {
+	public static void SetDeltaTime( long delta ) {
 		Time.delta = delta;
 	}
 }
