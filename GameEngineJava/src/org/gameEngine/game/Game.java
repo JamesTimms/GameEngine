@@ -18,7 +18,7 @@ public class Game implements Observer {
 	}
 
 	public void Input( ) {
-		input.Update();//TODO: give own thread at start of game.
+		input.Update();//TODO: give own thread at StartGame of game.
 	}
 
 	public void Update( ) {

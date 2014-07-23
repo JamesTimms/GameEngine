@@ -10,74 +10,76 @@ public class MainComponent {
 	public static final int WIDTH = 800;
 	public static final int HEIGHT = 600;
 	public static final double FRAME_CAP = 120.0f;
-	private static final String TITLE = "3D Engine";
-	private boolean isRunning = false;
-	private Game game;
+	protected static final String TITLE = "3D Engine";
+	protected boolean shouldRunGameLoop = false;
+	protected Game game = new Game( );
 
-	public MainComponent( ) {
+	protected MainComponent( ) {
 
 	}
-	public static void main( String[] args ) {
+
+	protected static void main( String[] args ) {
 
 		//Start Input Observer as separate thread.
 
 		Window.createWindow( WIDTH, HEIGHT, TITLE );
 
 		MainComponent game = new MainComponent( );
-		game.start( );
+		game.StartGame( );
 	}
-	public void start( ) {
-		game = new Game( );
-		isRunning = true;
-		run( );
+
+	protected void StartGame( ) {
+		shouldRunGameLoop = true;
+		ProcessFrame( );
 	}
-	public void stop( ) {
-		if( !isRunning ) {
+
+	protected void StopGame( ) {
+		if( !shouldRunGameLoop ) {
 			return;
 		}
-		isRunning = false;
+		shouldRunGameLoop = false;
 	}
-	public void run( ) {
+
+	protected void ProcessFrame( ) {
 
 		final double frameTime = ( 1.0f / ( FRAME_CAP ) );
-		long lastTime = Time.getTime( );
+		long timeLastFrame = Time.getTime( );
 		float timeElapsed = 0.0f;
-		int frameCount = 0;
 		float secondCounter = 0.0f;
 
-		while( isRunning ) {
+		while( shouldRunGameLoop ) {
 
-			long newTime = Time.getTime( );
-			Time.setDeltaTime( newTime - lastTime );
-			lastTime = newTime;
+			long timeThisFrame = Time.getTime( );
+			Time.setDeltaTime( timeThisFrame - timeLastFrame );
+			timeLastFrame = timeThisFrame;
 			timeElapsed += Time.getDeltaTime( );
 
 			while( timeElapsed > ( frameTime * Time.SECOND ) ) {
-				frameCount++;
 				secondCounter += timeElapsed;
 				timeElapsed = 0.0f;
 				if( secondCounter > Time.SECOND ) {
-					System.out.println( "FPS: " + frameCount );
-					frameCount = 0;
 					secondCounter = 0.0f;
 				}
-
-
-				if( Window.isCloseRequested( ) ) {
-					stop( );
-				}
-				game.Input( );
-				render( );
+				CodeRunPerFrame( );
 			}
 		}
-
-		cleanUp( );
+		CleanUp( );
 	}
-	public void render( ) {
+
+	protected void CodeRunPerFrame( ) {
+		if( Window.isCloseRequested( ) ) {
+			StopGame( );
+		}
+		game.Input( );
+		RenderFrame( );
+	}
+
+	protected void RenderFrame( ) {
 		game.Render( );
 		Window.render( );
 	}
-	public void cleanUp( ) {
+
+	protected void CleanUp( ) {
 		Window.dispose( );
 	}
 }
