@@ -1,7 +1,6 @@
 package org.gameEngine.game;
 
-import org.gameEngine.engine.core.InputObserver;
-import org.gameEngine.engine.core.KeyboardWrapper;
+import org.gameEngine.engine.core.input.KeyboardObserver;
 import org.gameEngine.engine.core.ObserverArgs;
 
 import java.util.Observable;
@@ -12,15 +11,15 @@ import java.util.Observer;
  */
 public class Game implements Observer {
 
-	private InputObserver input;
+	private KeyboardObserver input;
 
-	public Game( ) {
-		input = new InputObserver( new KeyboardWrapper( ) );
+	public Game( KeyboardObserver input ) {
+		this.input = input;
 		input.addObserver( this );
 	}
 
 	public void UpdateInput( ) {
-		input.ObserveKeyboardActions( );//TODO: give own thread at start of game.
+		input.CheckForEvents( );//TODO: give own thread at start of game.
 	}
 
 	public void Update( ) {
@@ -35,11 +34,11 @@ public class Game implements Observer {
 	public void update( Observable o, Object arg ) {
 		try {
 			ObserverArgs args = ( ObserverArgs ) arg;
-			System.out.println( args.GetAndDiscardArg( InputObserver.KEY_PRESSED_EVENT ).toString( ) );
-			System.out.println( args.GetAndDiscardArg( InputObserver.KEY_HELD_EVENT ).toString( ) );
-			System.out.println( args.GetAndDiscardArg( InputObserver.KEY_RELEASED_EVENT ).toString( ) );
+			System.out.println( args.GetAndDiscardArg( KeyboardObserver.KEY_PRESSED_EVENT ).toString( ) );
+			System.out.println( args.GetAndDiscardArg( KeyboardObserver.KEY_HELD_EVENT ).toString( ) );
+			System.out.println( args.GetAndDiscardArg( KeyboardObserver.KEY_RELEASED_EVENT ).toString( ) );
 		} catch( Exception ex ) {
-			System.out.println( ex.getMessage() );
+			System.out.println( ex.getMessage( ) );
 		}
 	}
 }

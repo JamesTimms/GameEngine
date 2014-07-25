@@ -11,39 +11,54 @@ import org.lwjgl.opengl.DisplayMode;
  */
 public class Window {
 
-	public static void createWindow( int width, int height, String title ) {
+	private static final int DEFAULT_WIDTH = 800;
+	private static final int DEFAULT_HEIGHT = 600;
+	private static final String DEFAULT_TITLE = "DEFAULT_WINDOW";
+
+	public Window( ) {
+		CreateWindow( DEFAULT_WIDTH, DEFAULT_HEIGHT, DEFAULT_TITLE );
+	}
+
+	public Window( int width, int height, String title ) {
+		CreateWindow( width, height, title );
+	}
+
+	private void CreateWindow( int width, int height, String title ) {
 		Display.setTitle( title );
 		try {
 			Display.setDisplayMode( new DisplayMode( width, height ) );
 			Display.create( );
-			Keyboard.create( );
-			Mouse.create( );
-		} catch( LWJGLException exception ) {
-			exception.printStackTrace( );
+		} catch( LWJGLException ex ) {
+			ex.printStackTrace( );
 		}
 	}
 
-	public static void render( ) {
+	public void Render( ) {
 		Display.update( );
 	}
 
-	public static void dispose( ) {
+	public void Dispose( ) {
 		Display.destroy( );
 	}
 
-	public static boolean isCloseRequested( ) {
+	public boolean IsCloseRequested( ) {
 		return Display.isCloseRequested( );
 	}
 
-	public static int getWidth( ) {
+	public int GetWidth( ) {
 		return Display.getDisplayMode( ).getWidth( );
 	}
 
-	public static int getHeight( ) {
+	public int GetHeight( ) {
 		return Display.getDisplayMode( ).getHeight( );
 	}
 
-	public static String getTitle( ) {
+	public String GetTitle( ) {
 		return Display.getTitle( );
 	}
+
+	public boolean IsCreated( ) {
+		return Display.isCreated( );
+	}
+
 }

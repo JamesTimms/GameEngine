@@ -1,4 +1,4 @@
-package org.gameEngine.engine.core;
+package org.gameEngine.engine.core.input;
 
 import org.lwjgl.LWJGLException;
 import org.lwjgl.input.Keyboard;
@@ -20,8 +20,11 @@ public class KeyboardWrapper {
 				Keyboard.destroy( );
 			}
 			Keyboard.create( );
-		} catch( LWJGLException e ) {
-			e.printStackTrace( );
+		} catch( LWJGLException ex ) {
+			ex.printStackTrace( );
+		} catch( IllegalStateException ex ) {
+			ex.printStackTrace( );
+			System.out.println( "Need to set up lwjgl window first." );
 		}
 	}
 

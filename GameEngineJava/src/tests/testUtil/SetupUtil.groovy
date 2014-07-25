@@ -12,7 +12,7 @@ class SetupUtil extends MainComponent {
 
     public SetupUtil() {
 
-        Window.createWindow( WIDTH, HEIGHT, TITLE )
+        Window.CreateWindow( WIDTH, HEIGHT, TITLE )
 
         SetupUtil game = new SetupUtil( )
         game.StartGame( )

@@ -1,6 +1,7 @@
 package org.gameEngine.engine.core;
 
 import org.gameEngine.game.Game;
+import org.gameEngine.game.GameFactory;
 
 /**
  * Created by James Timms on 21/03/2014.
@@ -10,20 +11,29 @@ public class MainComponent {
 	public static final int WIDTH = 800;
 	public static final int HEIGHT = 600;
 	public static final double FRAME_CAP = 120.0f;
+	public Time time;
+	public Window window;
+
 	protected static final String TITLE = "3D Engine";
 	protected boolean shouldRunGameLoop = false;
-	protected Game game = new Game( );
+	protected Game game;
 
-	protected MainComponent( ) {
-
+	protected MainComponent( Time time, Window window, Game game ) {
+		this.time = time;
+		this.window = window;
+		this.game = game;
 	}
 
 	public static void main( String[] args ) {
 
 		//Start UpdateInput Observer as separate thread.
-		Window.createWindow( WIDTH, HEIGHT, TITLE );
 
-		MainComponent game = new MainComponent( );
+		Game newGame = GameFactory.Build( );
+		MainComponent game = new MainComponent(
+				new Time( ),
+				new Window( WIDTH, HEIGHT, TITLE ),
+				newGame );
+
 		game.StartGame( );
 	}
 
@@ -41,13 +51,13 @@ public class MainComponent {
 
 	protected void GameLoop( ) {
 
-		long timeLastFrame = Time.getTime( );
+		long timeLastFrame = time.getTime( );
 		long timeThisFrame;
 
 		while( shouldRunGameLoop ) {
 
-			timeThisFrame = Time.getTime( );
-			Time.SetDeltaTime( timeThisFrame - timeLastFrame );
+			timeThisFrame = time.getTime( );
+			time.SetDeltaTime( timeThisFrame - timeLastFrame );
 			timeLastFrame = timeThisFrame;
 
 			if( IsReadyForFrame( ) ) {
@@ -60,7 +70,7 @@ public class MainComponent {
 
 	double timeElapsed = 0.0d;
 	protected boolean IsReadyForFrame() {
-		boolean isReady = ( timeElapsed -= Time.GetDeltaTime() ) < 0.0d;
+		boolean isReady = ( timeElapsed -= time.GetDeltaTime() ) < 0.0d;
 		if( isReady ) {
 			timeElapsed = ( FRAME_CAP / Time.SECOND );
 		}
@@ -68,7 +78,7 @@ public class MainComponent {
 	}
 
 	protected void ProcessFrame( ) {
-		if( Window.isCloseRequested( ) ) {
+		if( window.IsCloseRequested( ) ) {
 			StopGame( );
 		}
 		game.UpdateInput( );
@@ -76,10 +86,10 @@ public class MainComponent {
 
 	protected void RenderFrame( ) {
 		game.Render( );
-		Window.render( );
+		window.Render( );
 	}
 
 	protected void CleanUp( ) {
-		Window.dispose( );
+		window.Dispose( );
 	}
 }

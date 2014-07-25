@@ -36,7 +36,7 @@ class TimeTest extends groovy.util.GroovyTestCase {
     @Test
     void testSetDelta() {
         testTime = new Time( )
-        testTime.SetDeltaTime TEST_TIME
+        testTime.SetDeltaTime( TEST_TIME )
         assertEquals testTime.GetDeltaTime, TEST_TIME
     }
 }

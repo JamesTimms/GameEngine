@@ -7,18 +7,17 @@ public class Time {
 
 	public static final long SECOND = 1000000000L;
 
-	private static long delta;
+	protected long delta;
 
-	public static long getTime( ) {
+	public long getTime( ) {
 		return System.nanoTime( );
 	}
 
-	public static long GetDeltaTime() {
-
+	public long GetDeltaTime() {
 		return delta;
 	}
 
-	public static void SetDeltaTime( long delta ) {
-		Time.delta = delta;
+	public void SetDeltaTime( long delta ) {
+		this.delta = delta;
 	}
 }

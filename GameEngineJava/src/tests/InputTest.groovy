@@ -1,12 +1,14 @@
 package tests
 
-import org.gameEngine.engine.core.InputObserver
+import org.gameEngine.engine.core.Window
+import org.gameEngine.engine.core.input.KeyboardEvents
+import org.gameEngine.engine.core.input.KeyboardObserver
+import org.gameEngine.engine.core.input.KeyboardWrapper
 import org.junit.AfterClass
 import org.junit.BeforeClass
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
-import testUtil.SetupUtil
 
 /**
  * Created by TekMaTek on 04/07/2014.
@@ -16,44 +18,46 @@ import testUtil.SetupUtil
 @RunWith( JUnit4.class )
 public class InputTest extends groovy.util.GroovyTestCase {
 
-    static SetupUtil setup;
+    private static Window window;
 
     @BeforeClass
     public static void SetupKeyboard() {
-        setup = SetupUtil( )
+        window = new Window( );
     }
 
     @AfterClass
     public static void TearDownKeyboard() {
-        setup.StopGame( )
+        window.Dispose( );
     }
 
     @Test
-    void testGetKeyAndSucceed() {
-        InputObserver testInput = new InputObserver() {
+    void testEventTriggers() {
+        boolean dataReceived = false;
+
+        KeyboardWrapper keyboard = new KeyboardWrapper( ) {
             @Override
-            protected boolean IsKeyPressed( int keyNumber ) {
+            public boolean IsKeyDown( int keyNumber ) {
                 return true;
             }
         }
+        KeyboardEvents events = new KeyboardEvents( keyboard )
+        KeyboardObserver testInput = new KeyboardObserver( events )
 
-        testInput.addObserver( new Observer( ) {
+        Observer testObserver = new Observer( ) {
             @Override
             void update( Observable o, Object arg ) {
-                assertEquals( o, testInput );
+                dataReceived = true;
             }
-        } )
+        }
+        testInput.addObserver( testObserver )
 
-        testInput
-        //Fake key press
-        //Wait for inner class to receive response
-
+        testInput.CheckForEvents( )
+        assertTrue( dataReceived )
     }
 
     @Test
     void testGetKeyAndFail() {
-        InputObserver.InjectKeyPress( 56 )
-        assertFalse( InputObserver.GetKey( 57 ) )
+
     }
 
     @Test
