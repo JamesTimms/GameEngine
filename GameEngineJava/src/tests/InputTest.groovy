@@ -30,7 +30,21 @@ public class InputTest extends groovy.util.GroovyTestCase {
 
     @Test
     void testGetKeyAndSucceed() {
+        InputObserver testInput = new InputObserver() {
+            @Override
+            protected boolean IsKeyPressed( int keyNumber ) {
+                return true;
+            }
+        }
 
+        testInput.addObserver( new Observer( ) {
+            @Override
+            void update( Observable o, Object arg ) {
+                assertEquals( o, testInput );
+            }
+        } )
+
+        testInput
         //Fake key press
         //Wait for inner class to receive response
 

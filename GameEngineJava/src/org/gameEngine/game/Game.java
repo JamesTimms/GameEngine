@@ -1,6 +1,7 @@
 package org.gameEngine.game;
 
 import org.gameEngine.engine.core.InputObserver;
+import org.gameEngine.engine.core.KeyboardWrapper;
 import org.gameEngine.engine.core.ObserverArgs;
 
 import java.util.Observable;
@@ -11,9 +12,10 @@ import java.util.Observer;
  */
 public class Game implements Observer {
 
-	private InputObserver input = new InputObserver( );
+	private InputObserver input;
 
 	public Game( ) {
+		input = new InputObserver( new KeyboardWrapper( ) );
 		input.addObserver( this );
 	}
 

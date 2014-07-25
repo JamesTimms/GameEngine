@@ -12,15 +12,15 @@ class SetupUtil extends MainComponent {
 
     public SetupUtil() {
 
-        Window.createWindow( WIDTH, HEIGHT, TITLE );
+        Window.createWindow( WIDTH, HEIGHT, TITLE )
 
-        SetupUtil game = new SetupUtil( );
-        game.StartGame( );
+        SetupUtil game = new SetupUtil( )
+        game.StartGame( )
     }
 
     @Override
     protected void ProcessFrame() {
-        game.UpdateInput( );
+        game.UpdateInput( )
     }
 
     @Override
