@@ -58,6 +58,24 @@ public class InputTest extends groovy.util.GroovyTestCase {
     @Test
     void testGetKeyAndFail() {
 
+        KeyboardWrapper keyboard = new KeyboardWrapper( ) {
+            @Override
+            public boolean IsKeyDown( int keyNumber ) {
+                return true;
+            }
+        }
+        KeyboardEvents events = new KeyboardEvents( keyboard )
+        KeyboardObserver testInput = new KeyboardObserver( events )
+
+        Observer testObserver = new Observer( ) {
+            @Override
+            void update( Observable o, Object arg ) {
+                assertEquals( o, testInput );
+            }
+        }
+        testInput.addObserver( testObserver )
+        testInput.CheckForEvents( )
+
     }
 
     @Test
