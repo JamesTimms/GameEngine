@@ -12,4 +12,11 @@ public class InputFactory {
 		return newKeyboard;
 	}
 
+	public static MouseObserver BuildMouse( ) {
+		MouseWrapper mouse = new MouseWrapper( );
+		MouseEvents events = new MouseEvents( mouse );
+		MouseObserver newMouse = new MouseObserver( events );
+		return newMouse;
+	}
+
 }

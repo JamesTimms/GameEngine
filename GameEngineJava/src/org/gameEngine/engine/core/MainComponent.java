@@ -11,12 +11,12 @@ public class MainComponent {
 	public static final int WIDTH = 800;
 	public static final int HEIGHT = 600;
 	public static final double FRAME_CAP = 120.0f;
+	protected static final String TITLE = "3D Engine";
 	public Time time;
 	public Window window;
-
-	protected static final String TITLE = "3D Engine";
 	protected boolean shouldRunGameLoop = false;
 	protected Game game;
+	double timeElapsed = 0.0d;
 
 	protected MainComponent( Time time, Window window, Game game ) {
 		this.time = time;
@@ -68,9 +68,8 @@ public class MainComponent {
 		CleanUp( );
 	}
 
-	double timeElapsed = 0.0d;
-	protected boolean IsReadyForFrame() {
-		boolean isReady = ( timeElapsed -= time.GetDeltaTime() ) < 0.0d;
+	protected boolean IsReadyForFrame( ) {
+		boolean isReady = ( timeElapsed -= time.GetDeltaTime( ) ) < 0.0d;
 		if( isReady ) {
 			timeElapsed = ( FRAME_CAP / Time.SECOND );
 		}

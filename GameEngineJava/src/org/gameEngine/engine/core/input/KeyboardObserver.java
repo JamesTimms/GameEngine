@@ -47,6 +47,4 @@ public class KeyboardObserver extends Observable {
 			}
 		}
 	}
-
-
 }
