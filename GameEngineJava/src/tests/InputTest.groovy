@@ -1,7 +1,7 @@
 package tests
 
 import org.gameEngine.engine.core.Window
-
+import org.gameEngine.engine.core.input.KeyboardEvents
 import org.gameEngine.engine.core.input.KeyboardObserver
 import org.gameEngine.engine.core.input.KeyboardWrapper
 import org.junit.AfterClass
@@ -13,7 +13,6 @@ import org.junit.runners.JUnit4
 /**
  * Created by TekMaTek on 04/07/2014.
  */
-
 
 @RunWith( JUnit4.class )
 public class InputTest extends groovy.util.GroovyTestCase {
@@ -40,7 +39,7 @@ public class InputTest extends groovy.util.GroovyTestCase {
                 return true;
             }
         }
-        KeyboardObserver.KeyboardEvents events = new KeyboardObserver.KeyboardEvents( keyboard )
+        KeyboardEvents events = new KeyboardEvents( keyboard )
         KeyboardObserver testInput = new KeyboardObserver( events )
 
         Observer testObserver = new Observer( ) {
@@ -56,7 +55,7 @@ public class InputTest extends groovy.util.GroovyTestCase {
     }
 
     @Test
-    void testGetKeyAndFail() {
+    void testEventObjectSent() {
 
         KeyboardWrapper keyboard = new KeyboardWrapper( ) {
             @Override
@@ -64,7 +63,7 @@ public class InputTest extends groovy.util.GroovyTestCase {
                 return true;
             }
         }
-        KeyboardObserver.KeyboardEvents events = new KeyboardObserver.KeyboardEvents( keyboard )
+        KeyboardEvents events = new KeyboardEvents( keyboard )
         KeyboardObserver testInput = new KeyboardObserver( events )
 
         Observer testObserver = new Observer( ) {
@@ -79,7 +78,7 @@ public class InputTest extends groovy.util.GroovyTestCase {
     }
 
     @Test
-    void testGetKeyDown() {
+    void testObserverArgParameters() {
     }
 
     @Test
