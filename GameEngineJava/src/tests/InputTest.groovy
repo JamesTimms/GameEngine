@@ -1,7 +1,7 @@
 package tests
 
 import org.gameEngine.engine.core.Window
-import org.gameEngine.engine.core.input.KeyboardEvents
+
 import org.gameEngine.engine.core.input.KeyboardObserver
 import org.gameEngine.engine.core.input.KeyboardWrapper
 import org.junit.AfterClass
@@ -40,7 +40,7 @@ public class InputTest extends groovy.util.GroovyTestCase {
                 return true;
             }
         }
-        KeyboardEvents events = new KeyboardEvents( keyboard )
+        KeyboardObserver.KeyboardEvents events = new KeyboardObserver.KeyboardEvents( keyboard )
         KeyboardObserver testInput = new KeyboardObserver( events )
 
         Observer testObserver = new Observer( ) {
@@ -64,7 +64,7 @@ public class InputTest extends groovy.util.GroovyTestCase {
                 return true;
             }
         }
-        KeyboardEvents events = new KeyboardEvents( keyboard )
+        KeyboardObserver.KeyboardEvents events = new KeyboardObserver.KeyboardEvents( keyboard )
         KeyboardObserver testInput = new KeyboardObserver( events )
 
         Observer testObserver = new Observer( ) {

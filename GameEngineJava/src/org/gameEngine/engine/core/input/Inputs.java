@@ -1,14 +1,18 @@
 package org.gameEngine.engine.core.input;
 
+import java.util.ArrayList;
+
 /**
  * Created by TekMaTek on 28/07/2014.
  */
 public class Inputs {
 
-	public Array< GameInput > inputs = new Array< GameInput >( );
+	public ArrayList< GameInput > inputs = new ArrayList< GameInput >( );
 
-	public Inputs( ) {
-		
+	public Inputs( GameInput... gameInputs ) {
+		for( GameInput input : gameInputs ) {
+			inputs.add( input );
+		}
 	}
 
 }
