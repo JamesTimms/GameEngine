@@ -13,8 +13,8 @@ public class ObserverArgsTest extends groovy.util.GroovyTestCase {
     @Test
     void testArguments() {
 
-        Observable testObservable = new Observable();
-        Object testObject = this;
+        Observable testObservable = new Observable(  )
+        Object testObject = this
         Observer testObserver = new Observer( ) {
             @Override
             void update( Observable o, Object arg ) {

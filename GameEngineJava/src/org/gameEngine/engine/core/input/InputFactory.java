@@ -19,4 +19,8 @@ public class InputFactory {
 		return newMouse;
 	}
 
+	public static Inputs BuildInputContainer( ) {
+		return new Inputs( );
+	}
+
 }
