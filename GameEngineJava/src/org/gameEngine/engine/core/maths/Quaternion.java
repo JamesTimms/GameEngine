@@ -1,6 +1,7 @@
 package org.gameEngine.engine.core.maths;
 
 /**
+ * Based on BennyBox's GameEngine https://github.com/BennyQBD/3DGameEngine.
  * Created by TekMaTek on 05/08/2014.
  */
 public class Quaternion {
@@ -26,8 +27,7 @@ public class Quaternion {
 		this.z = axis.getZ( ) * sinHalfAngle;
 		this.w = cosHalfAngle;
 	}
-
-	//From Ken Shoemake's "Quaternion Calculus and Fast Animation" article
+	
 	public Quaternion( Matrix4f rot ) {
 		float trace = rot.get( 0, 0 ) + rot.get( 1, 1 ) + rot.get( 2, 2 );
 
@@ -80,34 +80,34 @@ public class Quaternion {
 		return new Quaternion( -x, -y, -z, w );
 	}
 
-	public Quaternion mul( float r ) {
-		return new Quaternion( x * r, y * r, z * r, w * r );
+	public Quaternion mul( float factor ) {
+		return new Quaternion( x * factor, y * factor, z * factor, w * factor );
 	}
 
-	public Quaternion mul( Quaternion r ) {
-		float w_ = w * r.getW( ) - x * r.getX( ) - y * r.getY( ) - z * r.getZ( );
-		float x_ = x * r.getW( ) + w * r.getX( ) + y * r.getZ( ) - z * r.getY( );
-		float y_ = y * r.getW( ) + w * r.getY( ) + z * r.getX( ) - x * r.getZ( );
-		float z_ = z * r.getW( ) + w * r.getZ( ) + x * r.getY( ) - y * r.getX( );
+	public Quaternion mul( Quaternion quaternion ) {
+		float w_ = w * quaternion.getW( ) - x * quaternion.getX( ) - y * quaternion.getY( ) - z * quaternion.getZ( );
+		float x_ = x * quaternion.getW( ) + w * quaternion.getX( ) + y * quaternion.getZ( ) - z * quaternion.getY( );
+		float y_ = y * quaternion.getW( ) + w * quaternion.getY( ) + z * quaternion.getX( ) - x * quaternion.getZ( );
+		float z_ = z * quaternion.getW( ) + w * quaternion.getZ( ) + x * quaternion.getY( ) - y * quaternion.getX( );
 
 		return new Quaternion( x_, y_, z_, w_ );
 	}
 
-	public Quaternion mul( Vector3f r ) {
-		float w_ = -x * r.getX( ) - y * r.getY( ) - z * r.getZ( );
-		float x_ = w * r.getX( ) + y * r.getZ( ) - z * r.getY( );
-		float y_ = w * r.getY( ) + z * r.getX( ) - x * r.getZ( );
-		float z_ = w * r.getZ( ) + x * r.getY( ) - y * r.getX( );
+	public Quaternion mul( Vector3f vector ) {
+		float w_ = -x * vector.getX( ) - y * vector.getY( ) - z * vector.getZ( );
+		float x_ = w * vector.getX( ) + y * vector.getZ( ) - z * vector.getY( );
+		float y_ = w * vector.getY( ) + z * vector.getX( ) - x * vector.getZ( );
+		float z_ = w * vector.getZ( ) + x * vector.getY( ) - y * vector.getX( );
 
 		return new Quaternion( x_, y_, z_, w_ );
 	}
 
-	public Quaternion sub( Quaternion r ) {
-		return new Quaternion( x - r.getX( ), y - r.getY( ), z - r.getZ( ), w - r.getW( ) );
+	public Quaternion sub( Quaternion quaternion ) {
+		return new Quaternion( x - quaternion.getX( ), y - quaternion.getY( ), z - quaternion.getZ( ), w - quaternion.getW( ) );
 	}
 
-	public Quaternion add( Quaternion r ) {
-		return new Quaternion( x + r.getX( ), y + r.getY( ), z + r.getZ( ), w + r.getW( ) );
+	public Quaternion add( Quaternion quaternion ) {
+		return new Quaternion( x + quaternion.getX( ), y + quaternion.getY( ), z + quaternion.getZ( ), w + quaternion.getW( ) );
 	}
 
 	public Matrix4f toRotationMatrix( ) {
@@ -121,33 +121,33 @@ public class Quaternion {
 		return new Matrix4f( ).initRotation( forward, up, right );
 	}
 
-	public float dot( Quaternion r ) {
-		return x * r.getX( ) + y * r.getY( ) + z * r.getZ( ) + w * r.getW( );
+	public float dot( Quaternion quaternion ) {
+		return x * quaternion.getX( ) + y * quaternion.getY( ) + z * quaternion.getZ( ) + w * quaternion.getW( );
 	}
 
-	public Quaternion nlerp( Quaternion dest, float lerpFactor, boolean shortest ) {
-		Quaternion correctedDest = dest;
+	public Quaternion nlerp( Quaternion quaternion, float lerpFactor, boolean shortest ) {
+		Quaternion correctQuaternion = quaternion;
 
-		if( shortest && this.dot( dest ) < 0 ) {
-			correctedDest = new Quaternion( -dest.getX( ), -dest.getY( ), -dest.getZ( ), -dest.getW( ) );
+		if( shortest && this.dot( quaternion ) < 0 ) {
+			correctQuaternion = new Quaternion( -quaternion.getX( ), -quaternion.getY( ), -quaternion.getZ( ), -quaternion.getW( ) );
 		}
 
-		return correctedDest.sub( this ).mul( lerpFactor ).add( this ).normalized( );
+		return correctQuaternion.sub( this ).mul( lerpFactor ).add( this ).normalized( );
 	}
 
-	public Quaternion slerp( Quaternion dest, float lerpFactor, boolean shortest ) {
+	public Quaternion slerp( Quaternion quaternion, float lerpFactor, boolean shortest ) {
 		final float EPSILON = 1e3f;
 
-		float cos = this.dot( dest );
-		Quaternion correctedDest = dest;
+		float cos = this.dot( quaternion );
+		Quaternion correctQuaternion = quaternion;
 
 		if( shortest && cos < 0 ) {
 			cos = -cos;
-			correctedDest = new Quaternion( -dest.getX( ), -dest.getY( ), -dest.getZ( ), -dest.getW( ) );
+			correctQuaternion = new Quaternion( -quaternion.getX( ), -quaternion.getY( ), -quaternion.getZ( ), -quaternion.getW( ) );
 		}
 
 		if( Math.abs( cos ) >= 1 - EPSILON ) {
-			return nlerp( correctedDest, lerpFactor, false );
+			return nlerp( correctQuaternion, lerpFactor, false );
 		}
 
 		float sin = ( float ) Math.sqrt( 1.0f - cos * cos );
@@ -157,7 +157,7 @@ public class Quaternion {
 		float srcFactor = ( float ) Math.sin( ( 1.0f - lerpFactor ) * angle ) * invSin;
 		float destFactor = ( float ) Math.sin( ( lerpFactor ) * angle ) * invSin;
 
-		return this.mul( srcFactor ).add( correctedDest.mul( destFactor ) );
+		return this.mul( srcFactor ).add( correctQuaternion.mul( destFactor ) );
 	}
 
 	public Vector3f getForward( ) {
@@ -192,8 +192,8 @@ public class Quaternion {
 		return this;
 	}
 
-	public Quaternion set( Quaternion r ) {
-		set( r.getX( ), r.getY( ), r.getZ( ), r.getW( ) );
+	public Quaternion set( Quaternion quaternion ) {
+		set( quaternion.getX( ), quaternion.getY( ), quaternion.getZ( ), quaternion.getW( ) );
 		return this;
 	}
 
@@ -229,7 +229,7 @@ public class Quaternion {
 		this.w = w;
 	}
 
-	public boolean equals( Quaternion r ) {
-		return x == r.getX( ) && y == r.getY( ) && z == r.getZ( ) && w == r.getW( );
+	public boolean equals( Quaternion quaternion ) {
+		return x == quaternion.getX( ) && y == quaternion.getY( ) && z == quaternion.getZ( ) && w == quaternion.getW( );
 	}
 }

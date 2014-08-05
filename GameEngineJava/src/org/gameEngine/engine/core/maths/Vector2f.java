@@ -1,6 +1,7 @@
 package org.gameEngine.engine.core.maths;
 
 /**
+ * Based on BennyBox's GameEngine https://github.com/BennyQBD/3DGameEngine.
  * Created by TekMaTek on 05/08/2014.
  */
 public class Vector2f {
@@ -35,8 +36,8 @@ public class Vector2f {
 		return x * vector.getY( ) - y * vector.getX( );
 	}
 
-	public Vector2f lerp( Vector2f dest, float lerpFactor ) {
-		return dest.sub( this ).mul( lerpFactor ).add( this );
+	public Vector2f lerp( Vector2f vector, float lerpFactor ) {
+		return vector.sub( this ).mul( lerpFactor ).add( this );
 	}
 
 	public Vector2f rotate( float angle ) {

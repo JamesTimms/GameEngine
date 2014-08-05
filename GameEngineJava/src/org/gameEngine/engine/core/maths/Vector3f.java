@@ -1,6 +1,7 @@
 package org.gameEngine.engine.core.maths;
 
 /**
+ * Based on BennyBox's GameEngine https://github.com/BennyQBD/3DGameEngine.
  * Created by TekMaTek on 05/08/2014.
  */
 public class Vector3f {
@@ -23,14 +24,14 @@ public class Vector3f {
 		return Math.max( x, Math.max( y, z ) );
 	}
 
-	public float dot( Vector3f r ) {
-		return x * r.getX( ) + y * r.getY( ) + z * r.getZ( );
+	public float dot( Vector3f vector ) {
+		return x * vector.getX( ) + y * vector.getY( ) + z * vector.getZ( );
 	}
 
-	public Vector3f cross( Vector3f r ) {
-		float x_ = y * r.getZ( ) - z * r.getY( );
-		float y_ = z * r.getX( ) - x * r.getZ( );
-		float z_ = x * r.getY( ) - y * r.getX( );
+	public Vector3f cross( Vector3f vector ) {
+		float x_ = y * vector.getZ( ) - z * vector.getY( );
+		float y_ = z * vector.getX( ) - x * vector.getZ( );
+		float z_ = x * vector.getY( ) - y * vector.getX( );
 
 		return new Vector3f( x_, y_, z_ );
 	}
@@ -61,36 +62,36 @@ public class Vector3f {
 		return dest.sub( this ).mul( lerpFactor ).add( this );
 	}
 
-	public Vector3f add( Vector3f r ) {
-		return new Vector3f( x + r.getX( ), y + r.getY( ), z + r.getZ( ) );
+	public Vector3f add( Vector3f vector ) {
+		return new Vector3f( x + vector.getX( ), y + vector.getY( ), z + vector.getZ( ) );
 	}
 
-	public Vector3f add( float r ) {
-		return new Vector3f( x + r, y + r, z + r );
+	public Vector3f add( float vector ) {
+		return new Vector3f( x + vector, y + vector, z + vector );
 	}
 
-	public Vector3f sub( Vector3f r ) {
-		return new Vector3f( x - r.getX( ), y - r.getY( ), z - r.getZ( ) );
+	public Vector3f sub( Vector3f vector ) {
+		return new Vector3f( x - vector.getX( ), y - vector.getY( ), z - vector.getZ( ) );
 	}
 
-	public Vector3f sub( float r ) {
-		return new Vector3f( x - r, y - r, z - r );
+	public Vector3f sub( float vector ) {
+		return new Vector3f( x - vector, y - vector, z - vector );
 	}
 
-	public Vector3f mul( Vector3f r ) {
-		return new Vector3f( x * r.getX( ), y * r.getY( ), z * r.getZ( ) );
+	public Vector3f mul( Vector3f vector ) {
+		return new Vector3f( x * vector.getX( ), y * vector.getY( ), z * vector.getZ( ) );
 	}
 
-	public Vector3f mul( float r ) {
-		return new Vector3f( x * r, y * r, z * r );
+	public Vector3f mul( float vector ) {
+		return new Vector3f( x * vector, y * vector, z * vector );
 	}
 
-	public Vector3f div( Vector3f r ) {
-		return new Vector3f( x / r.getX( ), y / r.getY( ), z / r.getZ( ) );
+	public Vector3f div( Vector3f vector ) {
+		return new Vector3f( x / vector.getX( ), y / vector.getY( ), z / vector.getZ( ) );
 	}
 
-	public Vector3f div( float r ) {
-		return new Vector3f( x / r, y / r, z / r );
+	public Vector3f div( float vector ) {
+		return new Vector3f( x / vector, y / vector, z / vector );
 	}
 
 	public Vector3f abs( ) {
@@ -132,8 +133,8 @@ public class Vector3f {
 		return this;
 	}
 
-	public Vector3f set( Vector3f r ) {
-		set( r.getX( ), r.getY( ), r.getZ( ) );
+	public Vector3f set( Vector3f vector ) {
+		set( vector.getX( ), vector.getY( ), vector.getZ( ) );
 		return this;
 	}
 
@@ -161,7 +162,7 @@ public class Vector3f {
 		this.z = z;
 	}
 
-	public boolean equals( Vector3f r ) {
-		return x == r.getX( ) && y == r.getY( ) && z == r.getZ( );
+	public boolean equals( Vector3f vector ) {
+		return x == vector.getX( ) && y == vector.getY( ) && z == vector.getZ( );
 	}
 }

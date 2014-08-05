@@ -2,6 +2,7 @@
   <dictionary name="TekMaTek">
     <words>
       <w>keycodes</w>
+      <w>lerp</w>
     </words>
   </dictionary>
 </component>

@@ -1,6 +1,7 @@
 package org.gameEngine.engine.core.maths;
 
 /**
+ * Based on BennyBox's GameEngine https://github.com/BennyQBD/3DGameEngine.
  * Created by TekMaTek on 05/08/2014.
  */
 public class Matrix4f {
