@@ -1,6 +1,7 @@
-package org.gameEngine.engine.core.input;
+package org.gameEngine.engine.core.input.keyboard;
 
 import org.gameEngine.engine.core.ObserverArgs;
+import org.gameEngine.engine.core.input.GameInput;
 
 import java.util.Observable;
 

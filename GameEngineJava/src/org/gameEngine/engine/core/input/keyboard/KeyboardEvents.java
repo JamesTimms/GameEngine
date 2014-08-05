@@ -1,4 +1,4 @@
-package org.gameEngine.engine.core.input;
+package org.gameEngine.engine.core.input.keyboard;
 
 import java.util.ArrayList;
 

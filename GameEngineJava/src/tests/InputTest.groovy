@@ -1,9 +1,9 @@
 package tests
 
 import org.gameEngine.engine.core.Window
-import org.gameEngine.engine.core.input.KeyboardEvents
-import org.gameEngine.engine.core.input.KeyboardObserver
-import org.gameEngine.engine.core.input.KeyboardWrapper
+import org.gameEngine.engine.core.input.keyboard.KeyboardEvents
+import org.gameEngine.engine.core.input.keyboard.KeyboardObserver
+import org.gameEngine.engine.core.input.keyboard.KeyboardWrapper
 import org.junit.AfterClass
 import org.junit.BeforeClass
 import org.junit.Test

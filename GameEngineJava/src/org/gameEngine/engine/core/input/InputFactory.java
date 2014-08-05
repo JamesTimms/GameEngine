@@ -1,5 +1,12 @@
 package org.gameEngine.engine.core.input;
 
+import org.gameEngine.engine.core.input.keyboard.KeyboardEvents;
+import org.gameEngine.engine.core.input.keyboard.KeyboardObserver;
+import org.gameEngine.engine.core.input.keyboard.KeyboardWrapper;
+import org.gameEngine.engine.core.input.mouse.MouseEvents;
+import org.gameEngine.engine.core.input.mouse.MouseObserver;
+import org.gameEngine.engine.core.input.mouse.MouseWrapper;
+
 /**
  * Created by TekMaTek on 25/07/2014.
  */

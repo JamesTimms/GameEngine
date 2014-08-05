@@ -7,7 +7,7 @@ import java.util.ArrayList;
  */
 public class Inputs {
 
-	public ArrayList< GameInput > inputs = new ArrayList< GameInput >( );
+	protected ArrayList< GameInput > inputs = new ArrayList< GameInput >( );
 
 	public Inputs( ) {
 	}
@@ -16,6 +16,10 @@ public class Inputs {
 		for( GameInput input : gameInputs ) {
 			inputs.add( input );
 		}
+	}
+
+	public void ProcessInputs( ) {
+		
 	}
 
 	public void AddInput( GameInput input ) {

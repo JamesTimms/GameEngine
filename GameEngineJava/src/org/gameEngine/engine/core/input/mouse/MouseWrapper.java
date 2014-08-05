@@ -1,4 +1,4 @@
-package org.gameEngine.engine.core.input;
+package org.gameEngine.engine.core.input.mouse;
 
 import org.lwjgl.input.Mouse;
 

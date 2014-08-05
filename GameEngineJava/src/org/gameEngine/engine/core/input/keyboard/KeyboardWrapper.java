@@ -1,4 +1,4 @@
-package org.gameEngine.engine.core.input;
+package org.gameEngine.engine.core.input.keyboard;
 
 import org.lwjgl.LWJGLException;
 import org.lwjgl.input.Keyboard;

@@ -16,7 +16,7 @@ public class MainComponent {
 	public Window window;
 	protected boolean shouldRunGameLoop = false;
 	protected Game game;
-	double timeElapsed = 0.0d;
+	protected double timeElapsed = 0.0d;
 
 	protected MainComponent( Time time, Window window, Game game ) {
 		this.time = time;

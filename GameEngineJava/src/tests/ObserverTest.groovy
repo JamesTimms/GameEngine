@@ -1,7 +1,4 @@
-import org.gameEngine.engine.core.ObserverArgs
 import org.gameEngine.engine.core.Window
-import org.gameEngine.engine.core.input.KeyboardObserver
-import org.gameEngine.engine.core.input.KeyboardWrapper
 import org.junit.AfterClass
 import org.junit.BeforeClass
 import org.junit.Test
