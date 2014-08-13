@@ -3,7 +3,13 @@ package org.gameEngine.engine.core.maths;
 /**
  * Based on BennyBox's GameEngine https://github.com/BennyQBD/3DGameEngine.
  * Created by TekMaTek on 05/08/2014.
+ * <p/>
+ * Note there is a limitation to how large x, y and z can be because of calculations
+ * like length( ). x * x + y * y + z * z would have to be stored as a single float
+ * while calculating. The limit that the components can sum to is 1 / 3 ( root( float.max ) ).
  */
+
+//TODO: Should consider changing this Class into a wrapper for lwjgl's Vector3f Class.
 public class Vector3f {
 
 	protected float x;
@@ -16,6 +22,7 @@ public class Vector3f {
 		this.z = z;
 	}
 
+	//The limit that the components can sum to is 1 / 3 ( root( float.max ) ).
 	public float length( ) {
 		return ( float ) Math.sqrt( x * x + y * y + z * z );
 	}

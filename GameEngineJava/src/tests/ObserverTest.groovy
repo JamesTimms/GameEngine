@@ -59,8 +59,6 @@ class ObserverTest extends groovy.util.GroovyTestCase {
 
     }
 
-
-
     @Test
     void testEventTriggers() {
 
