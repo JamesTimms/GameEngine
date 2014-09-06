@@ -1,4 +1,4 @@
-import org.gameEngine.engine.core.ObserverArgs
+import org.gameEngine.engine.core.*
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
@@ -13,8 +13,7 @@ public class ObserverArgsTest extends groovy.util.GroovyTestCase {
     @Test
     void testArguments() {
 
-        Observable testObservable = new Observable(  )
-        Object testObject = this
+        ObserverSubject testObservable = new ObserverSubject(  )
         Observer testObserver = new Observer( ) {
             @Override
             void update( Observable o, Object arg ) {
@@ -31,6 +30,7 @@ public class ObserverArgsTest extends groovy.util.GroovyTestCase {
                 assertEquals( 'a' ,args.GetArg( "char" ) )
             }
         }
+        Object testObject = this
         testObservable.addObserver( testObserver )
         ObserverArgs args = new ObserverArgs( )
         args.AddArg( "int", 23 )

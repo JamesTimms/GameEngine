@@ -34,7 +34,7 @@ public class KeyboardObserver extends Observable implements GameInput {
 			//event.ShouldBeTriggered( )
 			if( keyboardEvents.IsKeyPressed( keyNumber ) ) {
 				setChanged( );
-				//keyPressedEvent.Trigger( );
+				//keyNumber.NotifyObservers( );
 				notifyObservers( ObserverArgs.CreateArgs( KEY_PRESSED_EVENT, keyNumber ) );
 			}
 			else if( keyboardEvents.IsKeyHeld( keyNumber ) ) {

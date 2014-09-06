@@ -17,15 +17,16 @@ class Vector3fTest extends GroovyTestCase {
     void testLength() {
         int TESTS_TO_RUN = 1000;
         for( int testsRun = 0; testsRun < TESTS_TO_RUN; testsRun++ ) {
-            LengthTestsWithFiveSigFig( ShortenFloatForVectorLength( GetRandomFloat( ) ),
-                    ShortenFloatForVectorLength( GetRandomFloat( ) ),
-                    ShortenFloatForVectorLength( GetRandomFloat( ) ) );
+            LengthTestsWithFiveSigFig(
+                    GetRandomShortFloat( ),
+                    GetRandomShortFloat( ),
+                    GetRandomShortFloat( ) );
         }
     }
 
     //Can't use really large floats as of calculation restrictions.
-    float ShortenFloatForVectorLength( float pureFloat ) {
-        return ( float ) ( ( Math.sqrt( pureFloat ) ) / 3.0f )
+    float GetRandomShortFloat( ) {
+        return ( float ) ( ( Math.sqrt( GetRandomFloat( ) ) ) / 3.0f )
     }
 
     void LengthTestsWithFiveSigFig( float x, float y, float z ) {
@@ -38,11 +39,11 @@ class Vector3fTest extends GroovyTestCase {
         LengthTests( x, y, z, SIGNIFICANT_FIGURES )
     }
 
-    void LengthTests( float x, float y, float z, int sifnificantFigures ) {
+    void LengthTests( float x, float y, float z, int significantFigures ) {
         Vector3f vector = new Vector3f( x, y, z )
         float expectedLength = ( float ) Math.sqrt( x * x + y * y + z * z )
         float actualLength = vector.length( )
-        boolean testPassed = ApproaxEquals( expectedLength, actualLength, sifnificantFigures )
+        boolean testPassed = ApproaxEquals( expectedLength, actualLength, significantFigures )
         assertTrue( testPassed )}
 
     boolean ApproaxEquals( float a, float b, int significantFigures ) {

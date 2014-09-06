@@ -8,26 +8,29 @@ import java.util.Hashtable;
  */
 public class ObserverArgs {
 
-	private Dictionary< String, Object > arguments = new Hashtable< String, Object >(  );
+	public String eventID;
+	public String eventMessage;//Used for single quick event message.
+	private Dictionary< String, Object > arguments = new Hashtable< String, Object >(  );//Used for more complex data.
 
-	public ObserverArgs( ) {
-
-	}
-
-	public static ObserverArgs CreateArgs( String argID, Object argValue ) {
-
+	public static ObserverArgs CreateArgs( String eventID ) {
 		ObserverArgs newArgs = new ObserverArgs( );
-		newArgs.AddArg( argID, argValue );
+		newArgs.eventID = eventID;
 		return newArgs;
 	}
 
-	public Class< ? > FindTypeOf( String argID ) {
-		return arguments.get( argID ).getClass( );
-
+	public static ObserverArgs CreateArgs( String eventID, String newEventMessage ) {
+		ObserverArgs newArgs = new ObserverArgs( );
+		newArgs.eventMessage = newEventMessage;
+		newArgs.eventID = eventID;
+		return newArgs;
 	}
 
-	public void AddArg( String argID, Object argValue ) {
+	public ObserverArgs AddArg( String argID, Object argValue ) {
+		if( arguments == null ) {
+			arguments  = new Hashtable< String, Object >( );
+		}
 		arguments.put( argID, argValue );
+		return this;
 	}
 
 	public Object GetArg( String argID ) {
