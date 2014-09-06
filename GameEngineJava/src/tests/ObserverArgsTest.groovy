@@ -14,10 +14,11 @@ public class ObserverArgsTest extends groovy.util.GroovyTestCase {
     void testArguments() {
 
         ObserverSubject testObservable = new ObserverSubject(  )
+        Object testObject = this
         Observer testObserver = new Observer( ) {
+
             @Override
-            void update( Observable o, Object arg ) {
-                ObserverArgs args = (ObserverArgs)arg;
+            void Update( ObserverSubject sender, ObserverArgs args ) {
                 assertEquals( 23 ,args.GetArg( "int" ) )
                 assertEquals( "hello world" ,args.GetArg( "string" ) )
                 assertEquals( 2.0f ,args.GetArg( "float" ) )
@@ -30,9 +31,8 @@ public class ObserverArgsTest extends groovy.util.GroovyTestCase {
                 assertEquals( 'a' ,args.GetArg( "char" ) )
             }
         }
-        Object testObject = this
-        testObservable.addObserver( testObserver )
-        ObserverArgs args = new ObserverArgs( )
+        testObservable.AddObserver( testObserver )
+        ObserverArgs args = ObserverArgs.CreateArgs( "TestObserverArgs" )
         args.AddArg( "int", 23 )
         args.AddArg( "string", "hello world" )
         args.AddArg( "float", 2.0f )
@@ -44,9 +44,44 @@ public class ObserverArgsTest extends groovy.util.GroovyTestCase {
         args.AddArg( "boolean", true )
         args.AddArg( "char", 'a' )
 
-        testObservable.setChanged( )
-        testObservable.notifyObservers( args )
+        testObservable.NotifyObservers( args )
+    }
 
+    @Test
+    void testSimpleArguments( ) {
+
+        final String EVENT_ID = "TestObserverArgs";
+        final String EVENT_MESSAGE = "Hello World";
+
+        ObserverSubject testObservable = new ObserverSubject(  )
+        Observer testObserver = new Observer( ) {
+
+            @Override
+            void Update( ObserverSubject sender, ObserverArgs args ) {
+                assertEquals( EVENT_ID, args.eventID );
+                assertEquals( EVENT_MESSAGE , args.eventMessage );
+            }
+        }
+        testObservable.AddObserver( testObserver )
+        ObserverArgs args = ObserverArgs.CreateArgs( EVENT_ID, EVENT_MESSAGE )
+        testObservable.NotifyObservers( args )
+    }
+
+    @Test
+    void testNoArguments( ) {
+
+        boolean updateTriggered = false;
+        ObserverSubject testObservable = new ObserverSubject(  )
+        Observer testObserver = new Observer( ) {
+
+            @Override
+            void Update( ObserverSubject sender, ObserverArgs args ) {
+                updateTriggered = true;
+            }
+        }
+        testObservable.AddObserver( testObserver )
+        testObservable.NotifyObservers( )
+        assertTrue( updateTriggered )
     }
 
 }

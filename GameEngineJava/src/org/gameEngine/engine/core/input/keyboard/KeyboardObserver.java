@@ -22,7 +22,7 @@ public class KeyboardObserver extends Observable implements GameInput {
 
 	public void CheckForEvents( ) {
 		keyboardEvents.LookForKeyboardActions( );
-		for( int keyNumber = 0; keyNumber < keyboardEvents.numberOfEvents; keyNumber++ ) {
+		for( Integer keyNumber = 0; keyNumber < keyboardEvents.numberOfEvents; keyNumber++ ) {
 			/* TODO: Setup events so that a button press and a button held event
 			 * are separate subscribe-able objects. E.G
 			 * foreach( EventType event in List< EventType > ) {
@@ -35,15 +35,15 @@ public class KeyboardObserver extends Observable implements GameInput {
 			if( keyboardEvents.IsKeyPressed( keyNumber ) ) {
 				setChanged( );
 				//keyNumber.NotifyObservers( );
-				notifyObservers( ObserverArgs.CreateArgs( KEY_PRESSED_EVENT, keyNumber ) );
+				notifyObservers( ObserverArgs.CreateArgs( KEY_PRESSED_EVENT, keyNumber.toString( ) ) );
 			}
 			else if( keyboardEvents.IsKeyHeld( keyNumber ) ) {
 				setChanged( );
-				notifyObservers( ObserverArgs.CreateArgs( KEY_HELD_EVENT, keyNumber ) );
+				notifyObservers( ObserverArgs.CreateArgs( KEY_HELD_EVENT, keyNumber.toString( ) ) );
 			}
 			else if( keyboardEvents.IsKeyReleased( keyNumber ) ) {
 				setChanged( );
-				notifyObservers( ObserverArgs.CreateArgs( KEY_RELEASED_EVENT, keyNumber ) );
+				notifyObservers( ObserverArgs.CreateArgs( KEY_RELEASED_EVENT, keyNumber.toString( ) ) );
 			}
 		}
 	}

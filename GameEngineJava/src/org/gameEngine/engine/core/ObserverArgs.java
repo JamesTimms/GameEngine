@@ -12,6 +12,8 @@ public class ObserverArgs {
 	public String eventMessage;//Used for single quick event message.
 	private Dictionary< String, Object > arguments = new Hashtable< String, Object >(  );//Used for more complex data.
 
+	protected ObserverArgs( ) { }//Here to prevent ObserverArgs from being creating improperly.
+
 	public static ObserverArgs CreateArgs( String eventID ) {
 		ObserverArgs newArgs = new ObserverArgs( );
 		newArgs.eventID = eventID;

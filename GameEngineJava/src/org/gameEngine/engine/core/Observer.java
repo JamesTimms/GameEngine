@@ -5,6 +5,6 @@ package org.gameEngine.engine.core;
  */
 public interface Observer {
 
-	public void Update( Object sender, ObserverArgs args );
+	public void Update( ObserverSubject sender, ObserverArgs args );
 
 }
