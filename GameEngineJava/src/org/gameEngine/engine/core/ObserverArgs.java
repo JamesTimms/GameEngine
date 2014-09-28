@@ -5,6 +5,12 @@ import java.util.Hashtable;
 
 /**
  * Created by TekMaTek on 22/07/2014.
+ * The {@link ObserverArgs} Class is used together with the {@link Observer} and {@link ObserverSubject} Classes.
+ * You can use {@link ObserverArgs} for passing a single {@link ObserverArgs#eventMessage} as a string and cast it to
+ * int or other primitive. You can also use {@link ObserverArgs#eventID} to specify different events for the same
+ * observer observerSubject pair.
+ * For more advanced parameters you can use the {@link ObserverArgs#AddArg(String, Object)} to add any object the
+ * drawback is having to cast the object when you {@link ObserverArgs#GetArg(String)}.
  */
 public class ObserverArgs {
 

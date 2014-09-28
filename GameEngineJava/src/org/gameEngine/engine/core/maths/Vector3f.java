@@ -17,13 +17,29 @@ public class Vector3f {
 	protected float z;
 
 	public Vector3f( float x, float y, float z ) {
-		this.x = x;
-		this.y = y;
-		this.z = z;
+		setX( x );
+		setY( y );
+		setZ( z );
+	}
+
+	public static Vector3f Zero( ) {
+		return new Vector3f( 0.0f, 0.0f, 0.0f );
+	}
+
+	public static Vector3f One( ) {
+		return new Vector3f( 1.0f, 1.0f, 1.0f );
 	}
 
 	//The limit that the components can sum to is 1 / 3 ( root( float.max ) ).
 	public float length( ) {
+		double _x = x;
+		double _y = y;
+		double _z = z;
+		return ( float ) Math.sqrt( _x * _x + _y * _y + _z * _z );
+	}
+
+	//The limit that the components can sum to is 1 / 3 ( root( float.max ) ).
+	public float quickLength( ) {
 		return ( float ) Math.sqrt( x * x + y * y + z * z );
 	}
 
@@ -41,6 +57,14 @@ public class Vector3f {
 		float z_ = x * vector.getY( ) - y * vector.getX( );
 
 		return new Vector3f( x_, y_, z_ );
+	}
+
+	public Vector3f crossLargeFloat( Vector3f vector ) {
+		double x_ = y * vector.getZ( ) - z * vector.getY( );
+		double y_ = z * vector.getX( ) - x * vector.getZ( );
+		double z_ = x * vector.getY( ) - y * vector.getX( );
+
+		return new Vector3f( (float)x_, (float)y_, (float)z_ );
 	}
 
 	public Vector3f normalized( ) {
