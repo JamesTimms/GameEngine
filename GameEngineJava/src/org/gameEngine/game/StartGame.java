@@ -2,6 +2,7 @@ package org.gameEngine.game;
 
 import org.gameEngine.engine.core.Time;
 import org.gameEngine.engine.core.Window;
+import org.gameEngine.engine.core.render.Util;
 
 /**
  * Created by James Timms on 21/03/2014.
@@ -21,69 +22,75 @@ public class StartGame {
 	protected StartGame( Time time, Window window ) {
 		this.time = time;
 		this.window = window;
-		this.game = GameFactory.Build( );
+		this.game = GameFactory.Build();
 	}
 
 	public static void main( String[] args ) {
 		//Start UpdateInput Observer as separate thread.
 		StartGame game = new StartGame(
-				new Time( ),
+				new Time(),
 				new Window( WIDTH, HEIGHT, TITLE ) );
 
-		game.StartGame( );
+		game.StartGame();
 	}
 
-	public void StartGame( ) {
+	public void StartGame() {
 		shouldRunGameLoop = true;
-		GameLoop( );
+		InitializeGame();
+		GameLoop();
 	}
 
-	public void StopGame( ) {
+	private void InitializeGame() {
+		System.out.println( Util.GetOpenGLVersion() );
+//		Util.InitGraphics();
+	}
+
+	public void StopGame() {
 		if( !shouldRunGameLoop ) {
 			return;
 		}
 		shouldRunGameLoop = false;
 	}
 
-	protected void GameLoop( ) {
-		long timeLastFrame = time.getTime( );
+	protected void GameLoop() {
+		long timeLastFrame = time.getTime();
 		long timeThisFrame;
 
 		while( shouldRunGameLoop ) {
 
-			timeThisFrame = time.getTime( );
+			timeThisFrame = time.getTime();
 			time.SetDeltaTime( timeThisFrame - timeLastFrame );
 			timeLastFrame = timeThisFrame;
 
-			if( IsReadyForFrame( ) ) {
-				ProcessFrame( );
-				RenderFrame( );
+			if( IsReadyForFrame() ) {
+				ProcessFrame();
+				RenderFrame();
 			}
 		}
-		CleanUp( );
+		CleanUp();
 	}
 
-	protected boolean IsReadyForFrame( ) {
-		boolean isReady = ( timeElapsed -= time.GetDeltaTime( ) ) < 0.0d;
+	protected boolean IsReadyForFrame() {
+		boolean isReady = ( timeElapsed -= time.GetDeltaTime() ) < 0.0d;
 		if( isReady ) {
 			timeElapsed = ( FRAME_CAP / Time.SECOND );
 		}
 		return isReady;
 	}
 
-	protected void ProcessFrame( ) {
-		if( window.IsCloseRequested( ) ) {
-			StopGame( );
+	protected void ProcessFrame() {
+		if( window.IsCloseRequested() ) {
+			StopGame();
 		}
-		game.UpdateInput( );
+		game.UpdateInput();
 	}
 
-	protected void RenderFrame( ) {
-		game.Render( );
-		window.Render( );
+	protected void RenderFrame() {
+		game.Render();
+		window.Render();
 	}
 
-	protected void CleanUp( ) {
-		window.Dispose( );
+	protected void CleanUp() {
+		window.Dispose();
 	}
 }

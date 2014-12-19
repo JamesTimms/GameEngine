@@ -46,4 +46,8 @@ public class Util {
 		glEnable( GL_FRAMEBUFFER_SRGB );
 	}
 
+	public static String GetOpenGLVersion( ) {
+		return "OpenGL Version: " + glGetString( GL_VERSION );
+	}
+
 }
