@@ -21,7 +21,7 @@ public class StartGame {
 	protected StartGame( Time time, Window window ) {
 		this.time = time;
 		this.window = window;
-		this.game = GameFactory.Build( );;
+		this.game = GameFactory.Build( );
 	}
 
 	public static void main( String[] args ) {
