@@ -37,14 +37,14 @@ public class Shader {
 	public void CompileShader() {
 		glLinkProgram( program );
 
-		if( glGetShaderi( program, GL_LINK_STATUS ) == 0 ) {
+		if( glGetProgrami( program, GL_LINK_STATUS ) == 0 ) {
 			System.err.println( glGetShaderInfoLog( program, 1024 ) );
 			System.exit( 1 );
 		}
 
 		glValidateProgram( program );
 
-		if( glGetShaderi( program, GL_VALIDATE_STATUS ) == 0 ) {
+		if( glGetProgrami( program, GL_VALIDATE_STATUS ) == 0 ) {
 			System.err.println( glGetShaderInfoLog( program, 1024 ) );
 			System.exit( 1 );
 		}
@@ -69,6 +69,8 @@ public class Shader {
 			System.err.println( glGetShaderInfoLog( shader, 1024 ) );
 			System.exit( 1 );
 		}
+
+		glAttachShader( program, shader );
 	}
 
 }

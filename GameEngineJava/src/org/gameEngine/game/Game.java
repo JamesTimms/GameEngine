@@ -1,5 +1,7 @@
 package org.gameEngine.game;
 
+import org.gameEngine.engine.core.ResourceLoader;
+import org.gameEngine.engine.core.Shader;
 import org.gameEngine.engine.core.input.Inputs;
 import org.gameEngine.engine.core.maths.Vector3f;
 import org.gameEngine.engine.core.render.Mesh;
@@ -12,26 +14,35 @@ public class Game {
 
 	protected Inputs input;
 	protected Mesh mesh;
+	private Shader shader;
 
 	public Game( Inputs input ) {
 		this.input = input;
-		mesh = new Mesh( );
-		Vertex[ ] data = new Vertex[ ] {
+		mesh = new Mesh();
+		shader = new Shader();
+
+		Vertex[] data = new Vertex[] {
 				new Vertex( new Vector3f( -1, -1, 0 ) ),
 				new Vertex( new Vector3f( 1, -1, 0 ) ),
-				new Vertex( new Vector3f( 0, 1, 0 ) )};
+				new Vertex( new Vector3f( 0, 1, 0 ) ) };
 		mesh.AddVertices( data );
-	}
 
-	public void UpdateInput( ) {
-
-	}
-
-	public void Update( ) {
+		shader.addVertextShader( ResourceLoader.LoadShader( "basicVertex.vertex" ) );
+		shader.addFragmentShader( ResourceLoader.LoadShader( "basicFragment.fragment" ) );
+		shader.CompileShader();
 
 	}
 
-	public void Render( ) {
-		mesh.Draw( );
+	public void UpdateInput() {
+
+	}
+
+	public void Update() {
+
+	}
+
+	public void Render() {
+		shader.Bind();
+		mesh.Draw();
 	}
 }

@@ -12,7 +12,7 @@ public class ResourceLoader {
 		StringBuilder shaderSource = new StringBuilder();
 		BufferedReader shaderReader = null;
 		try {
-			shaderReader = new BufferedReader( new FileReader( "./res/shaders/" + filename ) );
+			shaderReader = new BufferedReader( new FileReader( "./resource/shaders/" + filename ) );
 			String line;
 			while( ( line = shaderReader.readLine() ) != null ) {
 				shaderSource.append( line ).append( "\n" );
