@@ -1,7 +1,5 @@
 package testUtil
 
-import org.gameEngine.engine.core.MainComponent
-import org.gameEngine.engine.core.Window
 import org.gameEngine.engine.core.maths.Vector3f
 
 /**

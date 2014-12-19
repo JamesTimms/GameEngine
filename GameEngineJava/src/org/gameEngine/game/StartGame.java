@@ -1,12 +1,12 @@
-package org.gameEngine.engine.core;
+package org.gameEngine.game;
 
-import org.gameEngine.game.Game;
-import org.gameEngine.game.GameFactory;
+import org.gameEngine.engine.core.Time;
+import org.gameEngine.engine.core.Window;
 
 /**
  * Created by James Timms on 21/03/2014.
  */
-public class MainComponent {
+public class StartGame {
 
 	public static final int WIDTH = 800;
 	public static final int HEIGHT = 600;
@@ -18,21 +18,17 @@ public class MainComponent {
 	protected Game game;
 	protected double timeElapsed = 0.0d;
 
-	protected MainComponent( Time time, Window window, Game game ) {
+	protected StartGame( Time time, Window window ) {
 		this.time = time;
 		this.window = window;
-		this.game = game;
+		this.game = GameFactory.Build( );;
 	}
 
 	public static void main( String[] args ) {
-
 		//Start UpdateInput Observer as separate thread.
-
-		Game newGame = GameFactory.Build( );
-		MainComponent game = new MainComponent(
+		StartGame game = new StartGame(
 				new Time( ),
-				new Window( WIDTH, HEIGHT, TITLE ),
-				newGame );
+				new Window( WIDTH, HEIGHT, TITLE ) );
 
 		game.StartGame( );
 	}
@@ -50,7 +46,6 @@ public class MainComponent {
 	}
 
 	protected void GameLoop( ) {
-
 		long timeLastFrame = time.getTime( );
 		long timeThisFrame;
 
