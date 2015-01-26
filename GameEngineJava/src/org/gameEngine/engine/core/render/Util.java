@@ -5,6 +5,7 @@ import org.lwjgl.BufferUtils;
 
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
+import java.util.ArrayList;
 
 import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.opengl.GL30.GL_FRAMEBUFFER_SRGB;
@@ -38,7 +39,7 @@ public class Util {
 	public static IntBuffer createFlippedBuffer( int... values ) {
 		IntBuffer buffer = createIntBuffer( values.length );
 		buffer.put( values );
-		buffer.flip();
+		buffer.flip( );
 		return buffer;
 	}
 
@@ -75,4 +76,24 @@ public class Util {
 		return "OpenGL Version: " + glGetString( GL_VERSION );
 	}
 
+	public static String[] removeEmptyString( String[] tokens ) {
+		ArrayList< String > result = new ArrayList< String >( );
+
+		for( int i = 0; i < tokens.length; i++ ) {
+			if( !tokens[ i ].equals( "" ) )
+				result.add( tokens[ i ] );
+		}
+
+		String[] res = new String[ result.size( ) ];
+		result.toArray( res );
+		return res;
+	}
+
+	public static int[] toIntArray( Integer[] indices ) {
+		int[] result = new int[ indices.length ];
+		for( int i = 0; i < indices.length; i++ ) {
+			result[ i ] = indices[ i ].intValue( );
+		}
+		return result;
+	}
 }
