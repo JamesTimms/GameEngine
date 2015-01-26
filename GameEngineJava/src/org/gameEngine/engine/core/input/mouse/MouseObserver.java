@@ -26,12 +26,10 @@ public class MouseObserver extends Observable implements GameInput {
 			if( mouseEvents.IsMousePressed( mouseNumber ) ) {
 				setChanged( );
 				notifyObservers( ObserverArgs.CreateArgs( MOUSE_CLICKED, mouseNumber.toString( ) ) );
-			}
-			else if( mouseEvents.IsMouseHeld( mouseNumber ) ) {
+			} else if( mouseEvents.IsMouseHeld( mouseNumber ) ) {
 				setChanged( );
 				notifyObservers( ObserverArgs.CreateArgs( MOUSE_HELD, mouseNumber.toString( ) ) );
-			}
-			else if( mouseEvents.IsMouseReleased( mouseNumber ) ) {
+			} else if( mouseEvents.IsMouseReleased( mouseNumber ) ) {
 				setChanged( );
 				notifyObservers( ObserverArgs.CreateArgs( MOUSE_RELEASED, mouseNumber.toString( ) ) );
 			}

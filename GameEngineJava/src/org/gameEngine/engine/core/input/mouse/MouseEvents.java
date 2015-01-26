@@ -6,6 +6,7 @@ import java.util.ArrayList;
  * Created by TekMaTek on 28/07/2014.
  */
 public class MouseEvents {
+
 	public int numberOfEvents;
 
 	protected ArrayList< Integer > mouseHeld = new ArrayList< Integer >( );

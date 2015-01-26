@@ -22,40 +22,46 @@ public class Game {
 
 	public Game( Inputs input ) {
 		this.input = input;
-		mesh = new Mesh();
-		shader = new Shader();
-		transform = new Transform();
+		mesh = new Mesh( );
+		shader = new Shader( );
+		transform = new Transform( );
 
-		Vertex[] data = new Vertex[] {
+		Vertex[] vertices = new Vertex[] {
 				new Vertex( new Vector3f( -1, -1, 0 ) ),
 				new Vertex( new Vector3f( 1, -1, 0 ) ),
-				new Vertex( new Vector3f( 0, 1, 0 ) ) };
-		mesh.AddVertices( data );
+				new Vertex( new Vector3f( 0, 1, 0 ) ),
+				new Vertex( new Vector3f( 0, -1, 1 ) ) };
+		int[] indices = new int[] {
+				0, 1, 3,
+				3, 1, 2,
+				2, 1, 0,
+				0, 2, 3 };
+		mesh.AddVertices( vertices, indices );
 
 		shader.addVertextShader( ResourceLoader.LoadShader( "basicVertex.vertex" ) );
 		shader.addFragmentShader( ResourceLoader.LoadShader( "basicFragment.fragment" ) );
-		shader.CompileShader();
+		shader.CompileShader( );
 
 		shader.addUniform( "transform" );
 	}
 
-	public void UpdateInput() {
+	public void UpdateInput( ) {
 
 	}
 
-	public void Update() {
-		temp += ( double ) Time.GetDeltaTime() / ( double ) Time.SECOND;
+	public void Update( ) {
+		temp += ( double ) Time.GetDeltaTime( ) / ( double ) Time.SECOND;
 
 		float sinTemp = ( float ) Math.sin( Math.sin( temp ) );
 		transform.setTranslation( ( float ) Math.sin( temp ), 0.0f, 0.0f );
-		transform.setRotation( 0.0f, 0.0f, ( float ) Math.sin( temp ) * 360 );
+		transform.setRotation( 0.0f, ( float ) Math.sin( temp ) * 360, ( float ) Math.sin( temp ) * 360 );
 		transform.setScale( sinTemp, sinTemp, sinTemp );
 	}
 
-	public void Render() {
-		shader.Bind();
-		shader.setUniform4m( "transform", transform.getTransformation() );
+	public void Render( ) {
+		shader.Bind( );
+		shader.setUniform4m( "transform", transform.getTransformation( ) );
 
-		mesh.Draw();
+		mesh.Draw( );
 	}
 }

@@ -27,7 +27,7 @@ public class Quaternion {
 		this.z = axis.getZ( ) * sinHalfAngle;
 		this.w = cosHalfAngle;
 	}
-	
+
 	public Quaternion( Matrix4f rot ) {
 		float trace = rot.get( 0, 0 ) + rot.get( 1, 1 ) + rot.get( 2, 2 );
 
@@ -103,11 +103,13 @@ public class Quaternion {
 	}
 
 	public Quaternion sub( Quaternion quaternion ) {
-		return new Quaternion( x - quaternion.getX( ), y - quaternion.getY( ), z - quaternion.getZ( ), w - quaternion.getW( ) );
+		return new Quaternion( x - quaternion.getX( ), y - quaternion.getY( ), z - quaternion.getZ( ),
+							   w - quaternion.getW( ) );
 	}
 
 	public Quaternion add( Quaternion quaternion ) {
-		return new Quaternion( x + quaternion.getX( ), y + quaternion.getY( ), z + quaternion.getZ( ), w + quaternion.getW( ) );
+		return new Quaternion( x + quaternion.getX( ), y + quaternion.getY( ), z + quaternion.getZ( ),
+							   w + quaternion.getW( ) );
 	}
 
 	public Matrix4f toRotationMatrix( ) {
@@ -129,7 +131,8 @@ public class Quaternion {
 		Quaternion correctQuaternion = quaternion;
 
 		if( shortest && this.dot( quaternion ) < 0 ) {
-			correctQuaternion = new Quaternion( -quaternion.getX( ), -quaternion.getY( ), -quaternion.getZ( ), -quaternion.getW( ) );
+			correctQuaternion = new Quaternion( -quaternion.getX( ), -quaternion.getY( ), -quaternion.getZ( ),
+												-quaternion.getW( ) );
 		}
 
 		return correctQuaternion.sub( this ).mul( lerpFactor ).add( this ).normalized( );
@@ -143,7 +146,8 @@ public class Quaternion {
 
 		if( shortest && cos < 0 ) {
 			cos = -cos;
-			correctQuaternion = new Quaternion( -quaternion.getX( ), -quaternion.getY( ), -quaternion.getZ( ), -quaternion.getW( ) );
+			correctQuaternion = new Quaternion( -quaternion.getX( ), -quaternion.getY( ), -quaternion.getZ( ),
+												-quaternion.getW( ) );
 		}
 
 		if( Math.abs( cos ) >= 1 - EPSILON ) {

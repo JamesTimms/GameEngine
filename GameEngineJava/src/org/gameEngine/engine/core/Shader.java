@@ -19,9 +19,9 @@ public class Shader {
 	private int program;
 	private HashMap< String, Integer > uniforms;
 
-	public Shader() {
-		program = glCreateProgram();
-		uniforms = new HashMap< String, Integer >();
+	public Shader( ) {
+		program = glCreateProgram( );
+		uniforms = new HashMap< String, Integer >( );
 		if( program == 0 ) {
 			System.err.println( "Shader creation failed: Could not find valid memory location in constructor." );
 			System.exit( 1 );
@@ -42,7 +42,7 @@ public class Shader {
 
 	}
 
-	public void CompileShader() {
+	public void CompileShader( ) {
 		glLinkProgram( program );
 
 		if( glGetProgrami( program, GL_LINK_STATUS ) == 0 ) {
@@ -58,7 +58,7 @@ public class Shader {
 		}
 	}
 
-	public void Bind() {
+	public void Bind( ) {
 		glUseProgram( program );
 	}
 
@@ -86,7 +86,7 @@ public class Shader {
 
 		if( uniformLocation == 0xFFFFFFFF ) {
 			System.err.println( "Error: Could not find uniform: " + uniform );
-			new Exception().printStackTrace();
+			new Exception( ).printStackTrace( );
 			System.exit( 1 );
 		}
 		uniforms.put( uniform, uniformLocation );
@@ -101,7 +101,7 @@ public class Shader {
 	}
 
 	public void setUniform3f( String uniformName, Vector3f vector ) {
-		glUniform3f( uniforms.get( uniformName ), vector.getX(), vector.getY(), vector.getZ() );
+		glUniform3f( uniforms.get( uniformName ), vector.getX( ), vector.getY( ), vector.getZ( ) );
 	}
 
 	public void setUniform4m( String uniformName, Matrix4f matrix ) {

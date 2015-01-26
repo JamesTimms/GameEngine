@@ -15,7 +15,7 @@ public class Vertex {
 		this.position = position;
 	}
 
-	public Vector3f getPosition() {
+	public Vector3f getPosition( ) {
 		return position;
 	}
 

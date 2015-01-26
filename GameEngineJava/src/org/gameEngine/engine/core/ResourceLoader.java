@@ -9,21 +9,21 @@ import java.io.FileReader;
 public class ResourceLoader {
 
 	public static String LoadShader( String filename ) {
-		StringBuilder shaderSource = new StringBuilder();
+		StringBuilder shaderSource = new StringBuilder( );
 		BufferedReader shaderReader = null;
 		try {
 			shaderReader = new BufferedReader( new FileReader( "./resource/shaders/" + filename ) );
 			String line;
-			while( ( line = shaderReader.readLine() ) != null ) {
+			while( ( line = shaderReader.readLine( ) ) != null ) {
 				shaderSource.append( line ).append( "\n" );
 			}
 
 		} catch( Exception exception ) {
-			exception.printStackTrace();
+			exception.printStackTrace( );
 			System.exit( 1 );
 		}
 
-		return shaderSource.toString();
+		return shaderSource.toString( );
 	}
 
 }

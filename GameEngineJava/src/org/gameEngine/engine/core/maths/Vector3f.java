@@ -64,7 +64,7 @@ public class Vector3f {
 		double y_ = z * vector.getX( ) - x * vector.getZ( );
 		double z_ = x * vector.getY( ) - y * vector.getX( );
 
-		return new Vector3f( (float)x_, (float)y_, (float)z_ );
+		return new Vector3f( ( float ) x_, ( float ) y_, ( float ) z_ );
 	}
 
 	public Vector3f normalized( ) {

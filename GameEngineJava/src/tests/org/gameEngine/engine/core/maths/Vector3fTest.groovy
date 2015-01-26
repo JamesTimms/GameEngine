@@ -6,8 +6,7 @@ import org.junit.runners.JUnit4
 import testUtil.TestUtil
 
 import static testUtil.TestUtil.ApproaxEquals
-import static testUtil.TestUtil.ApproaxEquals
-import static testUtil.TestUtil.GetRandomShortFloat;
+import static testUtil.TestUtil.GetRandomShortFloat
 
 /**
  * Created by TekMaTek on 05/08/2014.
@@ -29,6 +28,7 @@ class Vector3fTest extends GroovyTestCase {
                             significantFigures );
                 }
             }
+
             void LengthTests( float x, float y, float z, int significantFigures ) {
                 Vector3f vector = new Vector3f( x, y, z )
                 float expectedLength = ( float ) Math.sqrt( x * x + y * y + z * z )//No need to explicitly cast x,
@@ -72,12 +72,14 @@ class Vector3fTest extends GroovyTestCase {
                 }
                 assertTrue( testPassed )
             }
+
             private Vector3f TestCrossProduct( Vector3f vector1, Vector3f vector2 ) {
                 float x_ = vector1.getY( ) * vector2.getZ( ) - vector1.getZ( ) * vector2.getY( );
                 float y_ = vector1.getZ( ) * vector2.getX( ) - vector1.getX( ) * vector2.getZ( );
                 float z_ = vector1.getX( ) * vector2.getY( ) - vector1.getY( ) * vector2.getX( );
                 return new Vector3f( x_, y_, z_ );
             }
+
             public void RandomTestForCrossProduct( int numberOfRuns, int significantFigures ) {
                 for( int i = 0; i < numberOfRuns; i++ ) {
                     Vector3f vector1 = new Vector3f(
@@ -88,29 +90,33 @@ class Vector3fTest extends GroovyTestCase {
                             GetRandomShortFloat( ),
                             GetRandomShortFloat( ),
                             GetRandomShortFloat( ) );
-                    TestCrossProduct( vector1, vector2,significantFigures );
+                    TestCrossProduct( vector1, vector2, significantFigures );
                 }
             }
-            public void ConcreteTest1( ) {
+
+            public void ConcreteTest1() {
                 Vector3f vector = new Vector3f( 1.0f, 2.0f, 3.0f );
                 Vector3f vectorToCross = new Vector3f( 3.0f, 2.0f, 1.0f );
                 Vector3f actual = vector.cross( vectorToCross );
                 Vector3f expected = new Vector3f( -4.0f, 8.0f, -4.0f );
                 assertEquals( expected, actual );
             }
-            public void ConcreteTest2( ) {
+
+            public void ConcreteTest2() {
                 Vector3f vector = new Vector3f( -2.0f, 3.0f, 4.0f );
                 Vector3f vectorToCross = new Vector3f( 2.0f, -2.0f, 3.0f );
                 Vector3f actual = vector.cross( vectorToCross );
             }
-            public void ConcreteTest3( ) {
+
+            public void ConcreteTest3() {
                 Vector3f vector = new Vector3f( 1.0f, 0.0f, 0.0f );
                 Vector3f vectorToCross = new Vector3f( 0.0f, 1.0f, 0.0f );
                 Vector3f actual = vector.cross( vectorToCross );
                 Vector3f expected = new Vector3f( 0.0f, 0.0f, 1.0f );
                 assertEquals( expected, actual );
             }
-            public void MaxFloatSize( ) {
+
+            public void MaxFloatSize() {
                 Vector3f vector =
                         new Vector3f( TestUtil.ROOT_MAX_FLOAT, TestUtil.ROOT_MAX_FLOAT, TestUtil.ROOT_MAX_FLOAT );
                 Vector3f vectorToCross = new Vector3f( 4.0f, 0.0f, 2.0f );
@@ -120,7 +126,8 @@ class Vector3fTest extends GroovyTestCase {
                 // floats are infamously inaccurate.
                 assertTrue( testPassed )
             }
-            public void MinFloatSize( ) {
+
+            public void MinFloatSize() {
                 Vector3f vector =
                         new Vector3f( TestUtil.ROOT_MIN_FLOAT, TestUtil.ROOT_MIN_FLOAT, TestUtil.ROOT_MIN_FLOAT );
                 Vector3f vectorToCross = new Vector3f( 4.0f, 0.0f, 2.0f );
@@ -293,16 +300,16 @@ class Vector3fTest extends GroovyTestCase {
     }
 
     @Test
-    void testZero( ) {
+    void testZero() {
         Vector3f zeroVector = Vector3f.Zero( );
-        Vector3f expected = new Vector3f( 0.0f, 0.0f ,0.0f );
+        Vector3f expected = new Vector3f( 0.0f, 0.0f, 0.0f );
         assertEquals( expected, zeroVector );
     }
 
     @Test
-    void testOne( ) {
+    void testOne() {
         Vector3f oneVector = Vector3f.One( );
-        Vector3f expected = new Vector3f( 1.0f, 1.0f ,1.0f );
+        Vector3f expected = new Vector3f( 1.0f, 1.0f, 1.0f );
         assertEquals( expected, oneVector );
     }
 }

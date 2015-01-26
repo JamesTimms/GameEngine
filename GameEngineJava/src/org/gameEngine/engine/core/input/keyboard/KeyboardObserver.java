@@ -36,12 +36,10 @@ public class KeyboardObserver extends Observable implements GameInput {
 				setChanged( );
 				//keyNumber.NotifyObservers( );
 				notifyObservers( ObserverArgs.CreateArgs( KEY_PRESSED_EVENT, keyNumber.toString( ) ) );
-			}
-			else if( keyboardEvents.IsKeyHeld( keyNumber ) ) {
+			} else if( keyboardEvents.IsKeyHeld( keyNumber ) ) {
 				setChanged( );
 				notifyObservers( ObserverArgs.CreateArgs( KEY_HELD_EVENT, keyNumber.toString( ) ) );
-			}
-			else if( keyboardEvents.IsKeyReleased( keyNumber ) ) {
+			} else if( keyboardEvents.IsKeyReleased( keyNumber ) ) {
 				setChanged( );
 				notifyObservers( ObserverArgs.CreateArgs( KEY_RELEASED_EVENT, keyNumber.toString( ) ) );
 			}

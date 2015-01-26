@@ -1,12 +1,8 @@
 package org.gameEngine.engine.core.render;
 
 import static org.lwjgl.opengl.GL11.*;
-import static org.lwjgl.opengl.GL11.GL_COLOR_BUFFER_BIT;
-import static org.lwjgl.opengl.GL11.GL_DEPTH_BUFFER_BIT;
 import static org.lwjgl.opengl.GL15.*;
-import static org.lwjgl.opengl.GL20.glDisableVertexAttribArray;
-import static org.lwjgl.opengl.GL20.glEnableVertexAttribArray;
-import static org.lwjgl.opengl.GL20.glVertexAttribPointer;
+import static org.lwjgl.opengl.GL20.*;
 
 
 /**
@@ -14,29 +10,35 @@ import static org.lwjgl.opengl.GL20.glVertexAttribPointer;
  */
 public class Mesh {
 
-	private int vbo;
-	private int size;
+	private int vertexBO;
+	private int indexBO;
+	private int indicesLength;
 
 
 	public Mesh( ) {
-		vbo = glGenBuffers( );
-		size = 0;
+		vertexBO = glGenBuffers( );
+		indexBO = glGenBuffers( );
+		indicesLength = 0;
 	}
 
-	public void AddVertices( Vertex[ ] vertices ) {
-		size = vertices.length * Vertex.SIZE;
-		glBindBuffer( GL_ARRAY_BUFFER, vbo );
-		glBufferData( GL_ARRAY_BUFFER, Util.CreateFlippedBuffer( vertices ), GL_STATIC_DRAW );
+	public void AddVertices( Vertex[] vertices, int[] indices ) {
+		indicesLength = indices.length;
+		glBindBuffer( GL_ARRAY_BUFFER, vertexBO );
+		glBufferData( GL_ARRAY_BUFFER, Util.createFlippedBuffer( vertices ), GL_STATIC_DRAW );
 
+		glBindBuffer( GL_ELEMENT_ARRAY_BUFFER, indexBO );
+		glBufferData( GL_ELEMENT_ARRAY_BUFFER, Util.createFlippedBuffer( indices ), GL_STATIC_DRAW );
 	}
 
 	public void Draw( ) {
-		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+		glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
 		glEnableVertexAttribArray( 0 );
 
-		glBindBuffer( GL_ARRAY_BUFFER, vbo );
+		glBindBuffer( GL_ARRAY_BUFFER, vertexBO );
 		glVertexAttribPointer( 0, 3, GL_FLOAT, false, Vertex.SIZE * 4, 0 );
-		glDrawArrays( GL_TRIANGLES, 0, size );
+
+		glBindBuffer( GL_ELEMENT_ARRAY_BUFFER, indexBO );
+		glDrawElements( GL_TRIANGLES, indicesLength, GL_UNSIGNED_INT, 0 );
 
 		glDisableVertexAttribArray( 0 );
 	}

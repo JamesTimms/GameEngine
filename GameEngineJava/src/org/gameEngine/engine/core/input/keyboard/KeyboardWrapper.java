@@ -5,7 +5,7 @@ import org.lwjgl.input.Keyboard;
 
 /**
  * Created by TekMaTek on 25/07/2014.
- *
+ * <p/>
  * LWJGL implements many of the methods in Keyboard as static.
  * To try and make the engine more testable this class
  * wraps the Static methods with non statics methods. This should

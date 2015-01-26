@@ -16,9 +16,10 @@ public class ObserverArgs {
 
 	public String eventID;
 	public String eventMessage;//Used for single quick event message.
-	private Dictionary< String, Object > arguments = new Hashtable< String, Object >(  );//Used for more complex data.
+	private Dictionary< String, Object > arguments = new Hashtable< String, Object >( );//Used for more complex data.
 
-	protected ObserverArgs( ) { }//Here to prevent ObserverArgs from being creating improperly.
+	protected ObserverArgs( ) {
+	}//Here to prevent ObserverArgs from being creating improperly.
 
 	public static ObserverArgs CreateArgs( String eventID ) {
 		ObserverArgs newArgs = new ObserverArgs( );
@@ -35,7 +36,7 @@ public class ObserverArgs {
 
 	public ObserverArgs AddArg( String argID, Object argValue ) {
 		if( arguments == null ) {
-			arguments  = new Hashtable< String, Object >( );
+			arguments = new Hashtable< String, Object >( );
 		}
 		arguments.put( argID, argValue );
 		return this;

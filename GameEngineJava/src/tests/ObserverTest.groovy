@@ -27,7 +27,7 @@ class ObserverTest extends groovy.util.GroovyTestCase {
     @Test
     void testEventObjectSent() {
         boolean dataReceived = false;
-        Observable testObservable = new Observable()
+        Observable testObservable = new Observable( )
 
         Observer testObserver = new Observer( ) {
             @Override
@@ -45,7 +45,7 @@ class ObserverTest extends groovy.util.GroovyTestCase {
     @Test
     void testEventObjectSent2() {
 
-        Observable testObservable = new Observable();
+        Observable testObservable = new Observable( );
 
         Observer testObserver = new Observer( ) {
             @Override

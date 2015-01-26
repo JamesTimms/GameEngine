@@ -3,8 +3,8 @@ package org.gameEngine.engine.core.input.keyboard;
 import java.util.ArrayList;
 
 /**
-* Created by TekMaTek on 25/07/2014.
-*/
+ * Created by TekMaTek on 25/07/2014.
+ */
 public class KeyboardEvents {
 
 	public int numberOfEvents;

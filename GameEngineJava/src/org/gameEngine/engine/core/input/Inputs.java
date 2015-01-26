@@ -19,7 +19,7 @@ public class Inputs {
 	}
 
 	public void ProcessInputs( ) {
-		
+
 	}
 
 	public void AddInput( GameInput input ) {

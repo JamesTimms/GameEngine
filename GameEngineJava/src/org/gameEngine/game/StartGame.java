@@ -13,6 +13,7 @@ public class StartGame {
 	public static final int HEIGHT = 600;
 	public static final long FRAME_CAP = 60;
 	protected static final String TITLE = "3D Engine";
+	public static int frameCount = 0;
 	public Window window;
 	protected boolean shouldRunGameLoop = false;
 	protected Game game;
@@ -22,7 +23,7 @@ public class StartGame {
 
 	protected StartGame( Window window ) {
 		this.window = window;
-		this.game = GameFactory.Build();
+		this.game = GameFactory.Build( );
 	}
 
 	public static void main( String[] args ) {
@@ -30,31 +31,30 @@ public class StartGame {
 		StartGame game = new StartGame(
 				new Window( WIDTH, HEIGHT, TITLE ) );
 
-		game.StartGame();
+		game.StartGame( );
 	}
 
-	public void StartGame() {
+	public void StartGame( ) {
 		shouldRunGameLoop = true;
-		InitializeGame();
-		GameLoop();
+		InitializeGame( );
+		GameLoop( );
 	}
 
-	private void InitializeGame() {
-		System.out.println( Util.GetOpenGLVersion() );
+	private void InitializeGame( ) {
+		System.out.println( Util.GetOpenGLVersion( ) );
 //		Util.InitGraphics();
 	}
 
-	public void StopGame() {
+	public void StopGame( ) {
 		if( !shouldRunGameLoop ) {
 			return;
 		}
 		shouldRunGameLoop = false;
 	}
-	public static int frameCount = 0;
 
-	protected void GameLoop() {
-		timeLastLoop = Time.getTime();
-		long timeLastFrame = Time.getTime();
+	protected void GameLoop( ) {
+		timeLastLoop = Time.getTime( );
+		long timeLastFrame = Time.getTime( );
 		long timeThisFrame;
 
 		long totalTime = 0l;
@@ -65,22 +65,22 @@ public class StartGame {
 				frameCount = 0;
 			}
 
-			if( IsReadyForFrame() ) {
+			if( IsReadyForFrame( ) ) {
 				//Do frame.
-				timeThisFrame = Time.getTime();
+				timeThisFrame = Time.getTime( );
 				Time.SetDeltaTime( timeThisFrame - timeLastFrame );
 				timeLastFrame = timeThisFrame;
 
-				frameCount ++;
-				ProcessFrame();
-				RenderFrame();
+				frameCount++;
+				ProcessFrame( );
+				RenderFrame( );
 			}
 		}
-		CleanUp();
+		CleanUp( );
 	}
 
-	protected boolean IsReadyForFrame() {
-		timeThisLoop = Time.getTime();
+	protected boolean IsReadyForFrame( ) {
+		timeThisLoop = Time.getTime( );
 		Time.perLoopDelta = timeThisLoop - timeLastLoop;
 		timeLastLoop = timeThisLoop;
 		long timeThingy = ( FRAME_CAP == 0 ) ? 0 : Time.SECOND / FRAME_CAP;
@@ -91,21 +91,21 @@ public class StartGame {
 		return isReady;
 	}
 
-	protected void ProcessFrame() {
-		if( window.IsCloseRequested() ) {
-			StopGame();
+	protected void ProcessFrame( ) {
+		if( window.IsCloseRequested( ) ) {
+			StopGame( );
 		}
-		game.UpdateInput();
-		game.Update();
+		game.UpdateInput( );
+		game.Update( );
 	}
 
-	protected void RenderFrame() {
+	protected void RenderFrame( ) {
 
-		game.Render();
-		window.Render();
+		game.Render( );
+		window.Render( );
 	}
 
-	protected void CleanUp() {
-		window.Dispose();
+	protected void CleanUp( ) {
+		window.Dispose( );
 	}
 }

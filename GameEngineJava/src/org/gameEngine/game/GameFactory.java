@@ -1,6 +1,7 @@
 package org.gameEngine.game;
 
-import org.gameEngine.engine.core.input.*;
+import org.gameEngine.engine.core.input.InputFactory;
+import org.gameEngine.engine.core.input.Inputs;
 
 /**
  * Created by TekMaTek on 25/07/2014.

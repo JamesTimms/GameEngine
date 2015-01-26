@@ -7,7 +7,7 @@ import org.gameEngine.engine.core.maths.Vector3f
  */
 class TestUtil {
 
-    static Random rand = new Random();
+    static Random rand = new Random( );
     public static final float ROOT_MAX_FLOAT = 1.844674352395373E19;
     public static final float ROOT_MIN_FLOAT = 3.743392130574644E-23;
 
@@ -16,13 +16,13 @@ class TestUtil {
         return rand.nextFloat( ) * ( upperBound - lowerBound ) + lowerBound;
     }
 
-    public static float GetRandomFloat(  ) {
+    public static float GetRandomFloat() {
         return rand.nextFloat( ) * ( Float.MAX_VALUE - Float.MIN_VALUE ) + Float.MIN_VALUE;
     }
 
-    //Short floats can only be root of Float.MAX_VALUE due to calculations in Vector3f limiting their size.
+    //Short floats can only be root of Float.MAX_VALUE due to calculations in Vector3f limiting their indicesLength.
     //IE doing floatA * floatB must give a value lower than Float.MAX_VALUE
-    public static float GetRandomShortFloat( ) {
+    public static float GetRandomShortFloat() {
         return GetRandomFloat( ROOT_MAX_FLOAT, -ROOT_MIN_FLOAT );
     }
 

@@ -12,24 +12,24 @@ public class Transform {
 	private Vector3f rotation;
 	private Vector3f scale;
 
-	public Transform() {
-		this.translation = Vector3f.Zero();
-		this.rotation = Vector3f.Zero();
-		this.scale = Vector3f.One();
+	public Transform( ) {
+		this.translation = Vector3f.Zero( );
+		this.rotation = Vector3f.Zero( );
+		this.scale = Vector3f.One( );
 	}
 
-	public Matrix4f getTransformation() {
+	public Matrix4f getTransformation( ) {
 		Matrix4f translationMat =
-				new Matrix4f().initTranslation( translation.getX(), translation.getY(), translation.getZ() );
+				new Matrix4f( ).initTranslation( translation.getX( ), translation.getY( ), translation.getZ( ) );
 		Matrix4f rotationMat =
-				new Matrix4f().initRotation( rotation.getX(), rotation.getY(), rotation.getZ() );
+				new Matrix4f( ).initRotation( rotation.getX( ), rotation.getY( ), rotation.getZ( ) );
 		Matrix4f scaleMat =
-				new Matrix4f().initScale( scale.getX(), scale.getY(), scale.getZ() );
+				new Matrix4f( ).initScale( scale.getX( ), scale.getY( ), scale.getZ( ) );
 
 		return translationMat.mul( rotationMat ).mul( scaleMat );
 	}
 
-	public Vector3f getTranslation() {
+	public Vector3f getTranslation( ) {
 		return translation;
 	}
 
@@ -41,7 +41,7 @@ public class Transform {
 		this.translation = new Vector3f( x, y, z );
 	}
 
-	public Vector3f getRotation() {
+	public Vector3f getRotation( ) {
 		return rotation;
 	}
 
@@ -53,7 +53,7 @@ public class Transform {
 		this.rotation = new Vector3f( x, y, z );
 	}
 
-	public Vector3f getScale() {
+	public Vector3f getScale( ) {
 		return scale;
 	}
 

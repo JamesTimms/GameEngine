@@ -6,15 +6,14 @@ package org.gameEngine.engine.core;
 public class Time {
 
 	public static final long SECOND = 1000000000L;
-
-	protected static long delta;
 	public static long perLoopDelta;
+	protected static long delta;
 
-	public static long getTime() {
-		return System.nanoTime();
+	public static long getTime( ) {
+		return System.nanoTime( );
 	}
 
-	public static long GetDeltaTime() {
+	public static long GetDeltaTime( ) {
 		return delta;
 	}
 
