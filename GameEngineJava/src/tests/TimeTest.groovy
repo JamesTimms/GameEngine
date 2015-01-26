@@ -8,7 +8,6 @@ import org.junit.Test
  */
 class TimeTest extends groovy.util.GroovyTestCase {
 
-    Time testTime
     static final long TEST_TIME = 5000000000l
     static final long TEST_TIME2 = 5000000001l
     static final long TEST_TIME_MIN = -2147483648l
@@ -28,15 +27,13 @@ class TimeTest extends groovy.util.GroovyTestCase {
     }
 
     void GetDeltaTimeOnce( long time ) {
-        testTime = new Time( )
-        testTime.SetDeltaTime( time )
-        assertEquals testTime.GetDeltaTime( ), time
+        Time.SetDeltaTime( time )
+        assertEquals Time.GetDeltaTime( ), time
     }
 
     @Test
     void testSetDelta() {
-        testTime = new Time( )
-        testTime.SetDeltaTime( TEST_TIME )
-        assertEquals testTime.GetDeltaTime( ), TEST_TIME
+        Time.SetDeltaTime( TEST_TIME )
+        assertEquals Time.GetDeltaTime( ), TEST_TIME
     }
 }

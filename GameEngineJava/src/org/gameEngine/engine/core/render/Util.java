@@ -1,11 +1,12 @@
 package org.gameEngine.engine.core.render;
 
+import org.gameEngine.engine.core.maths.Matrix4f;
 import org.lwjgl.BufferUtils;
 
 import java.nio.FloatBuffer;
 
 import static org.lwjgl.opengl.GL11.*;
-import static org.lwjgl.opengl.GL30.*;
+import static org.lwjgl.opengl.GL30.GL_FRAMEBUFFER_SRGB;
 
 /**
  * Created by TekMaTek on 27/10/2014.
@@ -16,16 +17,16 @@ public class Util {
 		return BufferUtils.createFloatBuffer( size );
 	}
 
-	public static FloatBuffer CreateFlippedBuffer( Vertex[ ] verticies ) {
+	public static FloatBuffer CreateFlippedBuffer( Vertex[] verticies ) {
 		FloatBuffer buffer = CrateFloatBuffer( verticies.length * Vertex.SIZE );
 
-		for( int i = 0; i < verticies.length; i ++ ) {
-			buffer.put( verticies[ i ].getPosition( ).getX( ) );
-			buffer.put( verticies[ i ].getPosition( ).getY( ) );
-			buffer.put( verticies[ i ].getPosition( ).getZ( ) );
+		for( int i = 0; i < verticies.length; i++ ) {
+			buffer.put( verticies[ i ].getPosition().getX() );
+			buffer.put( verticies[ i ].getPosition().getY() );
+			buffer.put( verticies[ i ].getPosition().getZ() );
 		}
 
-		buffer.flip( );
+		buffer.flip();
 		return buffer;
 	}
 
@@ -33,7 +34,7 @@ public class Util {
 		glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
 	}
 
-	public static void InitGraphics( ) {
+	public static void InitGraphics() {
 		glClearColor( 0.0f, 0.0f, 0.0f, 0.0f );
 
 		glFrontFace( GL_CW );
@@ -46,7 +47,19 @@ public class Util {
 		glEnable( GL_FRAMEBUFFER_SRGB );
 	}
 
-	public static String GetOpenGLVersion( ) {
+	public static FloatBuffer createFlippedBuffer( Matrix4f matrix ) {
+		FloatBuffer buffer = CrateFloatBuffer( 4 * 4 );
+
+		for( int i = 0; i < 4; i++ ) {
+			for( int j = 0; j < 4; j++ ) {
+				buffer.put( matrix.get( i, j ) );
+			}
+		}
+		buffer.flip();
+		return buffer;
+	}
+
+	public static String GetOpenGLVersion() {
 		return "OpenGL Version: " + glGetString( GL_VERSION );
 	}
 

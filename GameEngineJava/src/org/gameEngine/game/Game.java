@@ -2,6 +2,7 @@ package org.gameEngine.game;
 
 import org.gameEngine.engine.core.ResourceLoader;
 import org.gameEngine.engine.core.Shader;
+import org.gameEngine.engine.core.Time;
 import org.gameEngine.engine.core.input.Inputs;
 import org.gameEngine.engine.core.maths.Vector3f;
 import org.gameEngine.engine.core.render.Mesh;
@@ -14,6 +15,7 @@ public class Game {
 
 	protected Inputs input;
 	protected Mesh mesh;
+	float temp = 0.0f;
 	private Shader shader;
 
 	public Game( Inputs input ) {
@@ -31,6 +33,7 @@ public class Game {
 		shader.addFragmentShader( ResourceLoader.LoadShader( "basicFragment.fragment" ) );
 		shader.CompileShader();
 
+		shader.addUniform( "uniformFloat" );
 	}
 
 	public void UpdateInput() {
@@ -38,7 +41,8 @@ public class Game {
 	}
 
 	public void Update() {
-
+		temp += ( float ) ( Time.GetDeltaTime() / 1000000 );
+		shader.setUniformf( "uniformFloat", ( float ) Math.abs( Math.sin( temp ) ) );
 	}
 
 	public void Render() {

@@ -11,16 +11,16 @@ public class StartGame {
 
 	public static final int WIDTH = 800;
 	public static final int HEIGHT = 600;
-	public static final double FRAME_CAP = 120.0f;
+	public static final long FRAME_CAP = 60;
 	protected static final String TITLE = "3D Engine";
-	public Time time;
 	public Window window;
 	protected boolean shouldRunGameLoop = false;
 	protected Game game;
 	protected double timeElapsed = 0.0d;
+	long timeLastLoop;
+	long timeThisLoop;
 
-	protected StartGame( Time time, Window window ) {
-		this.time = time;
+	protected StartGame( Window window ) {
 		this.window = window;
 		this.game = GameFactory.Build();
 	}
@@ -28,7 +28,6 @@ public class StartGame {
 	public static void main( String[] args ) {
 		//Start UpdateInput Observer as separate thread.
 		StartGame game = new StartGame(
-				new Time(),
 				new Window( WIDTH, HEIGHT, TITLE ) );
 
 		game.StartGame();
@@ -53,16 +52,26 @@ public class StartGame {
 	}
 
 	protected void GameLoop() {
-		long timeLastFrame = time.getTime();
+		timeLastLoop = Time.getTime();
+		long timeLastFrame = Time.getTime();
 		long timeThisFrame;
 
+		long totalTime = 0l;
+		int frameCount = 0;
 		while( shouldRunGameLoop ) {
-
-			timeThisFrame = time.getTime();
-			time.SetDeltaTime( timeThisFrame - timeLastFrame );
-			timeLastFrame = timeThisFrame;
+			if( ( totalTime += Time.perLoopDelta ) > Time.SECOND ) {
+				System.out.println( "FPS: " + frameCount );
+				totalTime = 0l;
+				frameCount = 0;
+			}
 
 			if( IsReadyForFrame() ) {
+				//Do frame.
+				timeThisFrame = Time.getTime();
+				Time.SetDeltaTime( timeThisFrame - timeLastFrame );
+				timeLastFrame = timeThisFrame;
+
+				frameCount++;
 				ProcessFrame();
 				RenderFrame();
 			}
@@ -71,9 +80,13 @@ public class StartGame {
 	}
 
 	protected boolean IsReadyForFrame() {
-		boolean isReady = ( timeElapsed -= time.GetDeltaTime() ) < 0.0d;
+		timeThisLoop = Time.getTime();
+		Time.perLoopDelta = timeThisLoop - timeLastLoop;
+		timeLastLoop = timeThisLoop;
+		long timeThingy = ( FRAME_CAP == 0 ) ? 0 : Time.SECOND / FRAME_CAP;
+		boolean isReady = ( timeElapsed += Time.perLoopDelta ) > timeThingy;
 		if( isReady ) {
-			timeElapsed = ( FRAME_CAP / Time.SECOND );
+			timeElapsed = 0;
 		}
 		return isReady;
 	}
@@ -83,6 +96,7 @@ public class StartGame {
 			StopGame();
 		}
 		game.UpdateInput();
+		game.Update();
 	}
 
 	protected void RenderFrame() {
