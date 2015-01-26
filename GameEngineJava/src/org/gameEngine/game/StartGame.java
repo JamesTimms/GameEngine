@@ -42,7 +42,7 @@ public class StartGame {
 
 	private void InitializeGame( ) {
 		System.out.println( Util.GetOpenGLVersion( ) );
-//		Util.InitGraphics();
+		Util.initGraphics();
 	}
 
 	public void StopGame( ) {

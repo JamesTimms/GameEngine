@@ -6,6 +6,8 @@ package org.gameEngine.engine.core.maths;
  */
 public class Vector2f {
 
+	public static final Vector2f ONE = new Vector2f( 1.0f, 1.0f );
+	public static final Vector2f ZERO = new Vector2f( 0.0f, 0.0f );
 	protected float x;
 	protected float y;
 

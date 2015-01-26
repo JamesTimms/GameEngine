@@ -1,11 +1,10 @@
-package org.gameEngine.engine.core;
+package org.gameEngine.engine.core.render;
 
 import org.gameEngine.engine.core.maths.Vector3f;
-import org.gameEngine.engine.core.render.Mesh;
-import org.gameEngine.engine.core.render.Util;
-import org.gameEngine.engine.core.render.Vertex;
+import org.newdawn.slick.opengl.TextureLoader;
 
 import java.io.BufferedReader;
+import java.io.FileInputStream;
 import java.io.FileReader;
 import java.util.ArrayList;
 
@@ -30,6 +29,22 @@ public class ResourceLoader {
 		}
 
 		return shaderSource.toString( );
+	}
+
+	public static Texture loadTexture( String filename ) {
+		String[] splitArray = filename.split( "\\." );
+		String ext = splitArray[ splitArray.length - 1 ];
+
+		try {
+			int id = TextureLoader.getTexture( ext, new FileInputStream( "./resource/textures/" + filename ) )
+								  .getTextureID( );
+			return new Texture( id );
+		} catch( Exception ex ) {
+			ex.printStackTrace( );
+			System.exit( 1 );
+		}
+
+		return null;
 	}
 
 	public static Mesh loadMesh( String filename ) {
@@ -83,7 +98,7 @@ public class ResourceLoader {
 		Integer[] indexData = new Integer[ indices.size( ) ];
 		indices.toArray( indexData );
 
-		res.AddVertices( vertexData, Util.toIntArray( indexData ) );
+		res.addVertices( vertexData, Util.toIntArray( indexData ) );
 
 		return res;
 	}

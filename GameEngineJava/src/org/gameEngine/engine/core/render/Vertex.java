@@ -1,5 +1,6 @@
 package org.gameEngine.engine.core.render;
 
+import org.gameEngine.engine.core.maths.Vector2f;
 import org.gameEngine.engine.core.maths.Vector3f;
 
 /**
@@ -7,12 +8,18 @@ import org.gameEngine.engine.core.maths.Vector3f;
  */
 public class Vertex {
 
-	public static final int SIZE = 3;
+	public static final int SIZE = 5;
 
 	protected Vector3f position;
+	protected Vector2f texCoord;
 
 	public Vertex( Vector3f position ) {
+		this( position, Vector2f.ZERO );
+	}
+
+	public Vertex( Vector3f position, Vector2f texCoord ) {
 		this.position = position;
+		this.texCoord = texCoord;
 	}
 
 	public Vector3f getPosition( ) {
@@ -21,5 +28,13 @@ public class Vertex {
 
 	public void setPosition( Vector3f position ) {
 		this.position = position;
+	}
+
+	public Vector2f getTexCoord( ) {
+		return texCoord;
+	}
+
+	public void setTexCoord( Vector2f texCoord ) {
+		this.texCoord = texCoord;
 	}
 }

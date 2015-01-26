@@ -30,6 +30,8 @@ public class Util {
 			buffer.put( verticies[ i ].getPosition( ).getX( ) );
 			buffer.put( verticies[ i ].getPosition( ).getY( ) );
 			buffer.put( verticies[ i ].getPosition( ).getZ( ) );
+			buffer.put( verticies[ i ].getTexCoord( ).getX( ) );
+			buffer.put( verticies[ i ].getTexCoord( ).getY( ) );
 		}
 
 		buffer.flip( );
@@ -43,11 +45,19 @@ public class Util {
 		return buffer;
 	}
 
-	public static void ClearScreen( ) {
+	public static void clearScreen( ) {
 		glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
 	}
 
-	public static void InitGraphics( ) {
+	public static void setTexture( boolean enabled ) {
+		if( enabled ) {
+			glEnable( GL_TEXTURE_2D );
+		} else {
+			glDisable( GL_TEXTURE_2D );
+		}
+	}
+
+	public static void initGraphics( ) {
 		glClearColor( 0.0f, 0.0f, 0.0f, 0.0f );
 
 		glFrontFace( GL_CW );
@@ -56,7 +66,7 @@ public class Util {
 		glEnable( GL_DEPTH_TEST );
 
 		//TODO: Depth clamp for later
-
+		glEnable( GL_TEXTURE_2D );
 		glEnable( GL_FRAMEBUFFER_SRGB );
 	}
 
