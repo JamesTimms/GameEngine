@@ -12,6 +12,36 @@ public class Matrix4f {
 		m = new float[ 4 ][ 4 ];
 	}
 
+	public Matrix4f initCamera( Vector3f forward, Vector3f up ) {
+		Vector3f f = forward;
+		f.normalized( );
+
+		Vector3f right = up;
+		right.normalized( );
+		right = right.cross( forward );
+
+		Vector3f newUp = f.cross( right );
+
+		m[ 0 ][ 0 ] = right.getX( );
+		m[ 0 ][ 1 ] = right.getY( );
+		m[ 0 ][ 2 ] = right.getZ( );
+		m[ 0 ][ 3 ] = 0;
+		m[ 1 ][ 0 ] = up.getX( );
+		m[ 1 ][ 1 ] = up.getY( );
+		m[ 1 ][ 2 ] = up.getZ( );
+		m[ 1 ][ 3 ] = 0;
+		m[ 2 ][ 0 ] = f.getX( );
+		m[ 2 ][ 1 ] = f.getY( );
+		m[ 2 ][ 2 ] = f.getZ( );
+		m[ 2 ][ 3 ] = 0;
+		m[ 3 ][ 0 ] = 0;
+		m[ 3 ][ 1 ] = 0;
+		m[ 3 ][ 2 ] = 0;
+		m[ 3 ][ 3 ] = 1;
+
+		return this;
+	}
+
 	public Matrix4f initIdentity( ) {
 		m[ 0 ][ 0 ] = 1;
 		m[ 0 ][ 1 ] = 0;

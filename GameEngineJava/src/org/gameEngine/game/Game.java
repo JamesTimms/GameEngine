@@ -1,9 +1,6 @@
 package org.gameEngine.game;
 
-import org.gameEngine.engine.core.ResourceLoader;
-import org.gameEngine.engine.core.Shader;
-import org.gameEngine.engine.core.Time;
-import org.gameEngine.engine.core.Transform;
+import org.gameEngine.engine.core.*;
 import org.gameEngine.engine.core.input.Inputs;
 import org.gameEngine.engine.core.render.Mesh;
 
@@ -16,6 +13,7 @@ public class Game {
 	protected Mesh mesh;
 	private Shader shader;
 	private Transform transform;
+	private Camera camera;
 	private double temp;
 
 	public Game( Inputs input ) {
@@ -23,7 +21,10 @@ public class Game {
 		mesh = ResourceLoader.loadMesh( "cube.obj" );
 		shader = new Shader( );
 		transform = new Transform( );
+		camera = new Camera( );
+
 		Transform.setProjection( 70.0f, StartGame.WIDTH, StartGame.HEIGHT, 0.1f, 1000.0f );
+		transform.setCamera( camera );
 
 //		Vertex[] vertices = new Vertex[] {
 //				new Vertex( new Vector3f( -1, -1, 0 ) ),
@@ -49,7 +50,7 @@ public class Game {
 	}
 
 	public void Update( ) {
-		temp += ( double ) Time.GetDeltaTime( ) / ( double ) (Time.SECOND * 10);
+		temp += ( double ) Time.GetDeltaTime( ) / ( double ) ( Time.SECOND * 10 );
 
 		transform.setTranslation( ( float ) Math.sin( temp ), 0.0f, 5.0f );
 		transform.setRotation( 0.0f, ( float ) Math.sin( temp ) * 360, 0.0f );

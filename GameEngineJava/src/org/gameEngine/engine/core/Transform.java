@@ -13,7 +13,7 @@ public class Transform {
 	private static float width;
 	private static float height;
 	private static float fieldOfView;
-
+	private Camera camera;
 	private Vector3f translation;
 	private Vector3f rotation;
 	private Vector3f scale;
@@ -40,15 +40,18 @@ public class Transform {
 		Matrix4f scaleMat =
 				new Matrix4f( ).initScale( scale.getX( ), scale.getY( ), scale.getZ( ) );
 
-		return translationMat.mul( rotationMat ).mul( scaleMat );
+		return translationMat.mul( rotationMat.mul( scaleMat ) );
 	}
 
 	public Matrix4f getProjectedTransformation( ) {//Camera stuff needs to be moved out.
 		Matrix4f transformationMatrix = getTransformation( );
 		Matrix4f projectionMatrix = new Matrix4f( ).initPerspective(
 				Transform.fieldOfView, Transform.height / Transform.width, Transform.zNear, Transform.zFar );
+		Matrix4f cameraRoation = new Matrix4f( ).initCamera( camera.getForward( ), camera.getUp( ) );
+		Matrix4f cameraTranslation = new Matrix4f( ).initTranslation(
+				-camera.getPos( ).getX( ), -camera.getPos( ).getY( ), -camera.getPos( ).getZ( ) );
 
-		return projectionMatrix.mul( transformationMatrix );
+		return projectionMatrix.mul( cameraRoation.mul( cameraTranslation.mul( transformationMatrix ) ) );
 	}
 
 	public Vector3f getTranslation( ) {
@@ -85,5 +88,13 @@ public class Transform {
 
 	public void setScale( float x, float y, float z ) {
 		this.scale = new Vector3f( x, y, z );
+	}
+
+	public Camera getCamera( ) {
+		return camera;
+	}
+
+	public void setCamera( Camera camera ) {
+		this.camera = camera;
 	}
 }
