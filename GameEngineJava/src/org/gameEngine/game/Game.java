@@ -23,6 +23,7 @@ public class Game {
 		mesh = ResourceLoader.loadMesh( "cube.obj" );
 		shader = new Shader( );
 		transform = new Transform( );
+		Transform.setProjection( 70.0f, StartGame.WIDTH, StartGame.HEIGHT, 0.1f, 1000.0f );
 
 //		Vertex[] vertices = new Vertex[] {
 //				new Vertex( new Vector3f( -1, -1, 0 ) ),
@@ -48,16 +49,16 @@ public class Game {
 	}
 
 	public void Update( ) {
-		temp += ( double ) Time.GetDeltaTime( ) / ( double ) Time.SECOND;
+		temp += ( double ) Time.GetDeltaTime( ) / ( double ) (Time.SECOND * 10);
 
-		transform.setTranslation( ( float ) Math.sin( temp ), 0.0f, 0.0f );
+		transform.setTranslation( ( float ) Math.sin( temp ), 0.0f, 5.0f );
 		transform.setRotation( 0.0f, ( float ) Math.sin( temp ) * 360, 0.0f );
 		transform.setScale( 0.5f, 0.5f, 0.5f );
 	}
 
 	public void Render( ) {
 		shader.Bind( );
-		shader.setUniform4m( "transform", transform.getTransformation( ) );
+		shader.setUniform4m( "transform", transform.getProjectedTransformation( ) );
 
 		mesh.Draw( );
 	}

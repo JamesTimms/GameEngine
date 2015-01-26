@@ -8,6 +8,12 @@ import org.gameEngine.engine.core.maths.Vector3f;
  */
 public class Transform {
 
+	private static float zNear;//Camera stuff here for a mo.
+	private static float zFar;
+	private static float width;
+	private static float height;
+	private static float fieldOfView;
+
 	private Vector3f translation;
 	private Vector3f rotation;
 	private Vector3f scale;
@@ -16,6 +22,14 @@ public class Transform {
 		this.translation = Vector3f.Zero( );
 		this.rotation = Vector3f.Zero( );
 		this.scale = Vector3f.One( );
+	}
+
+	public static void setProjection( float fieldOfView, float width, float height, float zNear, float zFar ) {
+		Transform.fieldOfView = fieldOfView;
+		Transform.width = width;
+		Transform.height = height;
+		Transform.zNear = zNear;
+		Transform.zFar = zFar;
 	}
 
 	public Matrix4f getTransformation( ) {
@@ -27,6 +41,14 @@ public class Transform {
 				new Matrix4f( ).initScale( scale.getX( ), scale.getY( ), scale.getZ( ) );
 
 		return translationMat.mul( rotationMat ).mul( scaleMat );
+	}
+
+	public Matrix4f getProjectedTransformation( ) {//Camera stuff needs to be moved out.
+		Matrix4f transformationMatrix = getTransformation( );
+		Matrix4f projectionMatrix = new Matrix4f( ).initPerspective(
+				Transform.fieldOfView, Transform.height / Transform.width, Transform.zNear, Transform.zFar );
+
+		return projectionMatrix.mul( transformationMatrix );
 	}
 
 	public Vector3f getTranslation( ) {
