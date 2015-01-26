@@ -44,9 +44,12 @@ public class Game {
 	}
 
 	public void Update() {
-		temp += (double)Time.GetDeltaTime() / (double)Time.SECOND;
+		temp += ( double ) Time.GetDeltaTime() / ( double ) Time.SECOND;
 
+		float sinTemp = ( float ) Math.sin( Math.sin( temp ) );
 		transform.setTranslation( ( float ) Math.sin( temp ), 0.0f, 0.0f );
+		transform.setRotation( 0.0f, 0.0f, ( float ) Math.sin( temp ) * 360 );
+		transform.setScale( sinTemp, sinTemp, sinTemp );
 	}
 
 	public void Render() {
