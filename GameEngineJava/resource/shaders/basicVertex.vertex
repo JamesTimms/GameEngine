@@ -3,9 +3,9 @@
 layout (location = 0) in vec3 position;
 
 out vec3 colour;
-uniform float uniformFloat;
+uniform mat4 transform;
 
 void main() {
-    colour = clamp( position, 0.0, uniformFloat );
-    gl_Position = vec4( position, 1.0 );
+    colour = clamp( position, 0.0, 1.0 );
+    gl_Position = transform * vec4( position, 1.0 );
 }

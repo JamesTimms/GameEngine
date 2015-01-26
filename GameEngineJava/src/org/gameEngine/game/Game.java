@@ -3,6 +3,7 @@ package org.gameEngine.game;
 import org.gameEngine.engine.core.ResourceLoader;
 import org.gameEngine.engine.core.Shader;
 import org.gameEngine.engine.core.Time;
+import org.gameEngine.engine.core.Transform;
 import org.gameEngine.engine.core.input.Inputs;
 import org.gameEngine.engine.core.maths.Vector3f;
 import org.gameEngine.engine.core.render.Mesh;
@@ -15,13 +16,15 @@ public class Game {
 
 	protected Inputs input;
 	protected Mesh mesh;
-	float temp = 0.0f;
 	private Shader shader;
+	private Transform transform;
+	private double temp;
 
 	public Game( Inputs input ) {
 		this.input = input;
 		mesh = new Mesh();
 		shader = new Shader();
+		transform = new Transform();
 
 		Vertex[] data = new Vertex[] {
 				new Vertex( new Vector3f( -1, -1, 0 ) ),
@@ -33,7 +36,7 @@ public class Game {
 		shader.addFragmentShader( ResourceLoader.LoadShader( "basicFragment.fragment" ) );
 		shader.CompileShader();
 
-		shader.addUniform( "uniformFloat" );
+		shader.addUniform( "transform" );
 	}
 
 	public void UpdateInput() {
@@ -41,12 +44,15 @@ public class Game {
 	}
 
 	public void Update() {
-		temp += ( float ) ( Time.GetDeltaTime() / 1000000 );
-		shader.setUniformf( "uniformFloat", ( float ) Math.abs( Math.sin( temp ) ) );
+		temp += (double)Time.GetDeltaTime() / (double)Time.SECOND;
+
+		transform.setTranslation( ( float ) Math.sin( temp ), 0.0f, 0.0f );
 	}
 
 	public void Render() {
 		shader.Bind();
+		shader.setUniform4m( "transform", transform.getTransformation() );
+
 		mesh.Draw();
 	}
 }

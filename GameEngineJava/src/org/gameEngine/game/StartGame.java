@@ -50,6 +50,7 @@ public class StartGame {
 		}
 		shouldRunGameLoop = false;
 	}
+	public static int frameCount = 0;
 
 	protected void GameLoop() {
 		timeLastLoop = Time.getTime();
@@ -57,7 +58,6 @@ public class StartGame {
 		long timeThisFrame;
 
 		long totalTime = 0l;
-		int frameCount = 0;
 		while( shouldRunGameLoop ) {
 			if( ( totalTime += Time.perLoopDelta ) > Time.SECOND ) {
 				System.out.println( "FPS: " + frameCount );
@@ -71,7 +71,7 @@ public class StartGame {
 				Time.SetDeltaTime( timeThisFrame - timeLastFrame );
 				timeLastFrame = timeThisFrame;
 
-				frameCount++;
+				frameCount ++;
 				ProcessFrame();
 				RenderFrame();
 			}
@@ -100,6 +100,7 @@ public class StartGame {
 	}
 
 	protected void RenderFrame() {
+
 		game.Render();
 		window.Render();
 	}
