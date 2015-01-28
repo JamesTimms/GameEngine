@@ -81,7 +81,7 @@ public class Shader {
 		glAttachShader( program, shader );
 	}
 
-	public void updateUniforms( Matrix4f worldMatrix, Matrix4f projectedMatrix ) {
+	public void updateUniforms( Matrix4f worldMatrix, Matrix4f projectedMatrix, Material material ) {
 
 	}
 

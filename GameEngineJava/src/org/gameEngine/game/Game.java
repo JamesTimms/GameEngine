@@ -1,12 +1,14 @@
 package org.gameEngine.game;
 
 import org.gameEngine.engine.core.Camera;
-import org.gameEngine.engine.core.shaders.Shader;
 import org.gameEngine.engine.core.Time;
 import org.gameEngine.engine.core.Transform;
 import org.gameEngine.engine.core.maths.Vector2f;
 import org.gameEngine.engine.core.maths.Vector3f;
 import org.gameEngine.engine.core.render.*;
+import org.gameEngine.engine.core.shaders.BasicShader;
+import org.gameEngine.engine.core.shaders.Material;
+import org.gameEngine.engine.core.shaders.Shader;
 
 /**
  * Created by TekMaTek on 21/03/2014.
@@ -17,15 +19,15 @@ public class Game {
 	private Shader shader;
 	private Transform transform;
 	private Camera camera;
-	private Texture texture;
 	private double temp;
+	private Material material;
 
 	public Game( ) {
 		mesh = new Mesh( );//ResourceLoader.loadMesh( "cube.obj" );
-		shader = new Shader( );
+		shader = new BasicShader( );
 		transform = new Transform( );
 		camera = new Camera( );
-		texture = ResourceLoader.loadTexture( "grids.png" );
+		material = new Material( ResourceLoader.loadTexture( "grids.png" ), new Vector3f( 0.0f, 1.0f, 1.0f ) );
 
 		Transform.setProjection( 70.0f, StartGame.WIDTH, StartGame.HEIGHT, 0.1f, 1000.0f );
 		transform.setCamera( camera );
@@ -41,12 +43,6 @@ public class Game {
 				0, 1, 2,
 				0, 2, 3 };
 		mesh.addVertices( vertices, indices );
-
-		shader.addVertextShader( ResourceLoader.LoadShader( "basicVertex.vertex" ) );
-		shader.addFragmentShader( ResourceLoader.LoadShader( "basicFragment.fragment" ) );
-		shader.CompileShader( );
-
-		shader.addUniform( "transform" );
 	}
 
 	public void UpdateInput( ) {
@@ -64,9 +60,7 @@ public class Game {
 	public void Render( ) {
 		Util.setClearColor( new Vector3f( 0.4f, 0.4f, 1.0f ) );
 		shader.Bind( );
-
-		shader.setUniform4m( "transform", transform.getProjectedTransformation( ) );
-		texture.bind( );
+		shader.updateUniforms( transform.getTransformation( ), transform.getProjectedTransformation( ), material );
 		mesh.draw( );
 	}
 }

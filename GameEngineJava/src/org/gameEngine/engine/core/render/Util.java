@@ -111,4 +111,8 @@ public class Util {
 		}
 		return result;
 	}
+
+	public static void unbindTextures( ) {
+		glBindTexture( GL_TEXTURE_2D, 0 );
+	}
 }
