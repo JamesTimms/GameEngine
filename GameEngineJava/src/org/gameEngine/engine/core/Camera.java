@@ -1,5 +1,7 @@
 package org.gameEngine.engine.core;
 
+import org.gameEngine.engine.core.Input.Input;
+import org.gameEngine.engine.core.maths.Vector2f;
 import org.gameEngine.engine.core.maths.Vector3f;
 
 /**
@@ -23,12 +25,36 @@ public class Camera {
 		this( new Vector3f( 0.0f, 0.0f, 0.0f ), new Vector3f( 0.0f, 0.0f, 1.0f ), new Vector3f( 0.0f, 1.0f, 0.0f ) );
 	}
 
-//	public void input( ) {
-//		float moveAmount = ( float ) ( 10 * Time.GetDeltaTime( ) / Time.SECOND );
-//		float rotAmount = ( float ) ( 100 * Time.GetDeltaTime( ) / Time.SECOND );
-//
-//
-//	}
+	public void input( ) {
+		final float SPEED_MOD = 0.25f;
+		final float SENSITIVITY = 0.000025f;
+		float moveAmount = SPEED_MOD * ( float ) ( 100 * Time.GetDeltaTime( ) / Time.SECOND );
+
+		if( Input.GetKeyDown( Input.KEY_W ) ) {
+			move( getForward( ), moveAmount );
+		} else if( Input.GetKeyDown( Input.KEY_S ) ) {
+			move( getForward( ), -moveAmount );
+		} else if( Input.GetKeyDown( Input.KEY_A ) ) {
+			move( getLeft( ), moveAmount );
+		} else if( Input.GetKeyDown( Input.KEY_D ) ) {
+			move( getRight( ), moveAmount );
+		}
+
+		if( Input.GetMouseDown( 0 ) ){
+			//Moves towards the mouse cursor.
+			Vector2f deltaPosition = Input.GetMousePosition( ).sub( Input.CENTER_MOUSE_POS );
+
+			boolean rotY = deltaPosition.getX() != 0;
+			boolean rotX = deltaPosition.getY() != 0;
+
+			if( rotY ) {
+				rotateY( ( forward.getX() - deltaPosition.getX() ) * SENSITIVITY );
+			}
+			if( rotX ) {
+				rotateX( -( forward.getY() - deltaPosition.getY() ) * SENSITIVITY );
+			}
+		}
+	}
 
 	public void move( Vector3f direction, float amount ) {
 		pos = pos.add( direction.mul( amount ) );
@@ -47,25 +73,19 @@ public class Camera {
 	}
 
 	public void rotateX( float angle ) {
-		Vector3f hAxis = yAxis.cross( forward );
-		hAxis.normalized( );
+		Vector3f hAxis = yAxis.cross( forward ).normalized( );
 
-		forward.rotate( hAxis, angle );
-		forward.normalized( );
+		forward = forward.rotate( hAxis, angle ).normalized();
 
-		up = forward.cross( hAxis );
-		up.normalized( );
+		up = forward.cross( hAxis ).normalized();
 	}
 
 	public void rotateY( float angle ) {
-		Vector3f hAxis = yAxis.cross( forward );
-		hAxis.normalized( );
+		Vector3f hAxis = yAxis.cross( forward ).normalized();
 
-		forward.rotate( yAxis, angle );
-		forward.normalized( );
+		forward = forward.rotate( yAxis, angle ).normalized();
 
-		up = forward.cross( hAxis );
-		up.normalized( );
+		up = forward.cross( hAxis ).normalized();
 	}
 
 	public Vector3f getUp( ) {

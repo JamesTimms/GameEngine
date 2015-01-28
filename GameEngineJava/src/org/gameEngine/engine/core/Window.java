@@ -43,11 +43,11 @@ public class Window {
 		return Display.isCloseRequested( );
 	}
 
-	public int GetWidth( ) {
+	public static int GetWidth( ) {
 		return Display.getDisplayMode( ).getWidth( );
 	}
 
-	public int GetHeight( ) {
+	public static int GetHeight( ) {
 		return Display.getDisplayMode( ).getHeight( );
 	}
 

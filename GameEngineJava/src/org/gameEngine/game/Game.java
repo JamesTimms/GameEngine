@@ -4,20 +4,15 @@ import org.gameEngine.engine.core.Camera;
 import org.gameEngine.engine.core.Shader;
 import org.gameEngine.engine.core.Time;
 import org.gameEngine.engine.core.Transform;
-import org.gameEngine.engine.core.input.Inputs;
 import org.gameEngine.engine.core.maths.Vector2f;
 import org.gameEngine.engine.core.maths.Vector3f;
-import org.gameEngine.engine.core.render.Mesh;
-import org.gameEngine.engine.core.render.ResourceLoader;
-import org.gameEngine.engine.core.render.Texture;
-import org.gameEngine.engine.core.render.Vertex;
+import org.gameEngine.engine.core.render.*;
 
 /**
  * Created by TekMaTek on 21/03/2014.
  */
 public class Game {
 
-	protected Inputs input;
 	protected Mesh mesh;
 	private Shader shader;
 	private Transform transform;
@@ -25,8 +20,7 @@ public class Game {
 	private Texture texture;
 	private double temp;
 
-	public Game( Inputs input ) {
-		this.input = input;
+	public Game( ) {
 		mesh = new Mesh( );//ResourceLoader.loadMesh( "cube.obj" );
 		shader = new Shader( );
 		transform = new Transform( );
@@ -56,7 +50,7 @@ public class Game {
 	}
 
 	public void UpdateInput( ) {
-
+		camera.input( );
 	}
 
 	public void Update( ) {
@@ -68,7 +62,9 @@ public class Game {
 	}
 
 	public void Render( ) {
+		Util.setClearColor( new Vector3f( 0.4f, 0.4f, 1.0f ) );
 		shader.Bind( );
+
 		shader.setUniform4m( "transform", transform.getProjectedTransformation( ) );
 		texture.bind( );
 		mesh.draw( );

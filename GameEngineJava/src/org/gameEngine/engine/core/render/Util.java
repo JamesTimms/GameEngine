@@ -1,6 +1,7 @@
 package org.gameEngine.engine.core.render;
 
 import org.gameEngine.engine.core.maths.Matrix4f;
+import org.gameEngine.engine.core.maths.Vector3f;
 import org.lwjgl.BufferUtils;
 
 import java.nio.FloatBuffer;
@@ -47,6 +48,10 @@ public class Util {
 
 	public static void clearScreen( ) {
 		glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
+	}
+
+	public static void setClearColor( Vector3f colour ) {
+		glClearColor( colour.getX( ), colour.getY( ), colour.getZ( ), 1.0f );
 	}
 
 	public static void setTexture( boolean enabled ) {
