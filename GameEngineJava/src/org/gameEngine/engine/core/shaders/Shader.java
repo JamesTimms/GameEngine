@@ -1,4 +1,4 @@
-package org.gameEngine.engine.core;
+package org.gameEngine.engine.core.shaders;
 
 import org.gameEngine.engine.core.maths.Matrix4f;
 import org.gameEngine.engine.core.maths.Vector3f;
@@ -79,6 +79,10 @@ public class Shader {
 		}
 
 		glAttachShader( program, shader );
+	}
+
+	public void updateUniforms( Matrix4f worldMatrix, Matrix4f projectedMatrix ) {
+
 	}
 
 	public void addUniform( String uniform ) {

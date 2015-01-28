@@ -1,7 +1,7 @@
 package org.gameEngine.game;
 
 import org.gameEngine.engine.core.Camera;
-import org.gameEngine.engine.core.Shader;
+import org.gameEngine.engine.core.shaders.Shader;
 import org.gameEngine.engine.core.Time;
 import org.gameEngine.engine.core.Transform;
 import org.gameEngine.engine.core.maths.Vector2f;
