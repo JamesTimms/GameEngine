@@ -9,6 +9,8 @@ import org.gameEngine.engine.core.render.Mesh;
 import org.gameEngine.engine.core.render.ResourceLoader;
 import org.gameEngine.engine.core.render.Util;
 import org.gameEngine.engine.core.render.Vertex;
+import org.gameEngine.engine.core.render.lighting.BaseLight;
+import org.gameEngine.engine.core.render.lighting.DirectionalLight;
 import org.gameEngine.engine.core.shaders.Material;
 import org.gameEngine.engine.core.shaders.PhongShader;
 import org.gameEngine.engine.core.shaders.Shader;
@@ -30,7 +32,9 @@ public class Game {
 		transform = new Transform( );
 		camera = new Camera( );
 
-		shader.setAmbientLight( new Vector3f( 1.0f, 1.0f, 1.0f ) );
+		shader.setAmbientLight( Vector3f.ONE );
+		PhongShader.directionalLight = DirectionalLight.BuildDirectionalLight(
+				BaseLight.WhiteLight( ), new Vector3f( 0.35f, 0.35f, 0.35f ) );
 
 		Transform.setProjection( 70.0f, StartGame.WIDTH, StartGame.HEIGHT, 0.1f, 1000.0f );
 		transform.setCamera( camera );

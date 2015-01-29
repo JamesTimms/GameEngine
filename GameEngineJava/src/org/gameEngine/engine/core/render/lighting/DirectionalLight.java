@@ -8,16 +8,24 @@ import org.gameEngine.engine.core.maths.Vector3f;
 public class DirectionalLight {
 
 	public BaseLight baseLight;
-	public Vector3f direction;
+	private Vector3f direction;
 
 	public static DirectionalLight BuildDirectionalLight( BaseLight baseLight, Vector3f direction ) {
 		DirectionalLight newDirLight = new DirectionalLight( );
 		newDirLight.baseLight = baseLight;
-		newDirLight.direction = direction;
+		newDirLight.direction = direction.normalized( );
 		return newDirLight;
 	}
 
 	public static DirectionalLight Default( ) {
 		return BuildDirectionalLight( BaseLight.WhiteLight( ), new Vector3f( 0.35f, 0.35f, 0.35f ) );
+	}
+
+	public Vector3f getDirection( ) {
+		return direction;
+	}
+
+	public void setDirection( Vector3f direction ) {
+		this.direction = direction.normalized( );
 	}
 }

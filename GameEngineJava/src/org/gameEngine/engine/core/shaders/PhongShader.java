@@ -20,6 +20,7 @@ public class PhongShader extends Shader {
 		CompileShader( );
 
 		addUniform( "transform" );
+		addUniform( "transformProjected" );
 		addUniform( "baseColor" );
 		addUniform( "ambientLight" );
 		addUniform( "directionLight.base.color" );
@@ -33,7 +34,10 @@ public class PhongShader extends Shader {
 		} else {
 			Util.unbindTextures( );
 		}
-		setUniform4m( "transform", transform.getProjectedTransformation( ) );
+		setUniform4m( "transform", transform.getTransformMatrix( ) );
+//		System.out.println( transform.getTransformMatrix( ).toString() );
+		setUniform4m( "transformProjected", transform.getProjectedTransformation( ) );
+//		System.out.println( transform.getProjectedTransformation( ).toString() );
 		setUniform3f( "baseColor", transform.material.color );
 		setUniform3f( "ambientLight", getAmbientLight( ) );
 		setUniform( "directionLight", directionalLight );
@@ -41,7 +45,7 @@ public class PhongShader extends Shader {
 
 	protected void setUniform( String uniformName, DirectionalLight directionalLight ) {
 		setUniform3f( uniformName + ".base.color", directionalLight.baseLight.color );
-		setUniform3f( uniformName + ".direction", directionalLight.direction );
+		setUniform3f( uniformName + ".direction", directionalLight.getDirection( ) );
 		setUniformf( uniformName + ".base.intensity", directionalLight.baseLight.intensity );
 	}
 }

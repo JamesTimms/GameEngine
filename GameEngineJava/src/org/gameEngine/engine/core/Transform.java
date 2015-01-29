@@ -52,11 +52,11 @@ public class Transform {
 		Matrix4f transformationMatrix = getTransformMatrix( );
 		Matrix4f projectionMatrix = new Matrix4f( ).initPerspective(
 				Transform.fieldOfView, Transform.height / Transform.width, Transform.zNear, Transform.zFar );
-		Matrix4f cameraRoation = new Matrix4f( ).initCamera( camera.getForward( ), camera.getUp( ) );
+		Matrix4f cameraRotation = new Matrix4f( ).initCamera( camera.getForward( ), camera.getUp( ) );
 		Matrix4f cameraTranslation = new Matrix4f( ).initTranslation(
 				-camera.getPos( ).getX( ), -camera.getPos( ).getY( ), -camera.getPos( ).getZ( ) );
 
-		return projectionMatrix.mul( cameraRoation.mul( cameraTranslation.mul( transformationMatrix ) ) );
+		return projectionMatrix.mul( cameraRotation.mul( cameraTranslation.mul( transformationMatrix ) ) );
 	}
 
 	public Vector3f getTranslation( ) {
@@ -102,4 +102,5 @@ public class Transform {
 	public void setCamera( Camera camera ) {
 		this.camera = camera;
 	}
+
 }
