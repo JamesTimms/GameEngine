@@ -8,27 +8,21 @@ import org.gameEngine.engine.core.render.Texture;
  */
 public class Material {
 
-	private Texture texture;
-	private Vector3f color;
+	public Texture texture;
+	public Vector3f color;
 
-	public Material( Texture texture, Vector3f color ) {
-		this.texture = texture;
-		this.color = color;
+	private Material( ) {
 	}
 
-	public Texture getTexture( ) {
-		return texture;
+	public static Material BuildMaterial( Texture texture, Vector3f color ) {
+		Material newMaterial = new Material( );
+		newMaterial.texture = texture;
+		newMaterial.color = color;
+		return newMaterial;
 	}
 
-	public void setTexture( Texture texture ) {
-		this.texture = texture;
+	public static Material WhiteNoTexture( ) {
+		return BuildMaterial( Texture.NoTexture( ), Vector3f.ONE );
 	}
 
-	public Vector3f getColor( ) {
-		return color;
-	}
-
-	public void setColor( Vector3f color ) {
-		this.color = color;
-	}
 }

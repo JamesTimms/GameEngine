@@ -2,6 +2,7 @@ package org.gameEngine.engine.core;
 
 import org.gameEngine.engine.core.maths.Matrix4f;
 import org.gameEngine.engine.core.maths.Vector3f;
+import org.gameEngine.engine.core.shaders.Material;
 
 /**
  * Created by TekMaTek on 26/01/2015.
@@ -18,21 +19,25 @@ public class Transform {
 	private Vector3f rotation;
 	private Vector3f scale;
 
+	//TODO: move into gameObject object.
+	public Material material = Material.WhiteNoTexture( );
+	//
+
 	public Transform( ) {
-		this.translation = Vector3f.Zero( );
-		this.rotation = Vector3f.Zero( );
-		this.scale = Vector3f.One( );
+		this.translation = Vector3f.ZERO;
+		this.rotation = Vector3f.ZERO;
+		this.scale = Vector3f.ONE;
 	}
 
 	public static void setProjection( float fieldOfView, float width, float height, float zNear, float zFar ) {
-		Transform.fieldOfView = fieldOfView;
+		Transform.fieldOfView = ( fieldOfView > 1 ) ? fieldOfView : 1;
 		Transform.width = width;
 		Transform.height = height;
-		Transform.zNear = zNear;
-		Transform.zFar = zFar;
+		Transform.zNear = ( zNear > 0 ) ? zNear : 0;
+		Transform.zFar = ( zFar > zNear ) ? zFar : zFar + 1.0f;
 	}
 
-	public Matrix4f getTransformation( ) {
+	public Matrix4f getTransformMatrix( ) {
 		Matrix4f translationMat =
 				new Matrix4f( ).initTranslation( translation.getX( ), translation.getY( ), translation.getZ( ) );
 		Matrix4f rotationMat =
@@ -44,7 +49,7 @@ public class Transform {
 	}
 
 	public Matrix4f getProjectedTransformation( ) {//Camera stuff needs to be moved out.
-		Matrix4f transformationMatrix = getTransformation( );
+		Matrix4f transformationMatrix = getTransformMatrix( );
 		Matrix4f projectionMatrix = new Matrix4f( ).initPerspective(
 				Transform.fieldOfView, Transform.height / Transform.width, Transform.zNear, Transform.zFar );
 		Matrix4f cameraRoation = new Matrix4f( ).initCamera( camera.getForward( ), camera.getUp( ) );

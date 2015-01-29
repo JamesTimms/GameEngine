@@ -38,7 +38,7 @@ public class ResourceLoader {
 		try {
 			int id = TextureLoader.getTexture( ext, new FileInputStream( "./resource/textures/" + filename ) )
 								  .getTextureID( );
-			return new Texture( id );
+			return Texture.BuildTexture( id );
 		} catch( Exception ex ) {
 			ex.printStackTrace( );
 			System.exit( 1 );

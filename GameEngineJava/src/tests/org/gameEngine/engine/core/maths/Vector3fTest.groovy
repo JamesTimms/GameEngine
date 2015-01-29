@@ -301,14 +301,14 @@ class Vector3fTest extends GroovyTestCase {
 
     @Test
     void testZero() {
-        Vector3f zeroVector = Vector3f.Zero( );
+        Vector3f zeroVector = Vector3f.ZERO;
         Vector3f expected = new Vector3f( 0.0f, 0.0f, 0.0f );
         assertEquals( expected, zeroVector );
     }
 
     @Test
     void testOne() {
-        Vector3f oneVector = Vector3f.One( );
+        Vector3f oneVector = Vector3f.ONE;
         Vector3f expected = new Vector3f( 1.0f, 1.0f, 1.0f );
         assertEquals( expected, oneVector );
     }

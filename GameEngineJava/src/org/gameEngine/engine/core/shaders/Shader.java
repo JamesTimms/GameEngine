@@ -1,5 +1,6 @@
 package org.gameEngine.engine.core.shaders;
 
+import org.gameEngine.engine.core.Transform;
 import org.gameEngine.engine.core.maths.Matrix4f;
 import org.gameEngine.engine.core.maths.Vector3f;
 import org.gameEngine.engine.core.render.Util;
@@ -16,6 +17,7 @@ import static org.lwjgl.opengl.GL32.GL_GEOMETRY_SHADER;
 
 public class Shader {
 
+	private Vector3f ambientLight;
 	private int program;
 	private HashMap< String, Integer > uniforms;
 
@@ -26,6 +28,18 @@ public class Shader {
 			System.err.println( "Shader creation failed: Could not find valid memory location in constructor." );
 			System.exit( 1 );
 		}
+	}
+
+	public Vector3f getAmbientLight( ) {
+		return ambientLight;
+	}
+
+	public void setAmbientLight( Vector3f ambientLight ) {
+		this.ambientLight = new Vector3f(
+				( ambientLight.getX( ) > 0.0f ) ? ambientLight.getX( ) : 0.0f,
+				( ambientLight.getY( ) > 0.0f ) ? ambientLight.getY( ) : 0.0f,
+				( ambientLight.getZ( ) > 0.0f ) ? ambientLight.getZ( ) : 0.0f
+		);
 	}
 
 	public void addVertextShader( String text ) {
@@ -81,7 +95,7 @@ public class Shader {
 		glAttachShader( program, shader );
 	}
 
-	public void updateUniforms( Matrix4f worldMatrix, Matrix4f projectedMatrix, Material material ) {
+	public void updateUniforms( Transform transform ) {
 
 	}
 

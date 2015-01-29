@@ -1,5 +1,7 @@
 package org.gameEngine.engine.core.maths;
 
+import org.gameEngine.engine.core.Window;
+
 /**
  * Based on BennyBox's GameEngine https://github.com/BennyQBD/3DGameEngine.
  * Created by TekMaTek on 05/08/2014.
@@ -193,6 +195,10 @@ public class Matrix4f {
 
 
 		return this;
+	}
+
+	public Matrix4f lazyInitPerspective( ) {
+		return initPerspective( 70, Window.GetHeight( ) / Window.GetWidth( ), 0.5f, 1000.0f );
 	}
 
 	public Matrix4f initOrthographic( float left, float right, float bottom, float top, float near, float far ) {

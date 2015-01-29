@@ -12,6 +12,8 @@ package org.gameEngine.engine.core.maths;
 //TODO: Should consider changing this Class into a wrapper for lwjgl's Vector3f Class.
 public class Vector3f {
 
+	public static final Vector3f ZERO = new Vector3f( 0.0f, 0.0f, 0.0f );
+	public static final Vector3f ONE = new Vector3f( 1.0f, 1.0f, 1.0f );
 	protected float x;
 	protected float y;
 	protected float z;
@@ -20,14 +22,6 @@ public class Vector3f {
 		setX( x );
 		setY( y );
 		setZ( z );
-	}
-
-	public static Vector3f Zero( ) {
-		return new Vector3f( 0.0f, 0.0f, 0.0f );
-	}
-
-	public static Vector3f One( ) {
-		return new Vector3f( 1.0f, 1.0f, 1.0f );
 	}
 
 	//The limit that the components can sum to is 1 / 3 ( root( float.max ) ).

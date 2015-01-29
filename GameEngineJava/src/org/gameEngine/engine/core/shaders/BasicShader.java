@@ -1,6 +1,6 @@
 package org.gameEngine.engine.core.shaders;
 
-import org.gameEngine.engine.core.maths.Matrix4f;
+import org.gameEngine.engine.core.Transform;
 import org.gameEngine.engine.core.render.ResourceLoader;
 import org.gameEngine.engine.core.render.Util;
 
@@ -12,21 +12,21 @@ public class BasicShader extends Shader {
 	public BasicShader( ) {
 		super( );
 
-		addVertextShader( ResourceLoader.LoadShader( "basicVertex.vertex" ) );
-		addFragmentShader( ResourceLoader.LoadShader( "basicFragment.fragment" ) );
+		addVertextShader( ResourceLoader.LoadShader( "basic/basicVertex.vertex" ) );
+		addFragmentShader( ResourceLoader.LoadShader( "basic/basicFragment.fragment" ) );
 		CompileShader( );
 
 		addUniform( "transform" );
 		addUniform( "color" );
 	}
 
-	public void updateUniforms( Matrix4f worldMatrix, Matrix4f projectedMatrix, Material material ) {
-		if( material.getTexture() != null ) {
-			material.getTexture().bind();
-		}else {
+	public void updateUniforms( Transform transform ) {
+		if( transform.material.texture != null ) {
+			transform.material.texture.bind( );
+		} else {
 			Util.unbindTextures( );
 		}
-		setUniform4m( "transform", projectedMatrix );
-		setUniform3f( "color", material.getColor( ) );
+		setUniform4m( "transform", transform.getProjectedTransformation( ) );
+		setUniform3f( "color", transform.material.color );
 	}
 }

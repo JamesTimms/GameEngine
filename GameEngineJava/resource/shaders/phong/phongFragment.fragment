@@ -1,0 +1,50 @@
+#version 330
+
+
+struct BaseLight {
+    vec3 color;
+    float intensity;
+};
+
+struct DirectionLight {
+    BaseLight base;
+    vec3 direction;
+};
+
+vec4 calcLight( BaseLight base, vec3 direction, vec3 normal ) {
+    float diffuseFactor = dot( -direction, normal );
+
+    vec4 diffuseColor = vec4( 0, 0, 0, 0 );
+
+    if( diffuseFactor > 0 ) {
+           diffuseColor = vec4( base.color, 1.0 ) * base.intensity * diffuseFactor;
+    }
+
+    return diffuseColor;
+}
+
+vec4 calcDirectionalLight( DirectionLight dirLight, vec3 normal ) {
+    return calcLight( dirLight.base, dirLight.direction, normal );
+}
+
+in vec2 texCoord0;
+in vec3 normal0;
+
+uniform vec3 ambientLight;
+uniform vec3 baseColor;
+uniform sampler2D sampler;
+uniform DirectionLight directionLight;
+
+out vec4 fragColor;
+
+void main() {
+    vec4 textureColor = texture2D( sampler, texCoord0.xy );
+    vec4 color = textureColor * vec4( baseColor, 1 );
+
+    vec4 totalLight = vec4( ambientLight, 1 ) * vec4( 1, 1, 1, 1 );
+
+    vec3 normal = normalize(normal0);
+    totalLight += calcDirectionalLight( directionLight, normal );
+
+    fragColor = color * totalLight;
+}

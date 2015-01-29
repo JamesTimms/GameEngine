@@ -24,15 +24,18 @@ public class Util {
 		return BufferUtils.createIntBuffer( size );
 	}
 
-	public static FloatBuffer createFlippedBuffer( Vertex[] verticies ) {
-		FloatBuffer buffer = createFloatBuffer( verticies.length * Vertex.SIZE );
+	public static FloatBuffer createFlippedBuffer( Vertex[] vertices ) {
+		FloatBuffer buffer = createFloatBuffer( vertices.length * Vertex.SIZE );
 
-		for( int i = 0; i < verticies.length; i++ ) {
-			buffer.put( verticies[ i ].getPosition( ).getX( ) );
-			buffer.put( verticies[ i ].getPosition( ).getY( ) );
-			buffer.put( verticies[ i ].getPosition( ).getZ( ) );
-			buffer.put( verticies[ i ].getTexCoord( ).getX( ) );
-			buffer.put( verticies[ i ].getTexCoord( ).getY( ) );
+		for( int i = 0; i < vertices.length; i++ ) {
+			buffer.put( vertices[ i ].getPosition( ).getX( ) );
+			buffer.put( vertices[ i ].getPosition( ).getY( ) );
+			buffer.put( vertices[ i ].getPosition( ).getZ( ) );
+			buffer.put( vertices[ i ].getTexCoord( ).getX( ) );
+			buffer.put( vertices[ i ].getTexCoord( ).getY( ) );
+			buffer.put( vertices[ i ].getNormal( ).getX( ) );
+			buffer.put( vertices[ i ].getNormal( ).getY( ) );
+			buffer.put( vertices[ i ].getNormal( ).getZ( ) );
 		}
 
 		buffer.flip( );

@@ -8,21 +8,22 @@ import static org.lwjgl.opengl.GL11.glBindTexture;
  */
 public class Texture {
 
-	private int id;
+	public int id;
 
-	public Texture( int id ) {
-		this.id = id;
+	private Texture( ) {
+	}
+
+	public static Texture BuildTexture( int id ) {
+		Texture newTexture = new Texture( );
+		newTexture.id = id;
+		return newTexture;
+	}
+
+	public static Texture NoTexture( ) {
+		return BuildTexture( 0 );
 	}
 
 	public void bind( ) {
 		glBindTexture( GL_TEXTURE_2D, id );
-	}
-
-	public int getId( ) {
-		return id;
-	}
-
-	public void setId( int id ) {
-		this.id = id;
 	}
 }
