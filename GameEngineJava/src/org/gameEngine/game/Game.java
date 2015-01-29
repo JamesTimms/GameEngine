@@ -32,26 +32,26 @@ public class Game {
 		transform = new Transform( );
 		camera = new Camera( );
 
-		shader.setAmbientLight( Vector3f.ONE );
 		PhongShader.directionalLight = DirectionalLight.BuildDirectionalLight(
-				BaseLight.WhiteLight( ), new Vector3f( 0.35f, 0.35f, 0.35f ) );
+				BaseLight.WhiteLight( ), Vector3f.ONE );
 
 		Transform.setProjection( 70.0f, StartGame.WIDTH, StartGame.HEIGHT, 0.1f, 1000.0f );
 		transform.setCamera( camera );
 		transform.material =
-				Material.BuildMaterial( ResourceLoader.loadTexture( "grids.png" ), new Vector3f( 1.0f, 1.0f, 1.0f ) );
+				Material.BuildMaterial( ResourceLoader.loadTexture( "grids.png" ), new Vector3f( 1.0f, 1.0f, 1.0f ),
+										2.0f, 32.0f );
 
 		Vertex[] vertices = new Vertex[] {//position, texture coords, normals.
-				new Vertex( new Vector3f( -1.0f, -1.0f, 0.0f ), new Vector2f( 0.0f, 0.0f ), Vector3f.ZERO ),
-				new Vertex( new Vector3f( 0.25f, 2.0f, 0.25f ), new Vector2f( 0.5f, 0.0f ), Vector3f.ZERO ),
-				new Vertex( new Vector3f( 1.0f, -1.0f, 0.0f ), new Vector2f( 1.0f, 0.0f ), Vector3f.ZERO ),
-				new Vertex( new Vector3f( 0.0f, -1.0f, 1.0f ), new Vector2f( 0.5f, 1.0f ), Vector3f.ZERO ) };
+				new Vertex( new Vector3f( -1.0f, -1.0f, 0.5773f ), new Vector2f( 0.0f, 0.0f ), Vector3f.ZERO ),
+				new Vertex( new Vector3f( 0.0f, -1.0f, -1.15475f ), new Vector2f( 0.5f, 0.0f ), Vector3f.ZERO ),
+				new Vertex( new Vector3f( 1.0f, -1.0f, 0.5773f ), new Vector2f( 1.0f, 0.0f ), Vector3f.ZERO ),
+				new Vertex( new Vector3f( 0.0f, 1.0f, 0.0f ), new Vector2f( 0.5f, 1.0f ), Vector3f.ZERO ) };
 		int[] indices = new int[] {
-				3, 1, 0,
-				2, 1, 3,
-				0, 1, 2,
-				0, 2, 3 };
-		mesh.addVertices( vertices, indices );
+				0, 3, 1,
+				1, 3, 2,
+				2, 3, 0,
+				1, 2, 0 };
+		mesh.addVertices( vertices, indices, true );
 	}
 
 	public void UpdateInput( ) {
