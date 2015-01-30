@@ -9,7 +9,6 @@ import java.nio.IntBuffer;
 import java.util.ArrayList;
 
 import static org.lwjgl.opengl.GL11.*;
-import static org.lwjgl.opengl.GL30.GL_FRAMEBUFFER_SRGB;
 
 /**
  * Created by TekMaTek on 27/10/2014.
@@ -73,9 +72,7 @@ public class Util {
 		glEnable( GL_CULL_FACE );
 		glEnable( GL_DEPTH_TEST );
 
-		//TODO: Depth clamp for later
 		glEnable( GL_TEXTURE_2D );
-		glEnable( GL_FRAMEBUFFER_SRGB );
 	}
 
 	public static FloatBuffer createFlippedBuffer( Matrix4f matrix ) {
