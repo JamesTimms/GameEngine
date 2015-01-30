@@ -86,12 +86,12 @@ public class Game {
 		PointLight pointLight1 = PointLight.BuildPointLight(
 				BaseLight.BuildBaseLight( new Vector3f( 1.0f, 0.5f, 0.0f ), 0.8f ),
 				Attenuation.BuildAttenutation( 0.0f, 0.0f, 1.0f ),
-				new Vector3f( -2.0f, 0.0f, 5.0f ), 3.0f );
+				new Vector3f( -2.0f, 0.0f, 5.0f ), 7.0f );
 
 		PointLight pointLight2 = PointLight.BuildPointLight(
 				BaseLight.BuildBaseLight( new Vector3f( 0.0f, 0.5f, 1.0f ), 2.8f ),
 				Attenuation.BuildAttenutation( 0.0f, 0.0f, 1.0f ),
-				new Vector3f( 2.0f, 0.0f, 6.0f ), 3.0f );
+				new Vector3f( 2.0f, 0.0f, 6.0f ), 7.0f );
 		PhongShader2.pointLights = new PointLight[] {
 				pointLight1,
 				pointLight2

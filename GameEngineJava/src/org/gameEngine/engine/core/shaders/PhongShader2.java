@@ -84,6 +84,6 @@ public class PhongShader2 extends Shader {
 		setUniformf( uniformName + ".atten.linear", pointLight.atten.linear );
 		setUniformf( uniformName + ".atten.exponent", pointLight.atten.exponent );
 		setUniform3f( uniformName + ".position", pointLight.position );
-		setUniformf( uniformName + ".position", pointLight.range );
+		setUniformf( uniformName + ".range", pointLight.range );
 	}
 }
