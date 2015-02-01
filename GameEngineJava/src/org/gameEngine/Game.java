@@ -103,7 +103,7 @@ public class Game {
 	}
 
 	public void Render( ) {
-		Util.setClearColor( new Vector3f( 0.0f, 0.0f, 0.0f ) );
+		RenderingUtil.setClearColor( new Vector3f( 0.0f, 0.0f, 0.0f ) );
 		shader.Bind( );
 		shader.updateUniforms( transform );
 		mesh.draw( );

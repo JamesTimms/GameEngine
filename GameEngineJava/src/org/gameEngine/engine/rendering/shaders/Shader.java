@@ -3,7 +3,7 @@ package org.gameEngine.engine.rendering.shaders;
 import org.gameEngine.engine.core.Transform;
 import org.gameEngine.engine.physics.maths.Matrix4f;
 import org.gameEngine.engine.physics.maths.Vector3f;
-import org.gameEngine.engine.rendering.Util;
+import org.gameEngine.engine.rendering.RenderingUtil;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -132,6 +132,6 @@ public class Shader {
 
 	public void setUniform4m( String uniformName, Matrix4f matrix ) {
 		final boolean ROW_MAJOR_ORDER = true;
-		glUniformMatrix4( uniforms.get( uniformName ), ROW_MAJOR_ORDER, Util.createFlippedBuffer( matrix ) );
+		glUniformMatrix4( uniforms.get( uniformName ), ROW_MAJOR_ORDER, RenderingUtil.createFlippedBuffer( matrix ) );
 	}
 }

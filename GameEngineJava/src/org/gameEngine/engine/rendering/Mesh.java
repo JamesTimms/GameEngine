@@ -59,7 +59,7 @@ public class Mesh {
 			String line;
 			while( ( line = meshReader.readLine( ) ) != null ) {
 				String[] tokens = line.split( " " );
-				tokens = Util.removeEmptyString( tokens );
+				tokens = RenderingUtil.removeEmptyString( tokens );
 				if( tokens.length == 0 || tokens[ 0 ].equals( '#' ) ) {
 					continue;
 				} else if( tokens[ 0 ].equals( "v" ) ) {
@@ -90,7 +90,7 @@ public class Mesh {
 		Integer[] indexData = new Integer[ indices.size( ) ];
 		indices.toArray( indexData );
 
-		this.addVertices( vertexData, Util.toIntArray( indexData ) );
+		this.addVertices( vertexData, RenderingUtil.toIntArray( indexData ) );
 	}
 
 	private void addVertices( Vertex[] vertices, int[] indices ) {
@@ -103,14 +103,14 @@ public class Mesh {
 		}
 		indicesLength = indices.length;
 		glBindBuffer( GL_ARRAY_BUFFER, vertexBO );
-		glBufferData( GL_ARRAY_BUFFER, Util.createFlippedBuffer( vertices ), GL_STATIC_DRAW );
+		glBufferData( GL_ARRAY_BUFFER, RenderingUtil.createFlippedBuffer( vertices ), GL_STATIC_DRAW );
 
 		glBindBuffer( GL_ELEMENT_ARRAY_BUFFER, indexBO );
-		glBufferData( GL_ELEMENT_ARRAY_BUFFER, Util.createFlippedBuffer( indices ), GL_STATIC_DRAW );
+		glBufferData( GL_ELEMENT_ARRAY_BUFFER, RenderingUtil.createFlippedBuffer( indices ), GL_STATIC_DRAW );
 	}
 
 	public void draw( ) {
-		Util.clearScreen( );
+		RenderingUtil.clearScreen( );
 		final int POSITION = 0;
 		final int TEXTURE_COORDS = 1;
 		final int NORMALS = 2;

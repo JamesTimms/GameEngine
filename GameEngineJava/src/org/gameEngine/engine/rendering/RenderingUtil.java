@@ -13,7 +13,7 @@ import static org.lwjgl.opengl.GL11.*;
 /**
  * Created by TekMaTek on 27/10/2014.
  */
-public class Util {
+public class RenderingUtil {
 
 	protected static FloatBuffer createFloatBuffer( int size ) {
 		return BufferUtils.createFloatBuffer( size );

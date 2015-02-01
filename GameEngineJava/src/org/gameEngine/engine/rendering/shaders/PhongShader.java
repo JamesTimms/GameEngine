@@ -1,7 +1,7 @@
 package org.gameEngine.engine.rendering.shaders;
 
 import org.gameEngine.engine.core.Transform;
-import org.gameEngine.engine.rendering.Util;
+import org.gameEngine.engine.rendering.RenderingUtil;
 import org.gameEngine.engine.rendering.lighting.DirectionalLight;
 
 /**
@@ -36,7 +36,7 @@ public class PhongShader extends Shader {
 		if( transform.material.texture != null ) {
 			transform.material.texture.bind( );
 		} else {
-			Util.unbindTextures( );
+			RenderingUtil.unbindTextures( );
 		}
 		setUniform4m( "transform", transform.getTransformMatrix( ) );
 		setUniform4m( "transformProjected", transform.getProjectedTransformation( ) );
