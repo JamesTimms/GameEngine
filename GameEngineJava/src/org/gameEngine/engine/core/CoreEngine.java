@@ -2,7 +2,6 @@ package org.gameEngine.engine.core;
 
 import org.gameEngine.Game;
 import org.gameEngine.engine.rendering.RenderingEngine;
-import org.gameEngine.engine.rendering.RenderingUtil;
 
 /**
  * Created by TekMaTek on 01/02/2015.
@@ -29,15 +28,9 @@ public class CoreEngine {
 	}
 
 	public void StartGame( ) {
-		initRenderingEngine( );
 		game.init( );
 		shouldRunGameLoop = true;
 		GameLoop( );
-	}
-
-	private void initRenderingEngine( ) {
-		System.out.println( RenderingUtil.GetOpenGLVersion( ) );
-		RenderingUtil.initGraphics( );
 	}
 
 	public void StopGame( ) {

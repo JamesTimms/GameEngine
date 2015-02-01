@@ -110,7 +110,6 @@ public class Mesh {
 	}
 
 	public void draw( ) {
-		RenderingUtil.clearScreen( );
 		final int POSITION = 0;
 		final int TEXTURE_COORDS = 1;
 		final int NORMALS = 2;

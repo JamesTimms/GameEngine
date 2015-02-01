@@ -1,5 +1,7 @@
 package org.gameEngine.engine.core;
 
+import org.gameEngine.engine.rendering.shaders.Shader;
+
 import java.util.ArrayList;
 
 /**
@@ -53,13 +55,13 @@ public class GameObject {
 		}
 	}
 
-	public void render( ) {
+	public void render( Shader shader ) {
 		for( GameComponent component : components ) {
-			component.render( );
+			component.render( shader );
 		}
 
 		for( GameObject child : children ) {
-			child.render( );
+			child.render( shader );
 		}
 	}
 }

@@ -18,12 +18,8 @@ public class Time {
 		return System.nanoTime( );
 	}
 
-	public static long GetDeltaTime( ) {
-		return delta;
-	}
-
-	public static void SetDeltaTime( long delta ) {
-		Time.delta = delta;
+	public static double GetDeltaTime( ) {
+		return (double)delta / (double)Time.SECOND;
 	}
 
 	protected static boolean IsReadyForFrame( ) {
@@ -40,7 +36,7 @@ public class Time {
 
 	public static void UpdateDeltaTime( ) {
 		timeThisFrame = Time.getTime( );
-		Time.SetDeltaTime( timeThisFrame - timeLastFrame );
+		delta = timeThisFrame - timeLastFrame;
 		timeLastFrame = timeThisFrame;
 
 	}

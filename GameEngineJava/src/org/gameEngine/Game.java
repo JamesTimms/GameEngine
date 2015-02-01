@@ -27,6 +27,7 @@ public class Game {
 
 		plane.addComponent( gridMesh( ) );
 		plane.transform.camera = camera;
+		plane.transform.setTranslation( 0.0f, -2.0f, 5.0f );
 	}
 
 	public MeshRenderer gridMesh( ) {
@@ -40,9 +41,7 @@ public class Game {
 	}
 
 	public void Update( ) {
-		temp += ( double ) Time.GetDeltaTime( ) / ( double ) ( Time.SECOND * 10 );
+		temp += Time.GetDeltaTime( );
 
-		plane.transform.setTranslation( ( float ) Math.sin( temp ), -2.0f, 5.0f );
-		plane.transform.setScale( 0.5f, 0.5f, 0.5f );
 	}
 }

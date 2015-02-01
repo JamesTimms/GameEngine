@@ -14,12 +14,4 @@ class TimeTest extends groovy.util.GroovyTestCase {
         assert ( true )
     }
 
-    @Test
-    void testGetDeltaTime() {
-        GetDeltaTimeOnce( TEST_TIME );
-        GetDeltaTimeOnce( TEST_TIME2 );
-        GetDeltaTimeOnce( TEST_TIME_MIN );
-        GetDeltaTimeOnce( TEST_TIME_MAX );
-    }
-
 }

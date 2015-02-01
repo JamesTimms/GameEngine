@@ -1,7 +1,6 @@
 package org.gameEngine.engine.core;
 
 import org.gameEngine.engine.rendering.Mesh;
-import org.gameEngine.engine.rendering.shaders.BasicShader;
 import org.gameEngine.engine.rendering.shaders.Material;
 import org.gameEngine.engine.rendering.shaders.Shader;
 
@@ -30,8 +29,7 @@ public class MeshRenderer extends GameComponent {
 
 	}
 
-	public void render( ) {
-		Shader shader = new BasicShader( );//TODO: might need to make shader static or a singleton for performance.
+	public void render( Shader shader ) {
 		shader.Bind( );
 		shader.updateUniforms( transform, material );
 		mesh.draw( );

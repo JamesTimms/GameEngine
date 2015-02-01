@@ -1,5 +1,7 @@
 package org.gameEngine.engine.core;
 
+import org.gameEngine.engine.rendering.shaders.Shader;
+
 /**
  * Created by TekMaTek on 01/02/2015.
  */
@@ -19,7 +21,7 @@ public abstract class GameComponent {
 
 	}
 
-	public void render( ) {
+	public void render( Shader shader ) {
 
 	}
 }
