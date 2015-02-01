@@ -1,5 +1,6 @@
 package org.gameEngine.engine.core;
 
+import org.gameEngine.engine.physics.maths.Matrix4f;
 import org.gameEngine.engine.physics.maths.Vector2f;
 import org.gameEngine.engine.physics.maths.Vector3f;
 
@@ -7,6 +8,12 @@ import org.gameEngine.engine.physics.maths.Vector3f;
  * Created by TekMaTek on 26/01/2015.
  */
 public class Camera {
+
+	public float zNear;//Camera stuff here for a mo.
+	public float zFar;
+	public float width;
+	public float height;
+	public float fieldOfView;
 
 	public static final Vector3f yAxis = new Vector3f( 0.0f, 1.0f, 0.0f );
 
@@ -22,6 +29,19 @@ public class Camera {
 
 	public Camera( ) {
 		this( new Vector3f( 0.0f, 0.0f, 0.0f ), new Vector3f( 0.0f, 0.0f, 1.0f ), new Vector3f( 0.0f, 1.0f, 0.0f ) );
+	}
+
+	public Matrix4f cameraProjection( ) {
+		return new Matrix4f( ).initPerspective(
+				this.fieldOfView, this.height / this.width, this.zNear, this.zFar );
+	}
+
+	public void setProjection( float fieldOfView, float width, float height, float zNear, float zFar ) {
+		this.fieldOfView = ( fieldOfView > 1 ) ? fieldOfView : 1;
+		this.width = width;
+		this.height = height;
+		this.zNear = ( zNear > 0 ) ? zNear : 0;
+		this.zFar = ( zFar > zNear ) ? zFar : zFar + 1.0f;
 	}
 
 	public void input( ) {

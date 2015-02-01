@@ -1,7 +1,6 @@
 package org.gameEngine.engine.rendering.shaders;
 
 import org.gameEngine.engine.core.Transform;
-import org.gameEngine.engine.rendering.RenderingUtil;
 
 /**
  * Created by TekMaTek on 28/01/2015.
@@ -19,13 +18,10 @@ public class BasicShader extends Shader {
 		addUniform( "color" );
 	}
 
-	public void updateUniforms( Transform transform ) {
-		if( transform.material.texture != null ) {
-			transform.material.texture.bind( );
-		} else {
-			RenderingUtil.unbindTextures( );
-		}
+	public void updateUniforms( Transform transform, Material material ) {
+		dealWithTexture( material );
+
 		setUniform4m( "transform", transform.getProjectedTransformation( ) );
-		setUniform3f( "color", transform.material.color );
+		setUniform3f( "color", material.color );
 	}
 }

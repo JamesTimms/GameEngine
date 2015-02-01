@@ -84,6 +84,15 @@ public class Shader {
 		glUseProgram( program );
 	}
 
+	protected void dealWithTexture( Material material ) {
+		if( material.texture != null ) {
+			material.texture.bind( );
+		} else {
+			RenderingUtil.unbindTextures( );
+		}
+	}
+
+
 	protected void addProgram( String text, int type ) {
 		int shader = glCreateShader( type );
 
@@ -103,7 +112,7 @@ public class Shader {
 		glAttachShader( program, shader );
 	}
 
-	public void updateUniforms( Transform transform ) {
+	public void updateUniforms( Transform transform, Material material ) {
 
 	}
 

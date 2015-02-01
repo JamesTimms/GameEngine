@@ -3,13 +3,23 @@ package org.gameEngine.engine.core;
 /**
  * Created by TekMaTek on 01/02/2015.
  */
-public interface GameComponent {
+public abstract class GameComponent {
 
-	public void init( );
+	protected Transform transform;
 
-	public void input( );
+	public void init( ) {
 
-	public void update( );
+	}
 
-	public void render( );
+	public void input( ) {
+
+	}
+
+	public void update( ) {
+
+	}
+
+	public void render( ) {
+
+	}
 }

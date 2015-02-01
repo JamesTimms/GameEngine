@@ -7,9 +7,9 @@ import java.util.ArrayList;
  */
 public class GameObject {
 
+	public Transform transform;
 	private ArrayList< GameObject > children;
 	private ArrayList< GameComponent > components;
-	private Transform transform;
 
 	public GameObject( ) {
 		children = new ArrayList< GameObject >( );
@@ -17,15 +17,12 @@ public class GameObject {
 		transform = new Transform( );
 	}
 
-	public Transform getTransform( ) {
-		return transform;
-	}
-
 	public void addChild( GameObject child ) {
 		children.add( child );
 	}
 
 	public void addComponent( GameComponent component ) {
+		component.transform = transform;//Leave a reference back to transform.
 		components.add( component );
 	}
 

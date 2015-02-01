@@ -2,39 +2,21 @@ package org.gameEngine.engine.core;
 
 import org.gameEngine.engine.physics.maths.Matrix4f;
 import org.gameEngine.engine.physics.maths.Vector3f;
-import org.gameEngine.engine.rendering.shaders.Material;
 
 /**
  * Created by TekMaTek on 26/01/2015.
  */
 public class Transform {
 
-	private static float zNear;//Camera stuff here for a mo.
-	private static float zFar;
-	private static float width;
-	private static float height;
-	private static float fieldOfView;
-	private Camera camera;
+	public Camera camera;
 	private Vector3f translation;
 	private Vector3f rotation;
 	private Vector3f scale;
-
-	//TODO: move into gameObject object.
-	public Material material = Material.WhiteNoTexture( );
-	//
 
 	public Transform( ) {
 		this.translation = Vector3f.ZERO;
 		this.rotation = Vector3f.ZERO;
 		this.scale = Vector3f.ONE;
-	}
-
-	public static void setProjection( float fieldOfView, float width, float height, float zNear, float zFar ) {
-		Transform.fieldOfView = ( fieldOfView > 1 ) ? fieldOfView : 1;
-		Transform.width = width;
-		Transform.height = height;
-		Transform.zNear = ( zNear > 0 ) ? zNear : 0;
-		Transform.zFar = ( zFar > zNear ) ? zFar : zFar + 1.0f;
 	}
 
 	public Matrix4f getTransformMatrix( ) {
@@ -50,13 +32,12 @@ public class Transform {
 
 	public Matrix4f getProjectedTransformation( ) {//Camera stuff needs to be moved out.
 		Matrix4f transformationMatrix = getTransformMatrix( );
-		Matrix4f projectionMatrix = new Matrix4f( ).initPerspective(
-				Transform.fieldOfView, Transform.height / Transform.width, Transform.zNear, Transform.zFar );
+
 		Matrix4f cameraRotation = new Matrix4f( ).initCamera( camera.getForward( ), camera.getUp( ) );
 		Matrix4f cameraTranslation = new Matrix4f( ).initTranslation(
 				-camera.getPos( ).getX( ), -camera.getPos( ).getY( ), -camera.getPos( ).getZ( ) );
 
-		return projectionMatrix.mul( cameraRotation.mul( cameraTranslation.mul( transformationMatrix ) ) );
+		return camera.cameraProjection( ).mul( cameraRotation.mul( cameraTranslation.mul( transformationMatrix ) ) );
 	}
 
 	public Vector3f getTranslation( ) {
@@ -93,14 +74,6 @@ public class Transform {
 
 	public void setScale( float x, float y, float z ) {
 		this.scale = new Vector3f( x, y, z );
-	}
-
-	public Camera getCamera( ) {
-		return camera;
-	}
-
-	public void setCamera( Camera camera ) {
-		this.camera = camera;
 	}
 
 }
