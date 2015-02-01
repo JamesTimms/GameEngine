@@ -30,7 +30,7 @@ public class Time {
 		timeThisLoop = getTime( );
 		perLoopDelta = timeThisLoop - timeLastLoop;
 		timeLastLoop = timeThisLoop;
-		long frameThrottle = ( Core.FRAME_CAP == 0 ) ? 0 : SECOND / Core.FRAME_CAP;
+		long frameThrottle = ( CoreEngine.FRAME_CAP == 0 ) ? 0 : SECOND / CoreEngine.FRAME_CAP;
 		boolean isReady = ( timeElapsed += perLoopDelta ) > frameThrottle;
 		if( isReady ) {
 			timeElapsed = 0;

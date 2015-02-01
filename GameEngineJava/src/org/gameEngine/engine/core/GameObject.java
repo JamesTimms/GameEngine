@@ -7,7 +7,10 @@ import java.util.ArrayList;
  */
 public class GameObject {
 
+	private static GameObject root = new GameObject( );
+
 	public Transform transform;
+
 	private ArrayList< GameObject > children;
 	private ArrayList< GameComponent > components;
 
@@ -15,6 +18,10 @@ public class GameObject {
 		children = new ArrayList< GameObject >( );
 		components = new ArrayList< GameComponent >( );
 		transform = new Transform( );
+	}
+
+	public static GameObject getRoot( ) {
+		return GameObject.root;
 	}
 
 	public void addChild( GameObject child ) {

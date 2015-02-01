@@ -1,12 +1,13 @@
 package org.gameEngine.engine.core;
 
 import org.gameEngine.Game;
+import org.gameEngine.engine.rendering.RenderingEngine;
 import org.gameEngine.engine.rendering.RenderingUtil;
 
 /**
  * Created by TekMaTek on 01/02/2015.
  */
-public class Core {
+public class CoreEngine {
 
 	public static final long FRAME_CAP = 60;
 
@@ -14,20 +15,22 @@ public class Core {
 	public Window window;
 	protected boolean shouldRunGameLoop = false;
 	protected Game game;
+	protected RenderingEngine renderingEngine;
 
-	private Core( ) {
+	private CoreEngine( ) {
 	}
 
-	public static Core BuildCore( Window window, Game game ) {
-		Core newCore = new Core( );
-		newCore.window = window;
-		newCore.game = game;
-		return newCore;
+	public static CoreEngine BuildCore( Window window, Game game ) {
+		CoreEngine newCoreEngine = new CoreEngine( );
+		newCoreEngine.window = window;
+		newCoreEngine.game = game;
+		newCoreEngine.renderingEngine = new RenderingEngine( );
+		return newCoreEngine;
 	}
 
 	public void StartGame( ) {
 		initRenderingEngine( );
-		game.init();
+		game.init( );
 		shouldRunGameLoop = true;
 		GameLoop( );
 	}
@@ -53,7 +56,7 @@ public class Core {
 
 			if( Time.IsReadyForFrame( ) ) {
 				//Do frame.
-				Time.UpdateDeltaTime();
+				Time.UpdateDeltaTime( );
 				frameCount++;
 				ProcessFrame( );
 				RenderFrame( );
@@ -71,7 +74,7 @@ public class Core {
 	}
 
 	protected void RenderFrame( ) {
-		game.Render( );
+		renderingEngine.render( GameObject.getRoot( ) );
 		window.Render( );
 	}
 
