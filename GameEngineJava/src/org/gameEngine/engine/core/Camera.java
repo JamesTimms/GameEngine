@@ -1,8 +1,7 @@
 package org.gameEngine.engine.core;
 
-import org.gameEngine.engine.core.Input.Input;
-import org.gameEngine.engine.core.maths.Vector2f;
-import org.gameEngine.engine.core.maths.Vector3f;
+import org.gameEngine.engine.physics.maths.Vector2f;
+import org.gameEngine.engine.physics.maths.Vector3f;
 
 /**
  * Created by TekMaTek on 26/01/2015.

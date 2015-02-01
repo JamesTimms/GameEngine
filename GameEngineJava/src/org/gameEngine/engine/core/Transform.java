@@ -1,8 +1,8 @@
 package org.gameEngine.engine.core;
 
-import org.gameEngine.engine.core.maths.Matrix4f;
-import org.gameEngine.engine.core.maths.Vector3f;
-import org.gameEngine.engine.core.shaders.Material;
+import org.gameEngine.engine.physics.maths.Matrix4f;
+import org.gameEngine.engine.physics.maths.Vector3f;
+import org.gameEngine.engine.rendering.shaders.Material;
 
 /**
  * Created by TekMaTek on 26/01/2015.
