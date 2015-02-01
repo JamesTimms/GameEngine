@@ -1,7 +1,7 @@
 package org.gameEngine.engine.core;
 
+import org.gameEngine.StartGame;
 import org.gameEngine.engine.physics.maths.Matrix4f;
-import org.gameEngine.engine.physics.maths.Vector2f;
 import org.gameEngine.engine.physics.maths.Vector3f;
 
 /**
@@ -10,23 +10,24 @@ import org.gameEngine.engine.physics.maths.Vector3f;
 public class Camera {
 
 	public static final Vector3f yAxis = new Vector3f( 0.0f, 1.0f, 0.0f );
-	public float zNear;//Camera stuff here for a mo.
+	public float zNear;
 	public float zFar;
 	public float width;
 	public float height;
 	public float fieldOfView;
-	private Vector3f pos;
+	public Transform transform = new Transform( );
 	private Vector3f forward;
 	private Vector3f up;
 
 	public Camera( Vector3f pos, Vector3f forward, Vector3f up ) {
-		this.pos = pos;
+		this.transform.setTranslation( pos );
 		this.forward = forward;
 		this.up = up;
 	}
 
 	public Camera( ) {
 		this( new Vector3f( 0.0f, 0.0f, 0.0f ), new Vector3f( 0.0f, 0.0f, 1.0f ), new Vector3f( 0.0f, 1.0f, 0.0f ) );
+		this.setProjection( 70.0f, StartGame.WIDTH, StartGame.HEIGHT, 0.1f, 1000.0f );
 	}
 
 	public Matrix4f cameraProjection( ) {
@@ -42,39 +43,9 @@ public class Camera {
 		this.zFar = ( zFar > zNear ) ? zFar : zFar + 1.0f;
 	}
 
-	public void input( ) {
-		final float SPEED_MOD = 0.25f;
-		final float SENSITIVITY = 0.0025f;
-		float moveAmount = SPEED_MOD * ( float ) ( 100 * Time.GetDeltaTime( ) );
-
-		if( Input.GetKeyDown( Input.KEY_W ) ) {
-			move( getForward( ), moveAmount );
-		} else if( Input.GetKeyDown( Input.KEY_S ) ) {
-			move( getForward( ), -moveAmount );
-		} else if( Input.GetKeyDown( Input.KEY_A ) ) {
-			move( getLeft( ), moveAmount );
-		} else if( Input.GetKeyDown( Input.KEY_D ) ) {
-			move( getRight( ), moveAmount );
-		}
-
-		if( Input.GetMouseDown( 0 ) ) {
-			Vector2f deltaPosition = Input.GetMousePosition( ).sub( Input.CENTER_MOUSE_POS );
-
-			boolean rotY = Math.abs( deltaPosition.getX( ) ) > 100.0f;
-			boolean rotX = Math.abs( deltaPosition.getY( ) ) > 100.0f;
-			if( rotY ) {
-				rotateY( ( float ) ( -( forward.getX( ) - deltaPosition.getX( ) ) * SENSITIVITY *
-						Time.GetDeltaTime( ) ) );
-			}
-			if( rotX ) {
-				rotateX( ( float ) ( ( forward.getY( ) - deltaPosition.getY( ) ) * SENSITIVITY *
-						Time.GetDeltaTime( ) ) );
-			}
-		}
-	}
-
 	public void move( Vector3f direction, float amount ) {
-		pos = pos.add( direction.mul( amount ) );
+		Vector3f newPosition = transform.getTranslation( ).add( direction.mul( amount ) );
+		this.transform.setTranslation( newPosition );
 	}
 
 	public Vector3f getLeft( ) {
@@ -117,15 +88,4 @@ public class Camera {
 		return forward;
 	}
 
-	public void setForward( Vector3f forward ) {
-		this.forward = forward;
-	}
-
-	public Vector3f getPos( ) {
-		return pos;
-	}
-
-	public void setPos( Vector3f pos ) {
-		this.pos = pos;
-	}
 }

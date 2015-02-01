@@ -78,7 +78,7 @@ public class PhongShader2 extends Shader {
 
 		setUniformf( "specularIntensity", material.specularIntensity );
 		setUniformf( "specularExponent", material.specularExponent );
-		setUniform3f( "eyePos", transform.camera.getPos( ) );
+		setUniform3f( "eyePos", transform.camera.transform.getTranslation( ) );
 	}
 
 	protected void setUniform( String uniformName, DirectionalLight directionalLight ) {

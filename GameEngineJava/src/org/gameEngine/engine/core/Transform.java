@@ -35,7 +35,8 @@ public class Transform {
 
 		Matrix4f cameraRotation = new Matrix4f( ).initCamera( camera.getForward( ), camera.getUp( ) );
 		Matrix4f cameraTranslation = new Matrix4f( ).initTranslation(
-				-camera.getPos( ).getX( ), -camera.getPos( ).getY( ), -camera.getPos( ).getZ( ) );
+				-camera.transform.getTranslation( ).getX( ), -camera.transform.getTranslation( ).getY( ),
+				-camera.transform.getTranslation( ).getZ( ) );
 
 		return camera.cameraProjection( ).mul( cameraRotation.mul( cameraTranslation.mul( transformationMatrix ) ) );
 	}
