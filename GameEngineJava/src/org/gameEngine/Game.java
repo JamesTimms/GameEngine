@@ -5,7 +5,10 @@ import org.gameEngine.engine.core.Time;
 import org.gameEngine.engine.core.Transform;
 import org.gameEngine.engine.physics.maths.Vector2f;
 import org.gameEngine.engine.physics.maths.Vector3f;
-import org.gameEngine.engine.rendering.*;
+import org.gameEngine.engine.rendering.Mesh;
+import org.gameEngine.engine.rendering.RenderingUtil;
+import org.gameEngine.engine.rendering.Texture;
+import org.gameEngine.engine.rendering.Vertex;
 import org.gameEngine.engine.rendering.lighting.Attenuation;
 import org.gameEngine.engine.rendering.lighting.BaseLight;
 import org.gameEngine.engine.rendering.lighting.PointLight;
@@ -31,6 +34,10 @@ public class Game {
 	private double temp;
 
 	public Game( ) {
+
+	}
+
+	public void init() {
 		shader = new PhongShader2( );
 		transform = new Transform( );
 		camera = new Camera( );

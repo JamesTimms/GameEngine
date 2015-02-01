@@ -26,8 +26,9 @@ public class Core {
 	}
 
 	public void StartGame( ) {
-		shouldRunGameLoop = true;
 		initRenderingEngine( );
+		game.init();
+		shouldRunGameLoop = true;
 		GameLoop( );
 	}
 
