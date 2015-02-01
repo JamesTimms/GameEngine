@@ -6,6 +6,7 @@ import org.gameEngine.engine.core.render.Util;
 import org.gameEngine.engine.core.render.lighting.BaseLight;
 import org.gameEngine.engine.core.render.lighting.DirectionalLight;
 import org.gameEngine.engine.core.render.lighting.PointLight;
+import org.gameEngine.engine.core.render.lighting.SpotLight;
 
 /**
  * Created by TekMaTek on 28/01/2015.
@@ -13,9 +14,11 @@ import org.gameEngine.engine.core.render.lighting.PointLight;
 public class PhongShader2 extends Shader {
 
 	private static final int MAX_POINT_LIGHTS = 4;
+	private static final int MAX_SPOT_LIGHTS = 4;
 
 	public static DirectionalLight directionalLight = DirectionalLight.Default( );
 	public static PointLight[] pointLights = new PointLight[] { };
+	public static SpotLight[] spotLights = new SpotLight[] { };
 
 	public PhongShader2( ) {
 		super( );
@@ -46,6 +49,18 @@ public class PhongShader2 extends Shader {
 			addUniform( "pointLights[" + i + "].position" );
 			addUniform( "pointLights[" + i + "].range" );
 		}
+		for( int i = 0; i < MAX_SPOT_LIGHTS; i++ ) {
+			addUniform( "spotLights[" + i + "].pointLight.base.color" );
+			addUniform( "spotLights[" + i + "].pointLight.base.intensity" );
+			addUniform( "spotLights[" + i + "].pointLight.atten.constant" );
+			addUniform( "spotLights[" + i + "].pointLight.atten.linear" );
+			addUniform( "spotLights[" + i + "].pointLight.atten.exponent" );
+			addUniform( "spotLights[" + i + "].pointLight.position" );
+			addUniform( "spotLights[" + i + "].pointLight.range" );
+
+			addUniform( "spotLights[" + i + "].direction" );
+			addUniform( "spotLights[" + i + "].cutoff" );
+		}
 	}
 
 	public void updateUniforms( Transform transform ) {
@@ -61,6 +76,9 @@ public class PhongShader2 extends Shader {
 		setUniform( "directionLight", directionalLight );
 		for( int i = 0; i < pointLights.length; i++ ) {
 			setUniform( "pointLights[" + i + "]", pointLights[ i ] );
+		}
+		for( int i = 0; i < spotLights.length; i++ ) {
+			setUniform( "spotLights[" + i + "]", spotLights[ i ] );
 		}
 
 		setUniformf( "specularIntensity", transform.material.specularIntensity );
@@ -85,5 +103,11 @@ public class PhongShader2 extends Shader {
 		setUniformf( uniformName + ".atten.exponent", pointLight.atten.exponent );
 		setUniform3f( uniformName + ".position", pointLight.position );
 		setUniformf( uniformName + ".range", pointLight.range );
+	}
+
+	protected void setUniform( String uniformName, SpotLight spotLight ) {
+		setUniform( uniformName + ".pointLight", spotLight.pointLight );
+		setUniform3f( uniformName + ".direction", spotLight.direction );
+		setUniformf( uniformName + ".cutoff", spotLight.cutoff );
 	}
 }
