@@ -8,10 +8,12 @@ import org.gameEngine.engine.physics.maths.Vector3f;
  */
 public class Transform {
 
-	public Camera camera;
 	private Vector3f translation;
 	private Vector3f rotation;
 	private Vector3f scale;
+	public Vector3f forward = new Vector3f( 0.0f, 0.0f, 1.0f );
+	public Vector3f up = new Vector3f( 0.0f, 1.0f, 0.0f );
+	public Vector3f yAxis = new Vector3f( 0.0f, 1.0f, 0.0f );
 
 	public Transform( ) {
 		this.translation = Vector3f.ZERO;
@@ -30,15 +32,9 @@ public class Transform {
 		return translationMat.mul( rotationMat.mul( scaleMat ) );
 	}
 
-	public Matrix4f getProjectedTransformation( ) {//Camera stuff needs to be moved out.
-		Matrix4f transformationMatrix = getTransformMatrix( );
+	public Matrix4f getProjectedTransformation( Camera camera ) {//Camera stuff needs to be moved out.
+		return camera.GetViewProjection( ).mul( getTransformMatrix( ) );
 
-		Matrix4f cameraRotation = new Matrix4f( ).initCamera( camera.getForward( ), camera.getUp( ) );
-		Matrix4f cameraTranslation = new Matrix4f( ).initTranslation(
-				-camera.transform.getTranslation( ).getX( ), -camera.transform.getTranslation( ).getY( ),
-				-camera.transform.getTranslation( ).getZ( ) );
-
-		return camera.cameraProjection( ).mul( cameraRotation.mul( cameraTranslation.mul( transformationMatrix ) ) );
 	}
 
 	public Vector3f getTranslation( ) {
@@ -47,6 +43,39 @@ public class Transform {
 
 	public void setTranslation( Vector3f translation ) {
 		this.translation = translation;
+	}
+
+	public void move( Vector3f direction, float amount ) {
+		Vector3f newPosition = translation.add( direction.mul( amount ) );
+		this.setTranslation( newPosition );
+	}
+
+	public Vector3f getLeft( ) {
+		Vector3f left = forward.cross( up );
+		left.normalized( );
+		return left;
+	}
+
+	public Vector3f getRight( ) {
+		Vector3f left = up.cross( forward );
+		left.normalized( );
+		return left;
+	}
+
+	public void rotateX( float angle ) {
+		Vector3f hAxis = yAxis.cross( forward ).normalized( );
+
+		forward = forward.rotate( hAxis, angle ).normalized( );
+
+		up = forward.cross( hAxis ).normalized( );
+	}
+
+	public void rotateY( float angle ) {
+		Vector3f hAxis = yAxis.cross( forward ).normalized( );
+
+		forward = forward.rotate( yAxis, angle ).normalized( );
+
+		up = forward.cross( hAxis ).normalized( );
 	}
 
 	public void setTranslation( float x, float y, float z ) {

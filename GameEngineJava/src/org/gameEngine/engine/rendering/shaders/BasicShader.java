@@ -1,5 +1,6 @@
 package org.gameEngine.engine.rendering.shaders;
 
+import org.gameEngine.engine.core.Camera;
 import org.gameEngine.engine.core.Transform;
 
 /**
@@ -18,10 +19,10 @@ public class BasicShader extends Shader {
 		addUniform( "color" );
 	}
 
-	public void updateUniforms( Transform transform, Material material ) {
+	public void updateUniforms( Transform transform, Material material, Camera camera ) {
 		dealWithTexture( material );
 
-		setUniform4m( "transform", transform.getProjectedTransformation( ) );
+		setUniform4m( "transform", transform.getProjectedTransformation( camera ) );
 		setUniform3f( "color", material.color );
 	}
 }

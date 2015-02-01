@@ -1,5 +1,6 @@
 package org.gameEngine.engine.rendering;
 
+import org.gameEngine.engine.core.Camera;
 import org.gameEngine.engine.core.GameObject;
 import org.gameEngine.engine.physics.maths.Vector3f;
 import org.gameEngine.engine.rendering.shaders.BasicShader;
@@ -10,6 +11,8 @@ import static org.lwjgl.opengl.GL11.*;
  * Created by TekMaTek on 01/02/2015.
  */
 public class RenderingEngine {
+
+	public static Camera camera;
 
 	public RenderingEngine( ) {
 		System.out.println( RenderingUtil.GetOpenGLVersion( ) );

@@ -4,6 +4,7 @@ import org.gameEngine.engine.core.*;
 import org.gameEngine.engine.physics.maths.Vector2f;
 import org.gameEngine.engine.physics.maths.Vector3f;
 import org.gameEngine.engine.rendering.MeshUtil;
+import org.gameEngine.engine.rendering.RenderingEngine;
 import org.gameEngine.engine.rendering.Texture;
 import org.gameEngine.engine.rendering.shaders.Material;
 import org.lwjgl.input.Mouse;
@@ -13,17 +14,18 @@ import org.lwjgl.input.Mouse;
  */
 public class Game {
 
-	private GameObject plane;
-	private Camera camera;
+	GameObject cameraGO;
 
 	public void init( ) {
-		plane = new GameObject( );
+		GameObject plane = new GameObject( );
+		cameraGO = new GameObject( );
 
 		GameObject.getRoot( ).addChild( plane );
-		camera = new Camera( );
+		GameObject.getRoot( ).addChild( cameraGO );
+		RenderingEngine.camera = new Camera( );
+		cameraGO.addComponent( RenderingEngine.camera );
 
 		plane.addComponent( gridMesh( ) );
-		plane.transform.camera = camera;
 		plane.transform.setTranslation( 0.0f, -2.0f, 5.0f );
 	}
 
@@ -34,24 +36,24 @@ public class Game {
 	}
 
 	public void UpdateInput( ) {
-		input( camera );
+		input( cameraGO );
 	}
 
 
-	public void input( Camera camera ) {
+	public void input( GameObject go ) {
 		final float SPEED_MOD = 0.25f;
 		final float SENSITIVITY = 0.0025f;
 		float moveAmount = SPEED_MOD * ( float ) ( 100 * Time.GetDeltaTime( ) );
 
 		float scroll = Mouse.getDWheel( );
 		if( Input.GetKeyDown( Input.KEY_W ) || scroll > 0 ) {
-			camera.move( camera.getForward( ), moveAmount );
+			go.transform.move( go.transform.forward, moveAmount );
 		} else if( Input.GetKeyDown( Input.KEY_S ) || scroll < 0 ) {
-			camera.move( camera.getForward( ), -moveAmount );
+			go.transform.move( go.transform.forward, -moveAmount );
 		} else if( Input.GetKeyDown( Input.KEY_A ) ) {
-			camera.move( camera.getLeft( ), moveAmount );
+			go.transform.move( go.transform.getLeft( ), moveAmount );
 		} else if( Input.GetKeyDown( Input.KEY_D ) ) {
-			camera.move( camera.getRight( ), moveAmount );
+			go.transform.move( go.transform.getRight( ), moveAmount );
 		}
 
 		if( Input.GetMouseDown( 0 ) ) {
@@ -60,12 +62,14 @@ public class Game {
 			boolean rotY = Math.abs( deltaPosition.getX( ) ) > 100.0f;
 			boolean rotX = Math.abs( deltaPosition.getY( ) ) > 100.0f;
 			if( rotY ) {
-				camera.rotateY( ( float ) ( -( camera.getForward( ).getX( ) - deltaPosition.getX( ) ) * SENSITIVITY *
+				go.transform.rotateY( ( float ) ( -( go.transform.forward.getX( ) - deltaPosition.getX( ) ) *
+						SENSITIVITY *
 						Time.GetDeltaTime( ) ) );
 			}
 			if( rotX ) {
-				camera.rotateX( ( float ) ( ( camera.getForward( ).getY( ) - deltaPosition.getY( ) ) * SENSITIVITY *
-						Time.GetDeltaTime( ) ) );
+				go.transform.rotateX(
+						( float ) ( ( go.transform.forward.getY( ) - deltaPosition.getY( ) ) * SENSITIVITY *
+								Time.GetDeltaTime( ) ) );
 			}
 		}
 	}

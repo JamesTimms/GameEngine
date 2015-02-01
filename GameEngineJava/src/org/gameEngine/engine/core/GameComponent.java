@@ -8,6 +8,7 @@ import org.gameEngine.engine.rendering.shaders.Shader;
 public abstract class GameComponent {
 
 	protected Transform transform;
+	protected GameObject gameObject;
 
 	public void init( ) {
 

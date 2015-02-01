@@ -1,5 +1,6 @@
 package org.gameEngine.engine.rendering.shaders;
 
+import org.gameEngine.engine.core.Camera;
 import org.gameEngine.engine.core.Transform;
 import org.gameEngine.engine.rendering.lighting.BaseLight;
 import org.gameEngine.engine.rendering.lighting.DirectionalLight;
@@ -61,11 +62,11 @@ public class PhongShader2 extends Shader {
 		}
 	}
 
-	public void updateUniforms( Transform transform, Material material ) {
+	public void updateUniforms( Transform transform, Material material, Camera camera ) {
 		dealWithTexture( material );
 
 		setUniform4m( "transform", transform.getTransformMatrix( ) );
-		setUniform4m( "transformProjected", transform.getProjectedTransformation( ) );
+		setUniform4m( "transformProjected", transform.getProjectedTransformation( camera ) );
 		setUniform3f( "baseColor", material.color );
 		setUniform3f( "ambientLight", Shader.ambientLight );
 		setUniform( "directionLight", directionalLight );
@@ -78,7 +79,7 @@ public class PhongShader2 extends Shader {
 
 		setUniformf( "specularIntensity", material.specularIntensity );
 		setUniformf( "specularExponent", material.specularExponent );
-		setUniform3f( "eyePos", transform.camera.transform.getTranslation( ) );
+		setUniform3f( "eyePos", camera.GetTransform( ).getTranslation( ) );
 	}
 
 	protected void setUniform( String uniformName, DirectionalLight directionalLight ) {

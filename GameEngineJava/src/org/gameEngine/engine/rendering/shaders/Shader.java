@@ -1,5 +1,6 @@
 package org.gameEngine.engine.rendering.shaders;
 
+import org.gameEngine.engine.core.Camera;
 import org.gameEngine.engine.core.Transform;
 import org.gameEngine.engine.physics.maths.Matrix4f;
 import org.gameEngine.engine.physics.maths.Vector3f;
@@ -112,7 +113,7 @@ public class Shader {
 		glAttachShader( program, shader );
 	}
 
-	public void updateUniforms( Transform transform, Material material ) {
+	public void updateUniforms( Transform transform, Material material, Camera camera ) {
 
 	}
 

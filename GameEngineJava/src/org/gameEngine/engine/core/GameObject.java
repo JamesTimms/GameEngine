@@ -35,6 +35,15 @@ public class GameObject {
 		components.add( component );
 	}
 
+//	public T getComponent< T >( T type ){
+//		for( GameComponent component : components ) {
+//			if( component.getClass().equals( type )) {
+//				return component;
+//			}
+//		}
+//		return null;
+//	}
+
 	public void input( ) {
 		for( GameComponent component : components ) {
 			component.input( );
