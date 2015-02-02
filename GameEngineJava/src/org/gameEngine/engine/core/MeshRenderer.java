@@ -1,7 +1,6 @@
 package org.gameEngine.engine.core;
 
 import org.gameEngine.engine.rendering.Mesh;
-import org.gameEngine.engine.rendering.RenderingEngine;
 import org.gameEngine.engine.rendering.shaders.Material;
 import org.gameEngine.engine.rendering.shaders.Shader;
 
@@ -32,7 +31,7 @@ public class MeshRenderer extends GameComponent {
 
 	public void render( Shader shader ) {
 		shader.Bind( );
-		shader.updateUniforms( transform, material, RenderingEngine.camera );
+		shader.updateUniforms( transform, material, Camera.mainCamera );
 		mesh.draw( );
 	}
 }

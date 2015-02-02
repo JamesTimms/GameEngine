@@ -4,7 +4,6 @@ import org.gameEngine.engine.core.*;
 import org.gameEngine.engine.physics.maths.Vector2f;
 import org.gameEngine.engine.physics.maths.Vector3f;
 import org.gameEngine.engine.rendering.MeshUtil;
-import org.gameEngine.engine.rendering.RenderingEngine;
 import org.gameEngine.engine.rendering.Texture;
 import org.gameEngine.engine.rendering.shaders.Material;
 import org.lwjgl.input.Mouse;
@@ -22,8 +21,7 @@ public class Game {
 
 		GameObject.getRoot( ).addChild( plane );
 		GameObject.getRoot( ).addChild( cameraGO );
-		RenderingEngine.camera = new Camera( );
-		cameraGO.addComponent( RenderingEngine.camera );
+		cameraGO.addComponent( new Camera( ) );
 
 		plane.addComponent( gridMesh( ) );
 		plane.transform.setTranslation( 0.0f, -2.0f, 5.0f );

@@ -6,7 +6,9 @@ import org.gameEngine.engine.physics.maths.Matrix4f;
 /**
  * Created by TekMaTek on 26/01/2015.
  */
-public class Camera extends GameComponent{
+public class Camera extends GameComponent {
+
+	public static Camera mainCamera;
 
 	public float zNear;
 	public float zFar;
@@ -15,6 +17,9 @@ public class Camera extends GameComponent{
 	public float fieldOfView;
 
 	public Camera( ) {
+		if( mainCamera == null ) {
+			mainCamera = this;
+		}
 		this.setProjection( 70.0f, StartGame.WIDTH, StartGame.HEIGHT, 0.1f, 1000.0f );
 	}
 

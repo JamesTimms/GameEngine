@@ -15,6 +15,7 @@ public class GameObject {
 
 	private ArrayList< GameObject > children;
 	private ArrayList< GameComponent > components;
+	private GameObject parent;
 
 	public GameObject( ) {
 		children = new ArrayList< GameObject >( );
@@ -27,22 +28,37 @@ public class GameObject {
 	}
 
 	public void addChild( GameObject child ) {
+		child.parent = this;
 		children.add( child );
 	}
 
 	public void addComponent( GameComponent component ) {
 		component.transform = transform;//Leave a reference back to transform.
+		component.componentObject = component;
 		components.add( component );
 	}
 
-//	public T getComponent< T >( T type ){
-//		for( GameComponent component : components ) {
-//			if( component.getClass().equals( type )) {
-//				return component;
-//			}
-//		}
-//		return null;
-//	}
+	public < T extends GameComponent > T getComponent( Class< T > type ) {
+		for( GameComponent component : components ) {
+			if( component.getClass( ).equals( type ) ) {
+				return ( T ) component;
+			}
+		}
+		return null;
+	}
+
+	public < T extends GameComponent > T getComponentUpwards( Class< T > type ) {
+		for( GameComponent component : components ) {
+			if( component.getClass( ).equals( type ) ) {
+				return ( T ) component;
+			}
+		}
+		if( parent != null ) {
+			parent.getComponentUpwards( type );
+		}
+		return null;
+	}
+
 
 	public void input( ) {
 		for( GameComponent component : components ) {
