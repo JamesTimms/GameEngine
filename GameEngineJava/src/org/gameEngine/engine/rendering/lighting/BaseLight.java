@@ -20,4 +20,8 @@ public class BaseLight {
 	public static BaseLight WhiteLight( ) {
 		return BuildBaseLight( Vector3f.ONE, 1.0f );
 	}
+
+	public static BaseLight GreenLight( ) {
+		return BuildBaseLight( new Vector3f( 0.0f, 1.0f, 0.0f ), 1.0f );
+	}
 }

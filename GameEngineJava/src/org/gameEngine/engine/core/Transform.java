@@ -8,12 +8,12 @@ import org.gameEngine.engine.physics.maths.Vector3f;
  */
 public class Transform {
 
-	private Vector3f translation;
-	private Vector3f rotation;
-	private Vector3f scale;
 	public Vector3f forward = new Vector3f( 0.0f, 0.0f, 1.0f );
 	public Vector3f up = new Vector3f( 0.0f, 1.0f, 0.0f );
 	public Vector3f yAxis = new Vector3f( 0.0f, 1.0f, 0.0f );
+	private Vector3f translation;
+	private Vector3f rotation;
+	private Vector3f scale;
 
 	public Transform( ) {
 		this.translation = Vector3f.ZERO;

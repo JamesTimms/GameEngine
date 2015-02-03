@@ -2,7 +2,11 @@ package org.gameEngine.engine.rendering;
 
 import org.gameEngine.engine.core.GameObject;
 import org.gameEngine.engine.physics.maths.Vector3f;
-import org.gameEngine.engine.rendering.shaders.BasicShader;
+import org.gameEngine.engine.rendering.lighting.BaseLight;
+import org.gameEngine.engine.rendering.lighting.DirectionalLight;
+import org.gameEngine.engine.rendering.shaders.ForwardAmbient;
+import org.gameEngine.engine.rendering.shaders.ForwardDirectional;
+import org.gameEngine.engine.rendering.shaders.Shader;
 
 import static org.lwjgl.opengl.GL11.*;
 
@@ -10,6 +14,10 @@ import static org.lwjgl.opengl.GL11.*;
  * Created by TekMaTek on 01/02/2015.
  */
 public class RenderingEngine {
+
+	public static Vector3f ambientLight = new Vector3f( 0.2f, 0.2f, 0.2f );
+	public static DirectionalLight directionalLight = DirectionalLight.BuildDirectionalLight(
+			BaseLight.GreenLight( ), new Vector3f( 0.7f, 0.7f, 0.7f ) );
 
 	public RenderingEngine( ) {
 		System.out.println( RenderingUtil.GetOpenGLVersion( ) );
@@ -23,14 +31,27 @@ public class RenderingEngine {
 		glEnable( GL_TEXTURE_2D );
 	}
 
+	protected static void clearScreen( ) {
+		glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
+	}
+
 	public void render( GameObject someRootGO ) {
 		clearScreen( );
 		RenderingUtil.setClearColor( new Vector3f( 0.0f, 0.0f, 0.0f ) );
-		someRootGO.render( new BasicShader( ) );
-	}
+		Shader forwardAmbient = new ForwardAmbient( );
+		Shader forwardDirectional = new ForwardDirectional( );
 
-	protected static void clearScreen( ) {
-		glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
+		someRootGO.render( forwardAmbient );
+		glEnable( GL_BLEND );
+		glBlendFunc( GL_ONE, GL_ONE );
+		glDepthMask( false );
+		glDepthFunc( GL_EQUAL );
+
+		someRootGO.render( forwardDirectional );
+
+		glDepthFunc( GL_LESS );
+		glDepthMask( true );
+		glDisable( GL_BLEND );
 	}
 
 }

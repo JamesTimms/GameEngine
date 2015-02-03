@@ -37,7 +37,6 @@ public class Game {
 		input( cameraGO );
 	}
 
-
 	public void input( GameObject go ) {
 		final float SPEED_MOD = 0.25f;
 		final float SENSITIVITY = 0.0025f;
@@ -54,21 +53,19 @@ public class Game {
 			go.transform.move( go.transform.getRight( ), moveAmount );
 		}
 
-		if( Input.GetMouseDown( 0 ) ) {
-			Vector2f deltaPosition = Input.GetMousePosition( ).sub( Input.CENTER_MOUSE_POS );
+		Vector2f deltaPosition = Input.GetMousePosition( ).sub( Input.CENTER_MOUSE_POS );
 
-			boolean rotY = Math.abs( deltaPosition.getX( ) ) > 100.0f;
-			boolean rotX = Math.abs( deltaPosition.getY( ) ) > 100.0f;
-			if( rotY ) {
-				go.transform.rotateY( ( float ) ( -( go.transform.forward.getX( ) - deltaPosition.getX( ) ) *
-						SENSITIVITY *
-						Time.GetDeltaTime( ) ) );
-			}
-			if( rotX ) {
-				go.transform.rotateX(
-						( float ) ( ( go.transform.forward.getY( ) - deltaPosition.getY( ) ) * SENSITIVITY *
-								Time.GetDeltaTime( ) ) );
-			}
+		boolean rotY = Math.abs( deltaPosition.getX( ) ) > 100.0f;
+		boolean rotX = Math.abs( deltaPosition.getY( ) ) > 100.0f;
+		if( rotY ) {
+			go.transform.rotateY( ( float ) ( -( go.transform.forward.getX( ) - deltaPosition.getX( ) ) *
+					SENSITIVITY *
+					Time.GetDeltaTime( ) ) );
+		}
+		if( rotX ) {
+			go.transform.rotateX(
+					( float ) ( ( go.transform.forward.getY( ) - deltaPosition.getY( ) ) * SENSITIVITY *
+							Time.GetDeltaTime( ) ) );
 		}
 	}
 

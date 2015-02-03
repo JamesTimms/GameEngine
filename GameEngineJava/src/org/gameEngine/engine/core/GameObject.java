@@ -48,13 +48,11 @@ public class GameObject {
 	}
 
 	public < T extends GameComponent > T getComponentUpwards( Class< T > type ) {
-		for( GameComponent component : components ) {
-			if( component.getClass( ).equals( type ) ) {
-				return ( T ) component;
-			}
-		}
-		if( parent != null ) {
-			parent.getComponentUpwards( type );
+		T foundComponent = getComponent( type );
+		if( foundComponent != null ) {
+			return foundComponent;
+		} else if( parent != null ) {
+			return parent.getComponentUpwards( type );
 		}
 		return null;
 	}
