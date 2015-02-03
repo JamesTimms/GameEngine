@@ -21,7 +21,7 @@ public class Attenuation {
 	}
 
 	public static Attenuation DefaultAttenuation( ) {
-		return BuildAttenutation( 0.2f, 0.5f, 1.0f );
+		return BuildAttenutation( 0.01f, 0.03f, 0.02f );
 	}
 
 }

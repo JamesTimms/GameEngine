@@ -26,6 +26,6 @@ public class PointLight {
 
 	public static PointLight DefaultPointLight( ) {
 		return BuildPointLight(
-				BaseLight.WhiteLight( ), Attenuation.DefaultAttenuation( ), new Vector3f( 2.0f, 2.0f, 2.0f ), 3.0f );
+				BaseLight.BlueLight( ), Attenuation.DefaultAttenuation( ), new Vector3f( 0.5f, 0.5f, 0.5f ), 15.0f );
 	}
 }
