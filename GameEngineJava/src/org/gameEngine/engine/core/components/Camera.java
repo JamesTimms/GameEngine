@@ -1,6 +1,7 @@
-package org.gameEngine.engine.core;
+package org.gameEngine.engine.core.components;
 
 import org.gameEngine.StartGame;
+import org.gameEngine.engine.core.Transform;
 import org.gameEngine.engine.physics.maths.Matrix4f;
 
 /**

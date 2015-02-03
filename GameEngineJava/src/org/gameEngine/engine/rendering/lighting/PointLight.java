@@ -24,8 +24,18 @@ public class PointLight {
 		return newPointLight;
 	}
 
-	public static PointLight DefaultPointLight( ) {
+	public static PointLight BluePointLight( ) {
 		return BuildPointLight(
 				BaseLight.BlueLight( ), Attenuation.DefaultAttenuation( ), new Vector3f( 0.5f, 0.5f, 0.5f ), 15.0f );
+	}
+
+	public static PointLight GreenPointLight( ) {
+		return BuildPointLight(
+				BaseLight.GreenLight( ), Attenuation.DefaultAttenuation( ), new Vector3f( 0.5f, 0.5f, 0.5f ), 15.0f );
+	}
+
+	public static PointLight RedPointLight( ) {
+		return BuildPointLight(
+				BaseLight.RedLight( ), Attenuation.DefaultAttenuation( ), new Vector3f( 0.5f, 0.5f, 0.5f ), 15.0f );
 	}
 }

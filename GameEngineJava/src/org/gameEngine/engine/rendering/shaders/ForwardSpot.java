@@ -2,21 +2,29 @@ package org.gameEngine.engine.rendering.shaders;
 
 import org.gameEngine.engine.core.components.Camera;
 import org.gameEngine.engine.core.Transform;
+import org.gameEngine.engine.physics.maths.Vector3f;
+import org.gameEngine.engine.rendering.lighting.Attenuation;
 import org.gameEngine.engine.rendering.lighting.BaseLight;
 import org.gameEngine.engine.rendering.lighting.PointLight;
+import org.gameEngine.engine.rendering.lighting.SpotLight;
 
 /**
  * Created by TekMaTek on 28/01/2015.
  */
-public class ForwardPoint extends Shader {
+public class ForwardSpot extends Shader {
 
-	public PointLight pointLight = PointLight.BluePointLight( );
+	public SpotLight spotLight =
+			SpotLight.BuildSpotLight(
+					PointLight.BuildPointLight(
+							BaseLight.RedLight( ), Attenuation.DefaultAttenuation( ), new Vector3f( 8.8f, 0.5f, 8.8f
+							), 15.0f )
+					, new Vector3f( 0.0f, -1.0f, 0.0f ), 0.20f );
 
-	public ForwardPoint( ) {
+	public ForwardSpot( ) {
 		super( );
 
-		addVertextShader( LoadShader( "forward/point.vertex" ) );
-		addFragmentShader( LoadShader( "forward/point.fragment" ) );
+		addVertextShader( LoadShader( "forward/spot.vertex" ) );
+		addFragmentShader( LoadShader( "forward/spot.fragment" ) );
 		CompileShader( );
 
 		addUniform( "transform" );
@@ -26,13 +34,15 @@ public class ForwardPoint extends Shader {
 		addUniform( "specularExponent" );
 		addUniform( "eyePos" );
 
-		addUniform( "pointLight.base.color" );
-		addUniform( "pointLight.base.intensity" );
-		addUniform( "pointLight.atten.constant" );
-		addUniform( "pointLight.atten.linear" );
-		addUniform( "pointLight.atten.exponent" );
-		addUniform( "pointLight.position" );
-		addUniform( "pointLight.range" );
+		addUniform( "spotLight.pointLight.base.color" );
+		addUniform( "spotLight.pointLight.base.intensity" );
+		addUniform( "spotLight.pointLight.atten.constant" );
+		addUniform( "spotLight.pointLight.atten.linear" );
+		addUniform( "spotLight.pointLight.atten.exponent" );
+		addUniform( "spotLight.pointLight.position" );
+		addUniform( "spotLight.pointLight.range" );
+		addUniform( "spotLight.direction" );
+		addUniform( "spotLight.cutoff" );
 	}
 
 	public void updateUniforms( Transform transform, Material material, Camera camera ) {
@@ -40,7 +50,7 @@ public class ForwardPoint extends Shader {
 
 		setUniform4m( "transform", transform.getTransformMatrix( ) );
 		setUniform4m( "transformProjected", transform.getProjectedTransformation( camera ) );
-		setUniform( "pointLight", pointLight );
+		setUniform( "spotLight", spotLight );
 
 		setUniformf( "specularIntensity", material.specularIntensity );
 		setUniformf( "specularExponent", material.specularExponent );
@@ -59,6 +69,12 @@ public class ForwardPoint extends Shader {
 		setUniformf( uniformName + ".atten.exponent", pointLight.atten.exponent );
 		setUniform3f( uniformName + ".position", pointLight.position );
 		setUniformf( uniformName + ".range", pointLight.range );
+	}
+
+	protected void setUniform( String uniformName, SpotLight spotLight ) {
+		setUniform( uniformName + ".pointLight", spotLight.pointLight );
+		setUniform3f( uniformName + ".direction", spotLight.direction );
+		setUniformf( uniformName + ".cutoff", spotLight.cutoff );
 	}
 
 }

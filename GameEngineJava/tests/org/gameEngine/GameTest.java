@@ -1,6 +1,6 @@
 package org.gameEngine;
 
-import org.gameEngine.engine.core.Camera;
+import org.gameEngine.engine.core.components.Camera;
 import org.gameEngine.engine.core.GameObject;
 import org.junit.Test;
 

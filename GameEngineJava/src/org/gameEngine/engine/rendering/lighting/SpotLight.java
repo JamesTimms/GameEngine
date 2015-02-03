@@ -22,7 +22,15 @@ public class SpotLight {
 		return newSpotLight;
 	}
 
-	public static SpotLight DefaultSpotLight( ) {
-		return BuildSpotLight( PointLight.DefaultPointLight( ), Vector3f.ONE, 2.0f );
+	public static SpotLight BlueSpotLight( ) {
+		return BuildSpotLight( PointLight.BluePointLight( ), Vector3f.ONE, 2.0f );
+	}
+
+	public static SpotLight GreenSpotLight( ) {
+		return BuildSpotLight( PointLight.GreenPointLight( ), Vector3f.ONE, 2.0f );
+	}
+
+	public static SpotLight RedSpotLight( ) {
+		return BuildSpotLight( PointLight.RedPointLight( ), new Vector3f( 0.0f, -1.0f, 0.0f ), 0.20f );
 	}
 }

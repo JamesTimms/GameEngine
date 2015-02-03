@@ -1,5 +1,6 @@
 package org.gameEngine.engine.core;
 
+import org.gameEngine.engine.core.components.GameComponent;
 import org.gameEngine.engine.rendering.shaders.Shader;
 
 import java.util.ArrayList;

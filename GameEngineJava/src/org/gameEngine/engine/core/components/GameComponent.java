@@ -1,5 +1,7 @@
-package org.gameEngine.engine.core;
+package org.gameEngine.engine.core.components;
 
+import org.gameEngine.engine.core.GameObject;
+import org.gameEngine.engine.core.Transform;
 import org.gameEngine.engine.rendering.shaders.Shader;
 
 /**
@@ -7,9 +9,9 @@ import org.gameEngine.engine.rendering.shaders.Shader;
  */
 public abstract class GameComponent< T > {
 
-	protected Transform transform;
-	protected GameObject gameObject;
-	protected T componentObject;
+	public Transform transform;
+	public GameObject gameObject;
+	public T componentObject;
 
 //	public GameComponent( T componentObject ) {
 //		this.componentObject = componentObject;

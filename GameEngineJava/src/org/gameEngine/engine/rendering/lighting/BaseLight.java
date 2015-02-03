@@ -28,4 +28,8 @@ public class BaseLight {
 	public static BaseLight BlueLight( ) {
 		return BuildBaseLight( new Vector3f( 0.0f, 0.0f, 1.0f ), 1.0f );
 	}
+
+	public static BaseLight RedLight( ) {
+		return BuildBaseLight( new Vector3f( 1.0f, 0.0f, 0.0f ), 1.0f );
+	}
 }

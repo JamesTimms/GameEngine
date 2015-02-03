@@ -1,4 +1,4 @@
-package org.gameEngine.engine.core;
+package org.gameEngine.engine.core.components;
 
 import org.gameEngine.engine.rendering.Mesh;
 import org.gameEngine.engine.rendering.shaders.Material;

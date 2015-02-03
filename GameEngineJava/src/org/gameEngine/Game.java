@@ -1,6 +1,8 @@
 package org.gameEngine;
 
 import org.gameEngine.engine.core.*;
+import org.gameEngine.engine.core.components.Camera;
+import org.gameEngine.engine.core.components.MeshRenderer;
 import org.gameEngine.engine.physics.maths.Vector2f;
 import org.gameEngine.engine.physics.maths.Vector3f;
 import org.gameEngine.engine.rendering.MeshUtil;
@@ -29,7 +31,7 @@ public class Game {
 
 	public MeshRenderer gridMesh( ) {
 		Material mat = Material.BuildMaterial( Texture.loadTexture( "grids.png" ),
-											   new Vector3f( 1.0f, 1.0f, 1.0f ), 1.0f, 8.0f );
+											   new Vector3f( 1.0f, 1.0f, 1.0f ), 4.0f, 8.0f );
 		return new MeshRenderer( MeshUtil.BuildSimplePlane( ), mat );
 	}
 

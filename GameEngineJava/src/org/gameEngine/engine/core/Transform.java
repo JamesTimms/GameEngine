@@ -1,5 +1,6 @@
 package org.gameEngine.engine.core;
 
+import org.gameEngine.engine.core.components.Camera;
 import org.gameEngine.engine.physics.maths.Matrix4f;
 import org.gameEngine.engine.physics.maths.Vector3f;
 

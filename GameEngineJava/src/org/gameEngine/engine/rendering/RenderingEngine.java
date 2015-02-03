@@ -4,10 +4,7 @@ import org.gameEngine.engine.core.GameObject;
 import org.gameEngine.engine.physics.maths.Vector3f;
 import org.gameEngine.engine.rendering.lighting.BaseLight;
 import org.gameEngine.engine.rendering.lighting.DirectionalLight;
-import org.gameEngine.engine.rendering.shaders.ForwardAmbient;
-import org.gameEngine.engine.rendering.shaders.ForwardDirectional;
-import org.gameEngine.engine.rendering.shaders.ForwardPoint;
-import org.gameEngine.engine.rendering.shaders.Shader;
+import org.gameEngine.engine.rendering.shaders.*;
 
 import static org.lwjgl.opengl.GL11.*;
 
@@ -42,6 +39,7 @@ public class RenderingEngine {
 		Shader forwardAmbient = new ForwardAmbient( );
 		Shader forwardDirectional = new ForwardDirectional( );
 		Shader forwardPoint = new ForwardPoint( );
+		Shader forwardSpot = new ForwardSpot( );
 
 		someRootGO.render( forwardAmbient );
 		glEnable( GL_BLEND );
@@ -51,6 +49,7 @@ public class RenderingEngine {
 
 		someRootGO.render( forwardDirectional );
 		someRootGO.render( forwardPoint );
+		someRootGO.render( forwardSpot );
 
 		glDepthFunc( GL_LESS );
 		glDepthMask( true );

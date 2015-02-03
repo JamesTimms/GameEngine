@@ -1,6 +1,6 @@
 package org.gameEngine.engine.rendering.shaders;
 
-import org.gameEngine.engine.core.Camera;
+import org.gameEngine.engine.core.components.Camera;
 import org.gameEngine.engine.core.Transform;
 import org.gameEngine.engine.rendering.RenderingEngine;
 
