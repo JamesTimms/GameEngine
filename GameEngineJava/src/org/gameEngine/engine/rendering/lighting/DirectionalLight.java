@@ -1,11 +1,15 @@
 package org.gameEngine.engine.rendering.lighting;
 
+import org.gameEngine.engine.core.components.GameComponent;
 import org.gameEngine.engine.physics.maths.Vector3f;
 
 /**
  * Created by TekMaTek on 29/01/2015.
  */
-public class DirectionalLight {
+public class DirectionalLight extends GameComponent {
+
+	public static DirectionalLight directionalLight = DirectionalLight.BuildDirectionalLight(
+			BaseLight.GreenLight( ), new Vector3f( 0.7f, 0.7f, 0.7f ) );
 
 	public BaseLight baseLight;
 	private Vector3f direction;

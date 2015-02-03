@@ -7,6 +7,8 @@ import org.gameEngine.engine.physics.maths.Vector3f;
  */
 public class PointLight {
 
+	public static PointLight pointLight = PointLight.BluePointLight( );
+
 	public BaseLight baseLight;
 	public Attenuation atten;
 	public Vector3f position;

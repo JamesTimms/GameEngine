@@ -1,8 +1,7 @@
 package org.gameEngine.engine.rendering.shaders;
 
-import org.gameEngine.engine.core.components.Camera;
 import org.gameEngine.engine.core.Transform;
-import org.gameEngine.engine.rendering.RenderingEngine;
+import org.gameEngine.engine.core.components.Camera;
 import org.gameEngine.engine.rendering.lighting.BaseLight;
 import org.gameEngine.engine.rendering.lighting.DirectionalLight;
 
@@ -35,7 +34,7 @@ public class ForwardDirectional extends Shader {
 
 		setUniform4m( "transform", transform.getTransformMatrix( ) );
 		setUniform4m( "transformProjected", transform.getProjectedTransformation( camera ) );
-		setUniform( "directionLight", RenderingEngine.directionalLight );
+		setUniform( "directionLight", DirectionalLight.directionalLight );
 
 		setUniformf( "specularIntensity", material.specularIntensity );
 		setUniformf( "specularExponent", material.specularExponent );

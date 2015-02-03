@@ -19,20 +19,30 @@ public class Game {
 
 	public void init( ) {
 		GameObject plane = new GameObject( );
+		GameObject cube = new GameObject( );
 		cameraGO = new GameObject( );
 
 		GameObject.getRoot( ).addChild( plane );
 		GameObject.getRoot( ).addChild( cameraGO );
+		plane.addChild( cube );
 		cameraGO.addComponent( new Camera( ) );
 
 		plane.addComponent( gridMesh( ) );
 		plane.transform.setTranslation( 0.0f, -2.0f, 5.0f );
+		cube.addComponent( cube( ) );
+		cube.transform.setTranslation( 0.0f, 2.0f, 5.0f );
 	}
 
 	public MeshRenderer gridMesh( ) {
 		Material mat = Material.BuildMaterial( Texture.loadTexture( "grids.png" ),
 											   new Vector3f( 1.0f, 1.0f, 1.0f ), 4.0f, 8.0f );
 		return new MeshRenderer( MeshUtil.BuildSimplePlane( ), mat );
+	}
+
+	public MeshRenderer cube( ) {
+		Material mat = Material.BuildMaterial( Texture.loadTexture( "grids.png" ),
+											   new Vector3f( 1.0f, 1.0f, 1.0f ), 4.0f, 8.0f );
+		return new MeshRenderer( MeshUtil.BuildSimpleCube( ), mat );
 	}
 
 	public void UpdateInput( ) {

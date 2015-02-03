@@ -7,6 +7,13 @@ import org.gameEngine.engine.physics.maths.Vector3f;
  */
 public class SpotLight {
 
+	public static SpotLight spotLight =
+			SpotLight.BuildSpotLight(
+					PointLight.BuildPointLight(
+							BaseLight.RedLight( ), Attenuation.DefaultAttenuation( ), new Vector3f( 8.8f, 0.5f, 8.8f
+							), 15.0f )
+					, new Vector3f( 0.0f, -1.0f, 0.0f ), 0.20f );
+
 	public PointLight pointLight;
 	public Vector3f direction;
 	public float cutoff;

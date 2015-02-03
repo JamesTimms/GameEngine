@@ -10,7 +10,6 @@ import org.gameEngine.engine.rendering.lighting.PointLight;
  */
 public class ForwardPoint extends Shader {
 
-	public PointLight pointLight = PointLight.BluePointLight( );
 
 	public ForwardPoint( ) {
 		super( );
@@ -40,7 +39,7 @@ public class ForwardPoint extends Shader {
 
 		setUniform4m( "transform", transform.getTransformMatrix( ) );
 		setUniform4m( "transformProjected", transform.getProjectedTransformation( camera ) );
-		setUniform( "pointLight", pointLight );
+		setUniform( "pointLight", PointLight.pointLight );
 
 		setUniformf( "specularIntensity", material.specularIntensity );
 		setUniformf( "specularExponent", material.specularExponent );

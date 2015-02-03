@@ -2,8 +2,6 @@ package org.gameEngine.engine.rendering;
 
 import org.gameEngine.engine.core.GameObject;
 import org.gameEngine.engine.physics.maths.Vector3f;
-import org.gameEngine.engine.rendering.lighting.BaseLight;
-import org.gameEngine.engine.rendering.lighting.DirectionalLight;
 import org.gameEngine.engine.rendering.shaders.*;
 
 import static org.lwjgl.opengl.GL11.*;
@@ -14,8 +12,6 @@ import static org.lwjgl.opengl.GL11.*;
 public class RenderingEngine {
 
 	public static Vector3f ambientLight = new Vector3f( 0.2f, 0.2f, 0.2f );
-	public static DirectionalLight directionalLight = DirectionalLight.BuildDirectionalLight(
-			BaseLight.GreenLight( ), new Vector3f( 0.7f, 0.7f, 0.7f ) );
 
 	public RenderingEngine( ) {
 		System.out.println( RenderingUtil.GetOpenGLVersion( ) );

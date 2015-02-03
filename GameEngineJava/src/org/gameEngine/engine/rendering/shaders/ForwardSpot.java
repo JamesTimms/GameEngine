@@ -13,13 +13,6 @@ import org.gameEngine.engine.rendering.lighting.SpotLight;
  */
 public class ForwardSpot extends Shader {
 
-	public SpotLight spotLight =
-			SpotLight.BuildSpotLight(
-					PointLight.BuildPointLight(
-							BaseLight.RedLight( ), Attenuation.DefaultAttenuation( ), new Vector3f( 8.8f, 0.5f, 8.8f
-							), 15.0f )
-					, new Vector3f( 0.0f, -1.0f, 0.0f ), 0.20f );
-
 	public ForwardSpot( ) {
 		super( );
 
@@ -50,7 +43,7 @@ public class ForwardSpot extends Shader {
 
 		setUniform4m( "transform", transform.getTransformMatrix( ) );
 		setUniform4m( "transformProjected", transform.getProjectedTransformation( camera ) );
-		setUniform( "spotLight", spotLight );
+		setUniform( "spotLight", SpotLight.spotLight );
 
 		setUniformf( "specularIntensity", material.specularIntensity );
 		setUniformf( "specularExponent", material.specularExponent );
