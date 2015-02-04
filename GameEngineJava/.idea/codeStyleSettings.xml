@@ -46,7 +46,9 @@
           <option name="ALIGN_MULTILINE_METHOD_BRACKETS" value="true" />
           <option name="SPACE_WITHIN_PARENTHESES" value="true" />
           <option name="SPACE_WITHIN_METHOD_CALL_PARENTHESES" value="true" />
+          <option name="SPACE_WITHIN_EMPTY_METHOD_CALL_PARENTHESES" value="true" />
           <option name="SPACE_WITHIN_METHOD_PARENTHESES" value="true" />
+          <option name="SPACE_WITHIN_EMPTY_METHOD_PARENTHESES" value="true" />
           <option name="SPACE_WITHIN_IF_PARENTHESES" value="true" />
           <option name="SPACE_WITHIN_WHILE_PARENTHESES" value="true" />
           <option name="SPACE_WITHIN_FOR_PARENTHESES" value="true" />
@@ -91,4 +93,3 @@
     <option name="USE_PER_PROJECT_SETTINGS" value="true" />
   </component>
 </project>
-
