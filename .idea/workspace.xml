@@ -1,0 +1,932 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="4e49eae9-ce0f-45fa-80a0-040cd65f7ddf" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineC++/GameEngineC++.sdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineC++/GameEngineC++.sln" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineC++/GameEngineC++.v11.suo" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineC++/GameEngineC++/GameEngineC++.sdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineC++/GameEngineC++/GameEngineC++.sln" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineC++/GameEngineC++/GameEngineC++.vcxproj" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineC++/GameEngineC++/GameEngineC++.vcxproj.filters" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineC++/GameEngineC++/glew32.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineC++/GameEngineC++/main.cpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineC++/GameEngineC++/main.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineC++/GameEngineC++DirectX11/DXApp.cpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineC++/GameEngineC++DirectX11/DXApp.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineC++/GameEngineC++DirectX11/DXUtil.cpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineC++/GameEngineC++DirectX11/DXUtil.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineC++/GameEngineC++DirectX11/GameEngineC++DirectX11.vcxproj" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineC++/GameEngineC++DirectX11/GameEngineC++DirectX11.vcxproj.filters" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineC++/GameEngineC++DirectX11/Release/CL.read.1.tlog" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineC++/GameEngineC++DirectX11/Release/CL.write.1.tlog" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineC++/GameEngineC++DirectX11/Release/DXApp.obj" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineC++/GameEngineC++DirectX11/Release/DXUtil.obj" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineC++/GameEngineC++DirectX11/Release/GameEngineC++DirectX11.lastbuildstate" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineC++/GameEngineC++DirectX11/Release/GameEngineC++DirectX11.log" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineC++/GameEngineC++DirectX11/Release/GameEngineC++DirectX11.unsuccessfulbuild" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineC++/GameEngineC++DirectX11/Release/cl.command.1.tlog" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineC++/GameEngineC++DirectX11/Release/link.command.1.tlog" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineC++/GameEngineC++DirectX11/Release/link.read.1.tlog" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineC++/GameEngineC++DirectX11/Release/link.write.1.tlog" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineC++/GameEngineC++DirectX11/Release/vc110.pdb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineC++/GameEngineC++DirectX11/Release/winmain.obj" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineC++/GameEngineC++DirectX11/dxerr/dxerr.cpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineC++/GameEngineC++DirectX11/dxerr/dxerr.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineC++/GameEngineC++DirectX11/main.cpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineC++/GameEngineC++DirectX11/winmain.cpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineC++/GameEngineC++DirectX11/winmaincpp.cpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineJava/.idea/.name" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineJava/.idea/codeStyleSettings.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineJava/.idea/compiler.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineJava/.idea/copyright/profiles_settings.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineJava/.idea/dictionaries/TekMaTek.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineJava/.idea/dynamic.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineJava/.idea/encodings.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineJava/.idea/inspectionProfiles/Project_Default.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineJava/.idea/inspectionProfiles/profiles_settings.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineJava/.idea/libraries/jar.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineJava/.idea/libraries/slick_util.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineJava/.idea/misc.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineJava/.idea/modules.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineJava/.idea/scopes/scope_settings.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineJava/.idea/uiDesigner.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineJava/.idea/vcs.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineJava/GameEngineJava.iml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineJava/resource/models/cube.mtl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineJava/resource/shaders/basic/basicFragment.fragment" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineJava/resource/shaders/basic/basicVertex.vertex" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineJava/resource/shaders/forward/ambient.fragment" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineJava/resource/shaders/forward/ambient.vertex" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineJava/resource/shaders/forward/directional.fragment" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineJava/resource/shaders/forward/directional.vertex" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineJava/resource/shaders/forward/point.fragment" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineJava/resource/shaders/forward/point.vertex" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineJava/resource/shaders/forward/spot.fragment" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineJava/resource/shaders/forward/spot.vertex" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineJava/resource/textures/checkers.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineJava/resource/textures/complexCheckers.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineJava/resource/textures/grids.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineJava/slick-util.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineJava/src/org/gameEngine/Game.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineJava/src/org/gameEngine/StartGame.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineJava/src/org/gameEngine/engine/core/CoreEngine.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineJava/src/org/gameEngine/engine/core/GameObject.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineJava/src/org/gameEngine/engine/core/Input.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineJava/src/org/gameEngine/engine/core/Time.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineJava/src/org/gameEngine/engine/core/Transform.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineJava/src/org/gameEngine/engine/core/Window.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineJava/src/org/gameEngine/engine/core/components/Camera.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineJava/src/org/gameEngine/engine/core/components/GameComponent.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineJava/src/org/gameEngine/engine/core/components/MeshRenderer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineJava/src/org/gameEngine/engine/physics/maths/Matrix4f.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineJava/src/org/gameEngine/engine/physics/maths/Quaternion.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineJava/src/org/gameEngine/engine/physics/maths/Vector2f.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineJava/src/org/gameEngine/engine/physics/maths/Vector3f.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineJava/src/org/gameEngine/engine/rendering/Mesh.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineJava/src/org/gameEngine/engine/rendering/MeshUtil.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineJava/src/org/gameEngine/engine/rendering/RenderingEngine.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineJava/src/org/gameEngine/engine/rendering/RenderingUtil.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineJava/src/org/gameEngine/engine/rendering/Texture.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineJava/src/org/gameEngine/engine/rendering/Vertex.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineJava/src/org/gameEngine/engine/rendering/lighting/Attenuation.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineJava/src/org/gameEngine/engine/rendering/lighting/BaseLight.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineJava/src/org/gameEngine/engine/rendering/lighting/DirectionalLight.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineJava/src/org/gameEngine/engine/rendering/lighting/PointLight.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineJava/src/org/gameEngine/engine/rendering/lighting/SpotLight.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineJava/src/org/gameEngine/engine/rendering/shaders/BasicShader.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineJava/src/org/gameEngine/engine/rendering/shaders/ForwardAmbient.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineJava/src/org/gameEngine/engine/rendering/shaders/ForwardDirectional.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineJava/src/org/gameEngine/engine/rendering/shaders/ForwardPoint.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineJava/src/org/gameEngine/engine/rendering/shaders/ForwardSpot.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineJava/src/org/gameEngine/engine/rendering/shaders/Material.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineJava/src/org/gameEngine/engine/rendering/shaders/Shader.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineJava/tests/TimeTest.groovy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineJava/tests/gameEngine/engine/core/input/mouse/MouseEventsTest.groovy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineJava/tests/gameEngine/engine/core/maths/Vector3fTest.groovy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineJava/tests/getComponentTest.groovy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineJava/tests/input/InputObTest.groovy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineJava/tests/org/gameEngine/GameTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/GameEngineJava/tests/testUtil/TestUtil.groovy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/glew-1.10.0-win32/glew-1.10.0/LICENSE.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/glew-1.10.0-win32/glew-1.10.0/README.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/glew-1.10.0-win32/glew-1.10.0/TODO.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/glew-1.10.0-win32/glew-1.10.0/bin/Release MX/Win32/glew32mx.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/glew-1.10.0-win32/glew-1.10.0/bin/Release MX/x64/glew32mx.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/glew-1.10.0-win32/glew-1.10.0/bin/Release/Win32/glew32.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/glew-1.10.0-win32/glew-1.10.0/bin/Release/Win32/glewinfo.exe" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/glew-1.10.0-win32/glew-1.10.0/bin/Release/Win32/visualinfo.exe" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/glew-1.10.0-win32/glew-1.10.0/bin/Release/x64/glew32.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/glew-1.10.0-win32/glew-1.10.0/bin/Release/x64/glewinfo.exe" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/glew-1.10.0-win32/glew-1.10.0/bin/Release/x64/visualinfo.exe" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/glew-1.10.0-win32/glew-1.10.0/doc/advanced.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/glew-1.10.0-win32/glew-1.10.0/doc/basic.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/glew-1.10.0-win32/glew-1.10.0/doc/build.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/glew-1.10.0-win32/glew-1.10.0/doc/credits.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/glew-1.10.0-win32/glew-1.10.0/doc/glew.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/glew-1.10.0-win32/glew-1.10.0/doc/glew.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/glew-1.10.0-win32/glew-1.10.0/doc/glew.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/glew-1.10.0-win32/glew-1.10.0/doc/glew.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/glew-1.10.0-win32/glew-1.10.0/doc/glxew.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/glew-1.10.0-win32/glew-1.10.0/doc/gpl.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/glew-1.10.0-win32/glew-1.10.0/doc/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/glew-1.10.0-win32/glew-1.10.0/doc/install.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/glew-1.10.0-win32/glew-1.10.0/doc/khronos.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/glew-1.10.0-win32/glew-1.10.0/doc/log.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/glew-1.10.0-win32/glew-1.10.0/doc/mesa.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/glew-1.10.0-win32/glew-1.10.0/doc/new.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/glew-1.10.0-win32/glew-1.10.0/doc/ogl_sm.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/glew-1.10.0-win32/glew-1.10.0/doc/wglew.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/glew-1.10.0-win32/glew-1.10.0/include/GL/glew.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/glew-1.10.0-win32/glew-1.10.0/include/GL/glxew.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/glew-1.10.0-win32/glew-1.10.0/include/GL/wglew.h" afterPath="" />
+    </list>
+    <ignored path="oldGameEngine.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <ignored path="$PROJECT_DIR$/out/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DaemonCodeAnalyzer">
+    <disable_hints />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="oldGameEngine" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="Game.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/gameEngine/Game.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="144" max-vertical-offset="1494">
+              <caret line="24" column="33" selection-start-line="24" selection-start-column="33" selection-end-line="24" selection-end-column="33" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StartGame.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/gameEngine/StartGame.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="486">
+              <caret line="16" column="44" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Texture.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/org/gameEngine/engine/rendering/Texture.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.29208925" vertical-offset="0" max-vertical-offset="1062">
+              <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GameObject.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/gameEngine/engine/core/GameObject.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="70" max-vertical-offset="1692">
+              <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+              <folding>
+                <element signature="e#651#652#0" expanded="true" />
+                <element signature="e#680#681#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Quaternion.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/gameEngine/engine/physics/maths/Quaternion.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="302" max-vertical-offset="3798">
+              <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Matrix4f.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/gameEngine/engine/physics/maths/Matrix4f.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5886">
+              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Vector2f.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/gameEngine/engine/physics/maths/Vector2f.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1602">
+              <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Vector3f.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/gameEngine/engine/physics/maths/Vector3f.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="52" max-vertical-offset="2754">
+              <caret line="16" column="22" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Camera.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/gameEngine/engine/core/components/Camera.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="347" max-vertical-offset="954">
+              <caret line="31" column="30" selection-start-line="31" selection-start-column="30" selection-end-line="31" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Transform.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/gameEngine/engine/core/Transform.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1728">
+              <caret line="8" column="3" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="65" />
+    <option name="y" value="24" />
+    <option name="width" value="1535" />
+    <option name="height" value="876" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oldGameEngine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oldGameEngine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oldGameEngine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oldGameEngine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oldGameEngine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gameEngine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oldGameEngine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oldGameEngine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gameEngine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="engine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="GoToClass.includeLibraries" value="false" />
+    <property name="GoToClass.toSaveIncludeLibraries" value="false" />
+    <property name="GoToFile.includeJavaFiles" value="false" />
+    <property name="MemberChooser.sorted" value="false" />
+    <property name="MemberChooser.showClasses" value="true" />
+    <property name="MemberChooser.copyJavadoc" value="false" />
+    <property name="recentsLimit" value="5" />
+    <property name="dynamic.classpath" value="false" />
+    <property name="restartRequiresConfirmation" value="true" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="FullScreen" value="false" />
+  </component>
+  <component name="RunManager" selected="Application.StartGame">
+    <configuration default="false" name="StartGame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="org.gameEngine.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="org.gameEngine.StartGame" />
+      <option name="VM_PARAMETERS" value="-Djava.library.path=lwjgl-2.9.3/native/linux" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" value="" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="oldGameEngine" />
+      <envs />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Debug" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" value="" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea -Djava.library.path=lwjgl-2.9.3/native/linux" />
+      <option name="PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+      <method />
+    </configuration>
+    <configuration default="true" type="AntRunConfiguration" factoryName="Ant Target">
+      <method />
+    </configuration>
+    <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
+      <module name="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="DEPLOY" value="true" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="USE_COMMAND_LINE" value="true" />
+      <option name="COMMAND_LINE" value="" />
+      <option name="WIPE_USER_DATA" value="false" />
+      <option name="DISABLE_BOOT_ANIMATION" value="false" />
+      <option name="NETWORK_SPEED" value="full" />
+      <option name="NETWORK_LATENCY" value="none" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
+      <method />
+    </configuration>
+    <configuration default="true" type="XSLT" factoryName="XSLT">
+      <option name="myOutputFile" />
+      <option name="myOpenOutputFile" value="false" />
+      <option name="myOpenInBrowser" value="false" />
+      <option name="mySmartErrorHandling" value="true" />
+      <option name="myRunnerPort" value="34873" />
+      <option name="myVmArguments" />
+      <option name="myWorkingDirectory" />
+      <option name="myModule" />
+      <option name="myJdk" />
+      <parameters />
+      <OutputType value="CONSOLE" save-to-file="false" />
+      <FileType name="XML" />
+      <JdkChoice value="FROM_MODULE" />
+      <method />
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <method />
+    </configuration>
+    <configuration default="true" type="MavenRunConfiguration" factoryName="Maven">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list />
+            </option>
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method />
+    </configuration>
+    <configuration default="true" type="JarApplication" factoryName="JAR Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="VM_PARAMETERS" value="-Djava.library.path=lwjgl-2.9.3/native/linux" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" value="" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" value="" />
+      <option name="SUITE_NAME" value="" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" value="" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="OUTPUT_DIRECTORY" value="" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" value="" />
+      <envs />
+      <properties />
+      <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="GroovyScriptRunConfiguration" factoryName="Groovy">
+      <module name="" />
+      <setting name="path" value="" />
+      <setting name="vmparams" value="" />
+      <setting name="params" value="" />
+      <setting name="workDir" value="file://$PROJECT_DIR$" />
+      <setting name="debug" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
+      <module name="" />
+      <option name="TESTING_TYPE" value="0" />
+      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="USE_COMMAND_LINE" value="true" />
+      <option name="COMMAND_LINE" value="" />
+      <option name="WIPE_USER_DATA" value="false" />
+      <option name="DISABLE_BOOT_ANIMATION" value="false" />
+      <option name="NETWORK_SPEED" value="full" />
+      <option name="NETWORK_LATENCY" value="none" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
+      <method />
+    </configuration>
+    <configuration default="true" type="GriffonRunConfigurationType" factoryName="Griffon">
+      <module name="" />
+      <setting name="vmparams" value="" />
+      <setting name="cmdLine" value="run-app" />
+      <setting name="depsClasspath" value="true" />
+      <setting name="passParentEnv" value="true" />
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <method />
+    </configuration>
+    <configuration default="true" type="GradleRunConfiguration" factoryName="Gradle">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list />
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
+    <list size="1">
+      <item index="0" class="java.lang.String" itemvalue="Application.StartGame" />
+    </list>
+    <recent_temporary>
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="Application.StartGame" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4e49eae9-ce0f-45fa-80a0-040cd65f7ddf" name="Default" comment="" />
+      <created>1426606511360</created>
+      <option name="number" value="Default" />
+      <updated>1426606511360</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="TodoView" selected-index="0">
+    <todo-panel id="selected-file">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="default-changelist">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="65" y="24" width="1535" height="876" extended-state="6" />
+    <editor active="false" />
+    <layout>
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32948717" sideWeight="0.49966422" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32948717" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32948717" sideWeight="0.5003358" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32948717" sideWeight="0.49966422" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24983211" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32948717" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+    </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="myTodoPanelSettings">
+      <TodoPanelSettings />
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/org/gameEngine/Game.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="126" max-vertical-offset="1494">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/gameEngine/StartGame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="486">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/java-1.7.0-openjdk-amd64/jre/lib/rt.jar!/java/lang/ClassLoader.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5196629" vertical-offset="17738" max-vertical-offset="18450">
+          <caret line="1071" column="29" selection-start-line="1071" selection-start-column="29" selection-end-line="1071" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/gameEngine/engine/core/CoreEngine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1404">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/gameEngine/engine/core/components/GameComponent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="738">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/gameEngine/engine/physics/maths/Quaternion.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="302" max-vertical-offset="3798">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/gameEngine/engine/physics/maths/Matrix4f.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5886">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/gameEngine/engine/physics/maths/Vector2f.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1602">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/gameEngine/engine/physics/maths/Vector3f.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="52" max-vertical-offset="2754">
+          <caret line="16" column="22" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/gameEngine/engine/core/components/Camera.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="347" max-vertical-offset="954">
+          <caret line="31" column="30" selection-start-line="31" selection-start-column="30" selection-end-line="31" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/gameEngine/engine/core/Transform.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1728">
+          <caret line="8" column="3" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/gameEngine/engine/core/GameObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="70" max-vertical-offset="1692">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding>
+            <element signature="e#651#652#0" expanded="true" />
+            <element signature="e#680#681#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/gameEngine/Game.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="144" max-vertical-offset="1494">
+          <caret line="24" column="33" selection-start-line="24" selection-start-column="33" selection-end-line="24" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/gameEngine/StartGame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="486">
+          <caret line="16" column="44" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/gameEngine/engine/rendering/Texture.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.29208925" vertical-offset="0" max-vertical-offset="1062">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.7</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>oldGameEngine</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.7</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>jar</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
